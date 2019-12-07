@@ -8,8 +8,8 @@
 
 let colors = ['purple', 'lilac', 'violet']
 
-for (let i = 0; i > colors.length; i++) {
-  if (colors[i] === 'lilac') {
-    console.log('Lilac is a great color')
+for (let i = 0; i < colors.length; i++) {
+  if (colors[i] === 'lilac' || 'purple' || 'violet') {
+    console.log(`${colors[i]} is a great color`)
   }
 }
