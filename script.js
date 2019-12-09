@@ -85,3 +85,9 @@ let topSongs = [
 
 // console.log(marsLine)
 // console.log(topSongs)
+
+let first = topSongs.shift()
+let newFirst = topSongs.unshift('new new new')
+
+console.log(first)
+console.log(topSongs)
