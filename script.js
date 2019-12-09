@@ -91,3 +91,6 @@ let newFirst = topSongs.unshift('new new new')
 
 console.log(first)
 console.log(topSongs)
+topSongs.pop()
+
+console.log(topSongs)
