@@ -98,10 +98,24 @@ let num = 7
 //* ====================
 //! Concat
 
-const array1 = ['a', 'b', 'c']
-const array2 = ['d', 'e', 'f']
+// const array1 = ['a', 'b', 'c']
+// const array2 = ['d', 'e', 'f']
 
-console.log(array1.concat(array2))
+// console.log(array1.concat(array2))
 
 //* ====================
 //! includes and IndexOf
+
+let ingredients = [
+  'water',
+  'corn starch',
+  'flour',
+  'cheese',
+  'brown sugar',
+  'shrimp',
+  'eel',
+  'butter'
+]
+
+console.log(ingredients.includes('water')) // true
+console.log(ingredients.includes('poop')) // false
