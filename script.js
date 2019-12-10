@@ -182,17 +182,27 @@ let num = 7
 // console.log(nums.sort())
 
 //* ====================
-//! Reference Types
+//! intro to Reference Types
 
-let fruit = 'watermelon'
-let color = fruit
+// let fruit = 'watermelon'
+// let color = fruit
 
-// both point to the same space in memory
-console.log('fruit -', fruit)
-console.log('color -', color)
+// // both point to the same space in memory
+// console.log('fruit -', fruit)
+// console.log('color -', color)
 
 //* ====================
 //! Using Const w/ Arrays
 
-//* ====================
-//! Nested Arrays
+const myEggs = ['brown', 'brown']
+myEggs.push('new White')
+myEggs[0] = 'green'
+
+console.log(myEggs)
+
+// myEggs = ['blue', 'pink'] // Error
+
+//* =====================================
+//* ===============================
+//* =======================
+//! SECTION 6 : Objects
