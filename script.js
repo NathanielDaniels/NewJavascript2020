@@ -152,21 +152,26 @@ let num = 7
 //! Splice
 // ? removes, replaces or adds in Elements of an array
 
-let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise']
+// let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise']
 
-console.log(animals.splice(3, 2)) // bear, lizard
+// console.log(animals.splice(3, 2)) // bear, lizard
 
-console.log(animals)
+// console.log(animals)
 
-// Use Splice to add Elements into array
-console.log(animals.splice(3, 0, 'snake', 'pig'))
+// // Use Splice to add Elements into array
+// console.log(animals.splice(3, 0, 'snake', 'pig'))
 
-console.log(animals)
+// console.log(animals)
 
-// Replace first 2 elements with new
-console.log(animals.splice(0, 2, 'GORILLA', 'GODZILLA'))
+// // Replace first 2 elements with new
+// console.log(animals.splice(0, 2, 'GORILLA', 'GODZILLA'))
 
-console.log(animals)
+// console.log(animals)
 
 //* ====================
 //! Sorting (part1)
+
+let people = ['Mrs. Robinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne']
+
+// Alphabetize sort
+console.log(people.sort())
