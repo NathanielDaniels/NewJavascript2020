@@ -171,15 +171,28 @@ let num = 7
 //* ====================
 //! Sorting (part1)
 
-let people = ['Mrs. Robinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne']
+// let people = ['Mrs. Robinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne']
 
-// Alphabetize sort
-console.log(people.sort())
+// // Alphabetize sort
+// console.log(people.sort())
 
-// this shows why passing in a function is better
-let nums = [34, 10, 100000, 67, 99]
+// // this shows why passing in a function is better
+// let nums = [34, 10, 100000, 67, 99]
 
-console.log(nums.sort())
+// console.log(nums.sort())
 
 //* ====================
 //! Reference Types
+
+let fruit = 'watermelon'
+let color = fruit
+
+// both point to the same space in memory
+console.log('fruit -', fruit)
+console.log('color -', color)
+
+//* ====================
+//! Using Const w/ Arrays
+
+//* ====================
+//! Nested Arrays
