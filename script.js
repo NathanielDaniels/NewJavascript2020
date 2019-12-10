@@ -127,7 +127,19 @@ if (ingredients.includes('water')) {
 // ? IndexOf Shows you where the location of the string you're looking for
 console.log(ingredients.indexOf('water')) // 0
 
+//* ====================
+//! Reverse and Join
+
 // ? Join strings together
 console.log(ingredients.join())
 
 console.log(ingredients.reverse())
+
+//* ====================
+//! Slice
+
+//* ====================
+//! Splice
+
+//* ====================
+//! Sorting (part1)
