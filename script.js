@@ -106,47 +106,55 @@ let num = 7
 //* ====================
 //! includes and IndexOf
 
-let ingredients = [
-  'water',
-  'corn starch',
-  'flour',
-  'cheese',
-  'brown sugar',
-  'shrimp',
-  'eel',
-  'butter'
-]
+// let ingredients = [
+//   'water',
+//   'corn starch',
+//   'flour',
+//   'cheese',
+//   'brown sugar',
+//   'shrimp',
+//   'eel',
+//   'butter'
+// ]
 
-console.log(ingredients.includes('water')) // true
-console.log(ingredients.includes('poop')) // false
+// console.log(ingredients.includes('water')) // true
+// console.log(ingredients.includes('poop')) // false
 
-if (ingredients.includes('water')) {
-  console.log('water in the list')
-}
+// if (ingredients.includes('water')) {
+//   console.log('water in the list')
+// }
 
 // ? IndexOf Shows you where the location of the string you're looking for
-console.log(ingredients.indexOf('water')) // 0
+// console.log(ingredients.indexOf('water')) // 0
 
 //* ====================
 //! Reverse and Join
 
 // ? Join strings together
-console.log(ingredients.join())
+// console.log(ingredients.join())
 
-console.log(ingredients.reverse())
+// console.log(ingredients.reverse())
 
 //* ====================
 //! Slice
 
-let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise']
+// let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise']
 
-let swimmers = animals.slice(0, 3)
-let mammals = animals.slice(2, 4)
-let reptiles = animals.slice(4)
-let quadruped = animals.slice(-3)
+// let swimmers = animals.slice(0, 3)
+// let mammals = animals.slice(2, 4)
+// let reptiles = animals.slice(4)
+// let quadruped = animals.slice(-3)
+
+// let copy = animals.slice()
+// makes a copy of animals array
 
 //* ====================
 //! Splice
+// removes, replaces or adds in Elements of an array
+
+let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise']
+
+animals.splice
 
 //* ====================
 //! Sorting (part1)
