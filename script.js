@@ -119,3 +119,15 @@ let ingredients = [
 
 console.log(ingredients.includes('water')) // true
 console.log(ingredients.includes('poop')) // false
+
+if (ingredients.includes('water')) {
+  console.log('water in the list')
+}
+
+// ? IndexOf Shows you where the location of the string you're looking for
+console.log(ingredients.indexOf('water')) // 0
+
+// ? Join strings together
+console.log(ingredients.join())
+
+console.log(ingredients.reverse())
