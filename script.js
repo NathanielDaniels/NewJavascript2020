@@ -74,23 +74,34 @@ let num = 7
 // shift - remove from start
 // Unshift - add to start
 
-let topSongs = [
-  'First Time Ever I saw Your Face',
-  'God Only Knows',
-  'A Day In The Life',
-  'Life On Mars'
-]
+// let topSongs = [
+//   'First Time Ever I saw Your Face',
+//   'God Only Knows',
+//   'A Day In The Life',
+//   'Life On Mars'
+// ]
 
 // let marsLine = topSongs.pop()
 
 // console.log(marsLine)
 // console.log(topSongs)
 
-let first = topSongs.shift()
-let newFirst = topSongs.unshift('new new new')
+// let first = topSongs.shift()
+// let newFirst = topSongs.unshift('new new new')
 
-console.log(first)
-console.log(topSongs)
-topSongs.pop()
+// console.log(first)
+// console.log(topSongs)
+// topSongs.pop()
 
-console.log(topSongs)
+// console.log(topSongs)
+
+//* ====================
+//! Concat
+
+const array1 = ['a', 'b', 'c']
+const array2 = ['d', 'e', 'f']
+
+console.log(array1.concat(array2))
+
+//* ====================
+//! includes and IndexOf
