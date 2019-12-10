@@ -175,3 +175,11 @@ let people = ['Mrs. Robinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne']
 
 // Alphabetize sort
 console.log(people.sort())
+
+// this shows why passing in a function is better
+let nums = [34, 10, 100000, 67, 99]
+
+console.log(nums.sort())
+
+//* ====================
+//! Reference Types
