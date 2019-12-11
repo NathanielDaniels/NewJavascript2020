@@ -242,7 +242,7 @@ const palette = {
 console.log(palette.red)
 console.log(palette['blue'])
 
-let color = 'yellow'
+let color = 'red'
 console.log(palette[color])
 
 //* ====================
