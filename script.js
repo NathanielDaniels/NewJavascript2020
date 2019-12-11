@@ -194,11 +194,11 @@ let num = 7
 //* ====================
 //! Using Const w/ Arrays
 
-const myEggs = ['brown', 'brown']
-myEggs.push('new White')
-myEggs[0] = 'green'
+// const myEggs = ['brown', 'brown']
+// myEggs.push('new White')
+// myEggs[0] = 'green'
 
-console.log(myEggs)
+// console.log(myEggs)
 
 // myEggs = ['blue', 'pink'] // Error
 
@@ -206,3 +206,60 @@ console.log(myEggs)
 //* ===============================
 //* =======================
 //! SECTION 6 : Objects
+
+// const fitbit = {
+//   john: 'John info',
+//   berry: 'Berry info',
+//   tony: 'Tony info',
+//   55: 'fifty five'
+// }
+
+// john = fitbit.john
+
+// console.log(john)
+
+// // access a number Key
+// console.log(fitbit[55])
+
+//* ====================
+//! Accessing Object Properties
+
+const numbers = {
+  100: 'one hundred',
+  16: 'sixteen'
+}
+
+console.log(numbers[16])
+
+//* ====================
+//! Adding and Updating Properties
+
+const userReviews = {}
+
+userReviews['queenBee49'] = 4.0
+
+userReviews.mrSmith78 = 3.5
+
+console.log(userReviews)
+
+//* ====================
+//! Nested Arrays & Objects
+
+const game = {
+  player1: 'blue',
+  player2: 'muffins',
+  board: [['0', null, 'x'], ['x', '0', 'x'], [null, '0', 'x']]
+}
+
+//* ====================
+//! Objects and Reference Types
+
+// * =======================
+// ! SECTION 7 : Loops!
+
+// * =======================
+// ? Grab Timestamp
+
+// let date = new Date()
+
+// console.log(date.getTime())
