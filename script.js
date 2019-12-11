@@ -233,28 +233,34 @@ let num = 7
 
 //! =======
 
-const palette = {
-  red: '#eb4d4b',
-  yellow: '#f9ca24',
-  blue: '#30336b'
-}
+// const palette = {
+//   red: '#eb4d4b',
+//   yellow: '#f9ca24',
+//   blue: '#30336b'
+// }
 
-console.log(palette.red)
-console.log(palette['blue'])
+// console.log(palette.red)
+// console.log(palette['blue'])
 
-let color = 'red'
-console.log(palette[color])
+// let color = 'red'
+// console.log(palette[color])
 
 //* ====================
 //! Adding and Updating Properties
 
-// const userReviews = {}
+const userReviews = {}
 
-// userReviews['queenBee49'] = 4.0
+userReviews['queenBee49'] = 4.0
 
-// userReviews.mrSmith78 = 3.5
+userReviews.mrSmith78 = 3.5
 
-// console.log(userReviews)
+console.log(userReviews) // {queenBee49: 4, mrSmith78: 3.5}
+
+userReviews['queenBee49'] += 2
+// or
+// userReviews['queenBee49']++
+
+console.log(userReviews) // {queenBee49: 6, mrSmith78: 3.5}
 
 //* ====================
 //! Nested Arrays & Objects
