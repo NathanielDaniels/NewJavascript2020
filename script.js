@@ -224,32 +224,46 @@ let num = 7
 //* ====================
 //! Accessing Object Properties
 
-const numbers = {
-  100: 'one hundred',
-  16: 'sixteen'
+// const numbers = {
+//   100: 'one hundred',
+//   16: 'sixteen'
+// }
+
+// console.log(numbers[16])
+
+//! =======
+
+const palette = {
+  red: '#eb4d4b',
+  yellow: '#f9ca24',
+  blue: '#30336b'
 }
 
-console.log(numbers[16])
+console.log(palette.red)
+console.log(palette['blue'])
+
+let color = 'yellow'
+console.log(palette[color])
 
 //* ====================
 //! Adding and Updating Properties
 
-const userReviews = {}
+// const userReviews = {}
 
-userReviews['queenBee49'] = 4.0
+// userReviews['queenBee49'] = 4.0
 
-userReviews.mrSmith78 = 3.5
+// userReviews.mrSmith78 = 3.5
 
-console.log(userReviews)
+// console.log(userReviews)
 
 //* ====================
 //! Nested Arrays & Objects
 
-const game = {
-  player1: 'blue',
-  player2: 'muffins',
-  board: [['0', null, 'x'], ['x', '0', 'x'], [null, '0', 'x']]
-}
+// const game = {
+//   player1: 'blue',
+//   player2: 'muffins',
+//   board: [['0', null, 'x'], ['x', '0', 'x'], [null, '0', 'x']]
+// }
 
 //* ====================
 //! Objects and Reference Types
