@@ -265,19 +265,46 @@ let num = 7
 //* ====================
 //! Nested Arrays & Objects
 
-const game = {
-  player1: 'blue',
-  player2: 'muffins',
-  board: [['0', null, 'x'], ['x', '0', 'x'], [null, '0', 'x']]
-}
+// const student = {
+//   firstName: 'Nathan',
+//   lastName: 'Daniels',
+//   strength: ['computer', 'animals'],
+//   exams: {
+//     midterm: 92,
+//     final: 88
+//   }
+// }
 
-console.log(game.board)
+// const avg = (student.exams.midterm + student.exams.final) / 2
+
+// console.log(avg)
+
+// const game = {
+//   player1: {
+//     username: 'blue',
+//     playingAs: 'x'
+//   },
+//   player2: {
+//     username: 'muffins',
+//     playingAs: '0'
+//   },
+//   board: [['0', null, 'x'], ['x', '0', 'x'], [null, '0', 'x']]
+// }
+
+// console.log(game.board)
 
 //* ====================
-//! Objects and Reference Types
+//! Array/Object Equality
 
-// * =======================
-// ! SECTION 7 : Loops!
+// const user = {
+//   username: 'CherryGaracia8',
+//   email: 'garcia@gmail.com',
+//   notification: ['test']
+// }
+
+// if (user.notification.length === 1) {
+//   console.log('No New Notifications!')
+// }
 
 // * =======================
 // ? Grab Timestamp
@@ -285,3 +312,6 @@ console.log(game.board)
 // let date = new Date()
 
 // console.log(date.getTime())
+
+// * =======================
+// ! SECTION 7 : Loops!
