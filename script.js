@@ -1,4 +1,4 @@
-let js = document.getElementById('js')
+let js = document.getElementById("js");
 
 //* ====================
 // ? Loop Through Array and print if true
@@ -20,7 +20,7 @@ let js = document.getElementById('js')
 //* ====================
 //! Ternary
 
-let num = 7
+let num = 7;
 
 // if (num === 7) {
 //   console.log('lucky!')
@@ -329,8 +329,31 @@ let num = 7
 // * =======================
 //! For Loops and Arrays
 
+// const animals = ["lions", "tigers", "bears"];
+
+// for (let i = 0; i < animals.length; i++) {
+//   console.log(i, animals[i]);
+// }
+
+//? Reverse a Word!
+
+const word = "stressed";
+
+let reversedWord = "";
+for (let i = word.length - 1; i >= 0; i--) {
+  reversedWord += word[i];
+  console.log(reversedWord);
+}
+
 // * =======================
 //! Nested For Loops
+
+for (let i = 1; i <= 10; i++) {
+  console.log("outer loop: ", i);
+  for (let x = 10; x >= 0; x -= 2) {
+    console.log("inner loop: ", i);
+  }
+}
 
 // * =======================
 // ! While loops
@@ -338,9 +361,9 @@ let num = 7
 // * =======================
 // ! For...Of loops
 
-const people = ['tom', 'kim', 'berry']
+// const people = ['tom', 'kim', 'berry']
 
-for (let i of people) {
-  // js.innerText = i
-  console.log(i)
-}
+// for (let i of people) {
+//   // js.innerText = i
+//   console.log(i)
+// }
