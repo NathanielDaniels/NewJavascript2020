@@ -1,3 +1,5 @@
+let js = document.getElementById('js')
+
 //* ====================
 // ? Loop Through Array and print if true
 
@@ -315,3 +317,11 @@ let num = 7
 
 // * =======================
 // ! SECTION 7 : Loops!
+
+//! For Loop
+
+const people = ['tom', 'kim', 'berry']
+
+for (let i = 0; i < people.length; i++) {
+  js.innerText = people[i]
+}
