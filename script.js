@@ -320,8 +320,27 @@ let num = 7
 
 //! For Loop
 
+// const peoples = ['tom', 'kim', 'berry']
+
+// for (let i = 0; i < peoples.length; i++) {
+//   js.innerText = peoples[i]
+// }
+
+// * =======================
+//! For Loops and Arrays
+
+// * =======================
+//! Nested For Loops
+
+// * =======================
+// ! While loops
+
+// * =======================
+// ! For...Of loops
+
 const people = ['tom', 'kim', 'berry']
 
-for (let i = 0; i < people.length; i++) {
-  js.innerText = people[i]
+for (let i of people) {
+  // js.innerText = i
+  console.log(i)
 }
