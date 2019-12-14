@@ -337,24 +337,55 @@ let num = 7;
 
 //? Reverse a Word!
 
-const word = "stressed";
+// const word = "stressed";
 
-let reversedWord = "";
-for (let i = word.length - 1; i >= 0; i--) {
-  reversedWord += word[i];
-  console.log(reversedWord);
-}
+// let reversedWord = "";
+// for (let i = word.length - 1; i >= 0; i--) {
+//   reversedWord += word[i];
+//   // console.log(reversedWord);
+// }
 
+// console.log(reversedWord); // desserts
+
+//* Created myself
+// const word = "string";
+// console.log("original: ", word);
+
+// let reverseWord = "";
+
+// for (let i = word.length - 1; i >= 0; i--) {
+//   reverseWord += word[i];
+// }
+// console.log("reversed: ", reverseWord);
 // * =======================
 //! Nested For Loops
 
-for (let i = 1; i <= 10; i++) {
-  console.log("outer loop: ", i);
-  for (let x = 10; x >= 0; x -= 2) {
-    console.log("inner loop: ", i);
+// for (let i = 1; i <= 10; i++) {
+//   console.log("outer loop: ", i);
+//   for (let x = 10; x >= 0; x -= 2) {
+//     console.log("  dddinner loop: ", x);
+//   }
+// }
+
+//!===========
+
+const gameBoard = [
+  [4, 32, 8, 4],
+  [64, 8, 32, 2],
+  [8, 32, 16, 4],
+  [2, 8, 4, 2]
+];
+
+let totalScore = 0;
+for (let i = 0; i < gameBoard.length; i++) {
+  let row = gameBoard[i];
+  for (let x = 0; x < row.length; x++) {
+    // console.log(row[x]);
+    totalScore += row[x];
   }
 }
 
+console.log(totalScore);
 // * =======================
 // ! While loops
 
