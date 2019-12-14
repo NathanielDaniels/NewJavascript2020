@@ -376,6 +376,8 @@ let num = 7;
 //   [2, 8, 4, 2]
 // ];
 
+//? Add all the numbers in each Array, together. (total score = 230)
+
 // let totalScore = 0;
 // for (let i = 0; i < gameBoard.length; i++) {
 //   let row = gameBoard[i];
@@ -402,6 +404,25 @@ let num = 7;
 // * =======================
 // ! While loops
 
+let x = 0;
+
+totalX = "";
+
+while (x <= 5) {
+  totalX += x;
+  x++;
+}
+console.log(totalX);
+
+if (typeof totalX === "string") {
+  console.log("ITS A STRING!");
+}
+
+parseFloat(totalX);
+
+console.log(totalX);
+
+console.log(typeof totalX);
 // * =======================
 // ! For...Of loops
 
