@@ -347,7 +347,6 @@ let num = 7;
 
 // console.log(reversedWord); // desserts
 
-//* Created myself
 // const word = "string";
 // console.log("original: ", word);
 
@@ -357,6 +356,7 @@ let num = 7;
 //   reverseWord += word[i];
 // }
 // console.log("reversed: ", reverseWord);
+
 // * =======================
 //! Nested For Loops
 
@@ -369,23 +369,36 @@ let num = 7;
 
 //!===========
 
-const gameBoard = [
-  [4, 32, 8, 4],
-  [64, 8, 32, 2],
-  [8, 32, 16, 4],
-  [2, 8, 4, 2]
-];
+// const gameBoard = [
+//   [4, 32, 8, 4],
+//   [64, 8, 32, 2],
+//   [8, 32, 16, 4],
+//   [2, 8, 4, 2]
+// ];
 
-let totalScore = 0;
-for (let i = 0; i < gameBoard.length; i++) {
-  let row = gameBoard[i];
-  for (let x = 0; x < row.length; x++) {
-    // console.log(row[x]);
-    totalScore += row[x];
-  }
-}
+// let totalScore = 0;
+// for (let i = 0; i < gameBoard.length; i++) {
+//   let row = gameBoard[i];
+//   for (let x = 0; x < row.length; x++) {
+//     // console.log(row[x]);
+//     totalScore += row[x];
+//   }
+// }
 
-console.log(totalScore);
+//* Done Myself
+// let totalScore = 0;
+
+// for (let i = 0; i < gameBoard.length; i++) {
+//   let row = gameBoard[i];
+//   // console.log("first: ", totalScore);
+//   for (let x = 0; x < row.length; x++) {
+//     totalScore += row[x];
+//     // console.log("row-x :", row[x]);
+//     // console.log("second: ", totalScore);
+//   }
+// }
+
+// console.log(totalScore);
 // * =======================
 // ! While loops
 
