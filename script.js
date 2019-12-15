@@ -404,25 +404,36 @@ let num = 7;
 // * =======================
 // ! While loops
 
-let x = 0;
+// let x = 0;
 
-totalX = "";
+// totalX = "";
 
-while (x <= 5) {
-  totalX += x;
-  x++;
+// while (x <= 5) {
+//   totalX += x;
+//   x++;
+// }
+// console.log(totalX);
+
+// if (typeof totalX === "string") {
+//   console.log("ITS A STRING!");
+// }
+
+//!===========
+
+// random music
+const target = Math.floor(Math.random() * 10);
+let guess = Math.floor(Math.random() * 10);
+
+// console.log(`Start: Target: ${target} | Guess: ${guess}`);
+
+while (target !== guess) {
+  console.log(`Target: ${target} | Guess: ${guess}`);
+  guess = Math.floor(Math.random() * 10);
 }
-console.log(totalX);
 
-if (typeof totalX === "string") {
-  console.log("ITS A STRING!");
-}
+console.log(`Finish: Target: ${target} | Guess: ${guess}`);
+console.log("you guessed correct!");
 
-parseFloat(totalX);
-
-console.log(totalX);
-
-console.log(typeof totalX);
 // * =======================
 // ! For...Of loops
 
