@@ -421,19 +421,41 @@ let num = 7;
 //!===========
 
 // random music
-const target = Math.floor(Math.random() * 10);
-let guess = Math.floor(Math.random() * 10);
+// const target = Math.floor(Math.random() * 10);
+// let guess = Math.floor(Math.random() * 10);
 
 // console.log(`Start: Target: ${target} | Guess: ${guess}`);
 
-while (target !== guess) {
-  console.log(`Target: ${target} | Guess: ${guess}`);
+// while (target !== guess) {
+//   console.log(`Target: ${target} | Guess: ${guess}`);
+//   guess = Math.floor(Math.random() * 10);
+// }
+
+// console.log(`Finish: Target: ${target} | Guess: ${guess}`);
+// console.log("you guessed correct!");
+
+// * =======================
+// ! Break Keyword
+//? Break lets you break out of loops.
+
+// for (let i = 0; i < 10; i++) {
+//   console.log(i);
+//   if (i === 5) {
+//     console.log("broke out");
+//     break;
+//   }
+// }
+
+const target = Math.floor(Math.random() * 10);
+let guess = Math.floor(Math.random() * 10);
+
+while (true) {
+  if (target === guess) break;
+  console.log(`Start: Target: ${target} | Guess: ${guess}`);
   guess = Math.floor(Math.random() * 10);
 }
-
 console.log(`Finish: Target: ${target} | Guess: ${guess}`);
 console.log("you guessed correct!");
-
 // * =======================
 // ! For...Of loops
 
