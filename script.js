@@ -446,16 +446,18 @@ let num = 7;
 //   }
 // }
 
-const target = Math.floor(Math.random() * 10);
-let guess = Math.floor(Math.random() * 10);
+//!=========
 
-while (true) {
-  if (target === guess) break;
-  console.log(`Start: Target: ${target} | Guess: ${guess}`);
-  guess = Math.floor(Math.random() * 10);
-}
-console.log(`Finish: Target: ${target} | Guess: ${guess}`);
-console.log("you guessed correct!");
+// const target = Math.floor(Math.random() * 10);
+// let guess = Math.floor(Math.random() * 10);
+
+// while (true) {
+//   if (target === guess) break;
+//   console.log(`Start: Target: ${target} | Guess: ${guess}`);
+//   guess = Math.floor(Math.random() * 10);
+// }
+// console.log(`Finish: Target: ${target} | Guess: ${guess}`);
+// console.log("you guessed correct!");
 // * =======================
 // ! For...Of loops
 
@@ -465,3 +467,63 @@ console.log("you guessed correct!");
 //   // js.innerText = i
 //   console.log(i)
 // }
+
+//!=====
+
+// let wordCap = "";
+
+// for (let char of "cockadoodledoo") {
+//   wordCap += char.toLocaleUpperCase();
+// }
+
+// console.log(wordCap);
+
+//!=====
+
+const magicSquare = [
+  [2, 7, 6],
+  [9, 5, 16],
+  [4, 3, 8]
+];
+
+// for (let i = 0; i < magicSquare.length; i++) {
+//   let row = magicSquare[i];
+//   let sum = 0;
+//   for (let x = 0; x < row.length; x++) {
+//     console.log(row[x]);
+//     sum += row[x];
+//   }
+//   console.log(`${row} summed to ${sum}`);
+// }
+
+//* turning regular for loop above, into for...of
+// for (let row of magicSquare) {
+//   let sum = 0;
+//   for (let num of row) {
+//     sum += num;
+//   }
+//   console.log(`${row} summed to ${sum}`);
+// }
+
+//!=====
+
+//* Did this on my own. Works accept for displaying double
+//! mailbox milkshake bathtub blackberry mailbox milkshake bathtub blackberry
+
+const words1 = ["mail", "milk", "bath", "black"];
+const words2 = ["box", "shake", "tub", "berry"];
+
+let wordMix = [[...words1], [...words2]];
+
+let newWordMix = "";
+
+for (let i = 0; i < wordMix.length; i++) {
+  let row = wordMix[i];
+  for (let x = 0; x < row.length; x++) {
+    newWordMix += ` ${words1[x] + words2[x]}`;
+  }
+}
+
+console.log(newWordMix);
+
+//!=====
