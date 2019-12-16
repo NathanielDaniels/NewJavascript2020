@@ -561,6 +561,15 @@ for (let movie of Object.keys(movieReviews)) {
   console.log(movie, movieReviews[movie]);
 }
 
+const ratings = Object.values(movieReviews);
+let total = 0;
+for (let r of ratings) {
+  total += r;
+}
+
+let avg = total / ratings.length;
+
+console.log(avg);
 // for (let x in movieReviews) {
 //   console.log(x);
 // }
