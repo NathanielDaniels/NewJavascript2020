@@ -612,8 +612,24 @@ const magicSquare = [
 //!=====
 
 rollDie = () => {
-  let roll = Math.random() * 6;
-  console.log(roll);
+  let roll = Math.floor(Math.random() * 6) + 1;
+  console.log(`Rolled: ${roll}`);
 };
 
-rollDie();
+throwDie = numRolls => {
+  for (let i = 0; i < numRolls; i++) {
+    rollDie();
+  }
+};
+
+throwDie(6);
+
+//!=====
+//* "num" is an argument only when you call it, inside a function it's called a parameter.
+
+//parameter
+square = num => {
+  console.log(num + num);
+};
+
+square(10); //argument
