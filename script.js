@@ -541,35 +541,79 @@ const magicSquare = [
 // * =======================
 // ! For...Of w/ Objects
 
-const movieReviews = {
-  Arrival: 9.5,
-  Alien: 9,
-  Amelie: 8,
-  "In Bruges": 9,
-  Amadeus: 10,
-  "Kill Bill": 8,
-  "Little Miss Sunshine": 8.5,
-  Coraline: 7.5
-};
+// const movieReviews = {
+//   Arrival: 9.5,
+//   Alien: 9,
+//   Amelie: 8,
+//   "In Bruges": 9,
+//   Amadeus: 10,
+//   "Kill Bill": 8,
+//   "Little Miss Sunshine": 8.5,
+//   Coraline: 7.5
+// };
 
 // console.log(movieReviews);
 
 // console.log(Object.keys(movieReviews));
 // console.log(Object.values(movieReviews));
 
-for (let movie of Object.keys(movieReviews)) {
-  console.log(movie, movieReviews[movie]);
-}
+// for (let movie of Object.keys(movieReviews)) {
+//   console.log(movie, movieReviews[movie]);
+// }
 
-const ratings = Object.values(movieReviews);
-let total = 0;
-for (let r of ratings) {
-  total += r;
-}
+// const ratings = Object.values(movieReviews);
+// let total = 0;
+// for (let r of ratings) {
+//   total += r;
+// }
 
-let avg = total / ratings.length;
+// let avg = total / ratings.length;
 
-console.log(avg);
+// console.log(avg);
+
+// * =======================
+// ! For...in
+
 // for (let x in movieReviews) {
 //   console.log(x);
 // }
+
+// * =======================
+// ! Section 8 : Functions
+
+//! Function Declaration
+// function grumpus1() {
+//   console.log("ugh... you agian...");
+//   console.log("For The Last Time...");
+//   console.log("Leave Me Alone!!!");
+// }
+
+// grumpus1();
+
+//! Function Expression
+
+// let grumpus2 = function() {
+//   console.log("ugh... you agian...");
+//   console.log("For The Last Time...");
+//   console.log("Leave Me Alone!!!");
+// };
+
+// console.log(grumpus2());
+
+//! Arrow Function
+// grumpus3 = () => {
+//   console.log("ugh... you agian...");
+//   console.log("For The Last Time...");
+//   console.log("Leave Me Alone!!!");
+// };
+
+// grumpus3();
+
+//!=====
+
+rollDie = () => {
+  let roll = Math.random() * 6;
+  console.log(roll);
+};
+
+rollDie();
