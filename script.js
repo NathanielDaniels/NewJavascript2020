@@ -510,8 +510,8 @@ const magicSquare = [
 //* Did this on my own. Works accept for displaying double
 //! mailbox milkshake bathtub blackberry mailbox milkshake bathtub blackberry
 
-const words1 = ["mail", "milk", "bath", "black"];
-const words2 = ["box", "shake", "tub", "berry"];
+// const words1 = ["mail", "milk", "bath", "black"];
+// const words2 = ["box", "shake", "tub", "berry"];
 
 // let wordMix = [[...words1], [...words2]];
 
@@ -529,11 +529,38 @@ const words2 = ["box", "shake", "tub", "berry"];
 //!=====
 //* What this should really look like
 
-let newList = "";
+// let newList = "";
 
-for (let i = 0; i < words1.length; i++) {
-  console.log(`${words1[i]}${words2[i]}`);
-  newList += `${words1[i]}${words2[i]} `;
+// for (let i = 0; i < words1.length; i++) {
+//   console.log(`${words1[i]}${words2[i]}`);
+//   newList += `${words1[i]}${words2[i]} `;
+// }
+
+// console.log(newList);
+
+// * =======================
+// ! For...Of w/ Objects
+
+const movieReviews = {
+  Arrival: 9.5,
+  Alien: 9,
+  Amelie: 8,
+  "In Bruges": 9,
+  Amadeus: 10,
+  "Kill Bill": 8,
+  "Little Miss Sunshine": 8.5,
+  Coraline: 7.5
+};
+
+// console.log(movieReviews);
+
+// console.log(Object.keys(movieReviews));
+// console.log(Object.values(movieReviews));
+
+for (let movie of Object.keys(movieReviews)) {
+  console.log(movie, movieReviews[movie]);
 }
 
-console.log(newList);
+// for (let x in movieReviews) {
+//   console.log(x);
+// }
