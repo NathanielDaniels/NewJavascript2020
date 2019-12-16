@@ -513,17 +513,27 @@ const magicSquare = [
 const words1 = ["mail", "milk", "bath", "black"];
 const words2 = ["box", "shake", "tub", "berry"];
 
-let wordMix = [[...words1], [...words2]];
+// let wordMix = [[...words1], [...words2]];
 
-let newWordMix = "";
+// let newWordMix = "";
 
-for (let i = 0; i < wordMix.length; i++) {
-  let row = wordMix[i];
-  for (let x = 0; x < row.length; x++) {
-    newWordMix += ` ${words1[x] + words2[x]}`;
-  }
-}
+// for (let i = 0; i < wordMix.length; i++) {
+//   let row = wordMix[i];
+//   for (let x = 0; x < row.length; x++) {
+//     newWordMix += ` ${words1[x] + words2[x]}`;
+//   }
+// }
 
-console.log(newWordMix);
+// console.log(newWordMix);
 
 //!=====
+//* What this should really look like
+
+let newList = "";
+
+for (let i = 0; i < words1.length; i++) {
+  console.log(`${words1[i]}${words2[i]}`);
+  newList += `${words1[i]}${words2[i]} `;
+}
+
+console.log(newList);
