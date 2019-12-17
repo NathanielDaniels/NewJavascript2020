@@ -611,25 +611,38 @@ const magicSquare = [
 
 //!=====
 
-rollDie = () => {
-  let roll = Math.floor(Math.random() * 6) + 1;
-  console.log(`Rolled: ${roll}`);
-};
+// rollDie = () => {
+//   let roll = Math.floor(Math.random() * 6) + 1;
+//   console.log(`Rolled: ${roll}`);
+// };
 
-throwDie = numRolls => {
-  for (let i = 0; i < numRolls; i++) {
-    rollDie();
-  }
-};
+// throwDie = numRolls => {
+//   for (let i = 0; i < numRolls; i++) {
+//     rollDie();
+//   }
+// };
 
-throwDie(6);
+// throwDie(6);
 
 //!=====
 //* "num" is an argument only when you call it, inside a function it's called a parameter.
 
 //parameter
-square = num => {
-  console.log(num + num);
-};
+// square = num => {
+//   console.log(num + num);
+// };
 
-square(10); //argument
+// square(10); //argument
+
+//!=====
+//* Function Challenge 1
+
+function isValidPassword(password, username) {
+  const tooShort = password.length < 8;
+  const hasSpace = password.indexOf(" ") !== -1;
+  const tooSimilar = password.indexOf(username) !== -1;
+  if (!tooShort && !hasSpace && !tooSimilar) return true;
+  return false;
+}
+
+isValidPassword();
