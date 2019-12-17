@@ -645,4 +645,4 @@ function isValidPassword(password, username) {
   return false;
 }
 
-isValidPassword();
+console.log(isValidPassword("password", "Nathan"));
