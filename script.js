@@ -646,14 +646,39 @@ const magicSquare = [
 // If all requirements are met, return true.
 // otherwise: false
 
-isValidPassword = (password, username) => {
-  const tooShort = password.length < 8;
-  const hasSpaces = password.indexOf(" ") !== -1;
-  const tooSimilar = password.indexOf(username) !== -1;
-  if (!tooShort && !hasSpaces && !tooSimilar) return true;
-  return false;
-};
+//! using variables
 
-console.log(isValidPassword("Nathan", "Nathan")); // Same username/password || False
-console.log(isValidPassword("Passwords", "Nathan")); // correct password length || True
-console.log(isValidPassword("Pass words", "Nathan")); // has Spaces || False
+// isValidPassword = (password, username) => {
+//   const tooShort = password.length < 8;
+//   const hasSpaces = password.indexOf(" ") !== -1;
+//   const tooSimilar = password.indexOf(username) !== -1;
+//   // if (!tooShort && !hasSpaces && !tooSimilar) return true;
+//   // return false
+//   //! you can shorten the if statement
+//   return !tooShort && !hasSpaces && !tooSimilar;
+// };
+
+//! just with If Statements
+
+// isValidPassword = (password, username) => {
+//   if (
+//     password.length < 8 ||
+//     password.indexOf(" ") !== -1 ||
+//     password.indexOf(username) !== -1
+//   ) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
+
+// console.log(isValidPassword("Nathanest", "Nathan")); // Similar username/password || False
+// console.log(isValidPassword("Passwords", "Nathan")); // correct password length || True
+// console.log(isValidPassword("Pass words", "Nathan")); // has Spaces || False
+
+//!=====
+//* Function Challenge 2
+
+// Write a function to find the average value in an array of numbers
+// avg([0,50]) //25
+// avg([75,76,80,95,100]) //85.2
