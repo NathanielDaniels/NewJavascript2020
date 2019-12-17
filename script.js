@@ -637,12 +637,23 @@ const magicSquare = [
 //!=====
 //* Function Challenge 1
 
-function isValidPassword(password, username) {
-  const tooShort = password.length < 8;
-  const hasSpace = password.indexOf(" ") !== -1;
-  const tooSimilar = password.indexOf(username) !== -1;
-  if (!tooShort && !hasSpace && !tooSimilar) return true;
-  return false;
-}
+//Write a isValidPassword function
+//It accepts 2 arguments: password and username
+//Password must:
+// - be at least 8 characters
+// - cannot contain spaces
+// - cannot contain the username
+// If all requirements are met, return true.
+// otherwise: false
 
-console.log(isValidPassword("password", "Nathan"));
+isValidPassword = (password, username) => {
+  const tooShort = password.length < 8;
+  const hasSpaces = password.indexOf(" ") !== -1;
+  const tooSimilar = password.indexOf(username) !== -1;
+  if (!tooShort && !hasSpaces && !tooSimilar) return true;
+  return false;
+};
+
+console.log(isValidPassword("Nathan", "Nathan")); // Same username/password || False
+console.log(isValidPassword("Passwords", "Nathan")); // correct password length || True
+console.log(isValidPassword("Pass words", "Nathan")); // has Spaces || False
