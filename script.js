@@ -705,33 +705,33 @@ const magicSquare = [
 //? isPangram('The Five Boxing Wizard Jumps Quickly') //true
 //? isPangram('The Five Boxing Wizard Jumps Quick') //false
 
-isPangram = str => {
-  const alpha = "abcdefghijklmnopqrstuvwxyz";
-  str = str.toLowerCase();
-  // let count = 0;
-  for (let letter of alpha) {
-    if (str.indexOf(letter) === -1) return false;
-  }
-  return true;
-  // if (count === 26) {
-  //   // console.log("This IS a Pangram");
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-};
+// isPangram = str => {
+//   const alpha = "abcdefghijklmnopqrstuvwxyz";
+//   str = str.toLowerCase();
+//   // let count = 0;
+//   for (let letter of alpha) {
+//     if (str.indexOf(letter) === -1) return false;
+//   }
+//   return true;
+//   // if (count === 26) {
+//   //   // console.log("This IS a Pangram");
+//   //   return true;
+//   // } else {
+//   //   return false;
+//   // }
+// };
 
 //! Slighly cleaner way using "includes()"
-isPangram = str => {
-  const alpha = "abcdefghijklmnopqrstuvwxyz";
-  str = str.toLowerCase();
-  for (let letter of alpha) {
-    if (!str.includes(letter)) return false;
-  }
-  return true;
-};
+// isPangram = str => {
+//   const alpha = "abcdefghijklmnopqrstuvwxyz";
+//   str = str.toLowerCase();
+//   for (let letter of alpha) {
+//     if (!str.includes(letter)) return false;
+//   }
+//   return true;
+// };
 
-console.log(isPangram("The Five Boxing Wizard Jumps Quickly"));
+// console.log(isPangram("The Five Boxing Wizard Jumps Quickly"));
 
 //!==============
 //* Function Challenge 4
@@ -746,3 +746,20 @@ console.log(isPangram("The Five Boxing Wizard Jumps Quickly"));
 //? Pick a random suit from:
 //? ----clubs,spades,hearts,diamonds
 //? return both in an object
+
+getCard = () => {
+  const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "O", "K", "A"];
+  const suit = ["Clubs", "Spades", "Hearts", "Diamonds"];
+  // pick random value
+  let randomValue = value[Math.floor(Math.random() * value.length)];
+  // pick random suit
+  let randomSuit = suit[Math.floor(Math.random() * suit.length)];
+  // return both in object
+  let card = new Object();
+  card.value = randomValue;
+  card.suit = randomSuit;
+
+  console.log(card);
+};
+
+getCard();
