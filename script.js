@@ -739,7 +739,7 @@ const magicSquare = [
 //? Write a getCard() function which returns a random playing card object, like:
 //?   {
 //?     value: 'k'
-//?     suit: 'clubs
+//?     suit: 'clubs'
 //?   }
 //? Pick a random value from:
 //? ----1,2,3,4,5,6,7,8,9,10,J,O,K,A
@@ -747,19 +747,45 @@ const magicSquare = [
 //? ----clubs,spades,hearts,diamonds
 //? return both in an object
 
-getCard = () => {
-  const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "O", "K", "A"];
-  const suit = ["Clubs", "Spades", "Hearts", "Diamonds"];
-  // pick random value
-  let randomValue = value[Math.floor(Math.random() * value.length)];
-  // pick random suit
-  let randomSuit = suit[Math.floor(Math.random() * suit.length)];
-  // return both in object
-  let card = new Object();
-  card.value = randomValue;
-  card.suit = randomSuit;
+//! Built Myself (working)
+// getCard = () => {
+//   const value = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+//   const suit = ["Clubs", "Spades", "Hearts", "Diamonds"];
+//   // pick random value
+//   let randomValue = cardPick(value);
+//   // pick random suit
+//   let randomSuit = cardPick(suit);
+//   // return both in object
+//   let card = new Object();
+//   card.value = randomValue;
+//   card.suit = randomSuit;
 
-  console.log(card);
+//   console.log(card);
+// };
+
+// getCard();
+
+//! Colte's way
+cardPick = key => {
+  key[Math.floor(Math.random() * key.length)];
+};
+
+getCard = () => {
+  const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+  const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
+  // pick random value
+  let randomValue = cardPick(values);
+  // pick random suit
+  let randomSuit = cardPick(suits);
+  // return both in object
+  // let card = new Object();
+  // card.value = randomValue;
+  // card.suit = randomSuit;
+
+  // console.log(card);
+
+  // return { value: randomValue, suit: randomSuit };
+  console.log({ value: randomValue, suit: randomSuit });
 };
 
 getCard();
