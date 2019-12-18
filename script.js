@@ -609,7 +609,7 @@ const magicSquare = [
 
 // grumpus3();
 
-//!=====
+//!========
 
 // rollDie = () => {
 //   let roll = Math.floor(Math.random() * 6) + 1;
@@ -624,7 +624,7 @@ const magicSquare = [
 
 // throwDie(6);
 
-//!=====
+//!===============
 //* "num" is an argument only when you call it, inside a function it's called a parameter.
 
 //parameter
@@ -634,7 +634,7 @@ const magicSquare = [
 
 // square(10); //argument
 
-//!=====
+//!===============
 //* Function Challenge 1
 
 //Write a isValidPassword function
@@ -648,10 +648,10 @@ const magicSquare = [
 
 //! using variables
 
-// isValidPassword = (password, username) => {
-//   const tooShort = password.length < 8;
-//   const hasSpaces = password.indexOf(" ") !== -1;
-//   const tooSimilar = password.indexOf(username) !== -1;
+//? isValidPassword = (password, username) => {
+//?   const tooShort = password.length < 8;
+//?   const hasSpaces = password.indexOf(" ") !== -1;
+//?   const tooSimilar = password.indexOf(username) !== -1;
 //   // if (!tooShort && !hasSpaces && !tooSimilar) return true;
 //   // return false
 //   //! you can shorten the if statement
@@ -676,23 +676,31 @@ const magicSquare = [
 // console.log(isValidPassword("Passwords", "Nathan")); // correct password length || True
 // console.log(isValidPassword("Pass words", "Nathan")); // has Spaces || False
 
-//!=====
+//!==============
 //* Function Challenge 2
 
-// Write a function to find the average value in an array of numbers
-// avg([0,50]) //25
-// avg([75,76,80,95,100]) //85.2
+//? Write a function to find the average value in an array of numbers
+//? avg([0,50]) //25
+//? avg([75,76,80,95,100]) //85.2
 
 avg = array => {
   let total = 0;
   for (let num of array) {
     total += num;
-    // console.log(num);
   }
-  // total / array.length;
-  console.log(total / array.length);
+  return total / array.length;
 };
 
-avg([75, 76, 80, 95, 100]); //! 85.2
+console.log(avg([75, 76, 80, 95, 100])); //! 85.2
+console.log(avg([0, 50])); //! 25
 
-// console.log(avgNum);
+//!==============
+//* Function Challenge 3
+
+//? A Pangram is a sentence that contains every letter of the alphabet. like:
+//? "The Quick Brown Fox Jumps Over The Lazy Dog"
+
+//? Write a function called isPangram, which checks to see if a given sentence contains every letter of the alphabet. Make sure you ignore string casing.
+
+//? isPangram('The Five Boxing Wizard Jumps Quickly') //true
+//? isPangram('The Five Boxing Wizard Jumps Quick') //false
