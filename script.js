@@ -732,3 +732,17 @@ isPangram = str => {
 };
 
 console.log(isPangram("The Five Boxing Wizard Jumps Quickly"));
+
+//!==============
+//* Function Challenge 4
+
+//? Write a getCard() function which returns a random playing card object, like:
+//?   {
+//?     value: 'k'
+//?     suit: 'clubs
+//?   }
+//? Pick a random value from:
+//? ----1,2,3,4,5,6,7,8,9,10,J,O,K,A
+//? Pick a random suit from:
+//? ----clubs,spades,hearts,diamonds
+//? return both in an object
