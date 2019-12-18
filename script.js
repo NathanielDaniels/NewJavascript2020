@@ -683,16 +683,16 @@ const magicSquare = [
 //? avg([0,50]) //25
 //? avg([75,76,80,95,100]) //85.2
 
-avg = array => {
-  let total = 0;
-  for (let num of array) {
-    total += num;
-  }
-  return total / array.length;
-};
+// avg = array => {
+//   let total = 0;
+//   for (let num of array) {
+//     total += num;
+//   }
+//   return total / array.length;
+// };
 
-console.log(avg([75, 76, 80, 95, 100])); //! 85.2
-console.log(avg([0, 50])); //! 25
+// console.log(avg([75, 76, 80, 95, 100])); //! 85.2
+// console.log(avg([0, 50])); //! 25
 
 //!==============
 //* Function Challenge 3
@@ -704,3 +704,31 @@ console.log(avg([0, 50])); //! 25
 
 //? isPangram('The Five Boxing Wizard Jumps Quickly') //true
 //? isPangram('The Five Boxing Wizard Jumps Quick') //false
+
+isPangram = str => {
+  const alpha = "abcdefghijklmnopqrstuvwxyz";
+  str = str.toLowerCase();
+  // let count = 0;
+  for (let letter of alpha) {
+    if (str.indexOf(letter) === -1) return false;
+  }
+  return true;
+  // if (count === 26) {
+  //   // console.log("This IS a Pangram");
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+};
+
+//! Slighly cleaner way using "includes()"
+isPangram = str => {
+  const alpha = "abcdefghijklmnopqrstuvwxyz";
+  str = str.toLowerCase();
+  for (let letter of alpha) {
+    if (!str.includes(letter)) return false;
+  }
+  return true;
+};
+
+console.log(isPangram("The Five Boxing Wizard Jumps Quickly"));
