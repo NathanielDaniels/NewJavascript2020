@@ -765,20 +765,20 @@ const magicSquare = [
 
 // getCard();
 
-cardPick = key => {
-  key[Math.floor(Math.random() * key.length)];
-};
+// cardPick = key => {
+//   key[Math.floor(Math.random() * key.length)];
+// };
 
-getCard = () => {
-  const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-  const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
-  // pick random value
-  let randomValue = cardPick(values);
-  // pick random suit
-  let randomSuit = cardPick(suits);
-  // return both in object
-  // return { value: randomValue, suit: randomSuit };
-  console.log({ value: randomValue, suit: randomSuit });
-};
+// getCard = () => {
+//   const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+//   const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
+//   // pick random value
+//   let randomValue = cardPick(values);
+//   // pick random suit
+//   let randomSuit = cardPick(suits);
+//   // return both in object
+//   // return { value: randomValue, suit: randomSuit };
+//   console.log({ value: randomValue, suit: randomSuit });
+// };
 
-getCard();
+// getCard();
