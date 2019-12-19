@@ -765,7 +765,6 @@ const magicSquare = [
 
 // getCard();
 
-//! Colte's way
 cardPick = key => {
   key[Math.floor(Math.random() * key.length)];
 };
@@ -778,12 +777,6 @@ getCard = () => {
   // pick random suit
   let randomSuit = cardPick(suits);
   // return both in object
-  // let card = new Object();
-  // card.value = randomValue;
-  // card.suit = randomSuit;
-
-  // console.log(card);
-
   // return { value: randomValue, suit: randomSuit };
   console.log({ value: randomValue, suit: randomSuit });
 };
