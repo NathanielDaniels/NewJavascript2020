@@ -778,7 +778,6 @@ getCard = () => {
   // pick random suit
   let randomSuit = cardPick(suits);
   // return both in object
-  // return { value: randomValue, suit: randomSuit };
   console.log({ value: randomValue, suit: randomSuit });
 };
 
