@@ -782,3 +782,6 @@ getCard = () => {
 };
 
 getCard();
+
+//!==============================
+//* Section 9 : Advanced Functions
