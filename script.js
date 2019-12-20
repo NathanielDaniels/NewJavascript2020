@@ -767,8 +767,14 @@ const magicSquare = [
 
 //! Colte's way
 cardPick = key => {
-  key[Math.floor(Math.random() * key.length)];
+  return key[Math.floor(Math.random() * key.length)];
 };
+
+//* Same as above but cleaner
+// cardPick = key => {
+//   const index = Math.floor(Math.random() * key.length);
+//   return key[index];
+// };
 
 getCard = () => {
   const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
@@ -782,6 +788,5 @@ getCard = () => {
 };
 
 getCard();
-
 //!==============================
 //* Section 9 : Advanced Functions
