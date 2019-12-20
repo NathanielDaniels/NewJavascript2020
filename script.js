@@ -766,9 +766,9 @@ const magicSquare = [
 // getCard();
 
 //! Colte's way
-cardPick = key => {
-  return key[Math.floor(Math.random() * key.length)];
-};
+// cardPick = key => {
+//   return key[Math.floor(Math.random() * key.length)];
+// };
 
 //* Same as above but cleaner
 // cardPick = key => {
@@ -776,17 +776,33 @@ cardPick = key => {
 //   return key[index];
 // };
 
-getCard = () => {
-  const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-  const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
-  // pick random value
-  let randomValue = cardPick(values);
-  // pick random suit
-  let randomSuit = cardPick(suits);
-  // return both in object
-  console.log({ value: randomValue, suit: randomSuit });
-};
+// getCard = () => {
+//   const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+//   const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
+//   // pick random value
+//   let randomValue = cardPick(values);
+//   // pick random suit
+//   let randomSuit = cardPick(suits);
+//   // return both in object
+//   console.log({ value: randomValue, suit: randomSuit });
+// };
 
-getCard();
+// getCard();
+
 //!==============================
 //* Section 9 : Advanced Functions
+
+//? Write an array that is expecting an array, then doubles the array
+// [1,3,5]
+// [2,6,10]
+
+// function doubleArr(arr) {
+//   const result = [];
+//   for (let num of arr) {
+//     let double = num * 2;
+//     result.push(double);
+//   }
+//   return result;
+// }
+
+// console.log(doubleArr([1, 3, 5])j);
