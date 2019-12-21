@@ -806,3 +806,70 @@ const magicSquare = [
 // }
 
 // console.log(doubleArr([1, 3, 5])j);
+
+//!============
+//* Function Declaration
+
+// function add2(a, b) {
+//   return a + b;
+// }
+
+// console.dir(add2);
+// // console.log(add2)
+
+//* Function Expression (unnamed)
+
+// let add = function(a, b) {
+//   return a + b;
+// };
+
+// console.log(add(2, 2));
+
+// * Function Expression (Named)
+
+// let final = function sub(a, b) {
+//   return a - b;
+// };
+
+// console.log(final(1, 2));
+
+//!============
+//* Functions inside array (not useful, but do-able)
+
+function add(a, b) {
+  return a + b;
+}
+function sub(a, b) {
+  return a - b;
+}
+function mult(a, b) {
+  return a * b;
+}
+function div(a, b) {
+  return a / b;
+}
+
+const operations = [add, sub, mult, div];
+
+// console.log(operations[1](1, 1)); // subtract 1 - 1
+
+//* Quick loop though each item
+
+const newResult = [];
+for (let all of operations) {
+  let result = all(5, 5);
+  // console.log(result);
+  newResult.push(result);
+}
+
+console.log(newResult.pop());
+
+for (let i of newResult) {
+  if (newResult[i] === undefined) {
+    console.log(i, "missing");
+  } else {
+    console.log("not missing");
+  }
+}
+
+// console.log(newResult[3]);
