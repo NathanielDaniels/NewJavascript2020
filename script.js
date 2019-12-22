@@ -862,14 +862,4 @@ for (let all of operations) {
   newResult.push(result);
 }
 
-console.log(newResult.pop());
-
-for (let i of newResult) {
-  if (newResult[i] === undefined) {
-    console.log(i, "missing");
-  } else {
-    console.log("not missing");
-  }
-}
-
-// console.log(newResult[3]);
+console.log(newResult);
