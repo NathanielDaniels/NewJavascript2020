@@ -836,30 +836,30 @@ const magicSquare = [
 //!============
 //* Functions inside array (not useful, but do-able)
 
-function add(a, b) {
-  return a + b;
-}
-function sub(a, b) {
-  return a - b;
-}
-function mult(a, b) {
-  return a * b;
-}
-function div(a, b) {
-  return a / b;
-}
+// function add(a, b) {
+//   return a + b;
+// }
+// function sub(a, b) {
+//   return a - b;
+// }
+// function mult(a, b) {
+//   return a * b;
+// }
+// function div(a, b) {
+//   return a / b;
+// }
 
-const operations = [add, sub, mult, div];
+// const operations = [add, sub, mult, div];
 
 // console.log(operations[1](1, 1)); // subtract 1 - 1
 
 //* Quick loop though each item
 
-const newResult = [];
-for (let all of operations) {
-  let result = all(5, 5);
-  // console.log(result);
-  newResult.push(result);
-}
+// const newResult = [];
+// for (let all of operations) {
+//   let result = all(5, 5);
+//   // console.log(result);
+//   newResult.push(result);
+// }
 
-console.log(newResult);
+// console.log(newResult);
