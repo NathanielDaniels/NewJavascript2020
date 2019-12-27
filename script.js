@@ -873,15 +873,18 @@ function div(a, b) {
 //!============
 //* Functions as Arguments (Higher Order)
 
-// function callTwice(func) {
-//   func();
-//   func();
-// }
+function callTwice(func) {
+  func();
+  func();
+}
 function lauph() {
   console.log("hahaha");
 }
+function cry() {
+  console.log("WAAAAAAAAA");
+}
 
-// callTwice(lauph);
+callTwice(lauph);
 
 function repeatNTimes(num, func) {
   for (let i = 0; i < num; i++) {
@@ -889,4 +892,15 @@ function repeatNTimes(num, func) {
   }
 }
 
-repeatNTimes(13, lauph);
+// repeatNTimes(13, lauph);
+
+function pickOne(f1, f2) {
+  let rand = Math.random();
+  if (rand < 0.5) {
+    f1();
+  } else {
+    f2();
+  }
+}
+
+console.log(pickOne(lauph, cry));
