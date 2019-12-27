@@ -836,18 +836,18 @@ const magicSquare = [
 //!============
 //* Functions inside array (not useful, but do-able)
 
-// function add(a, b) {
-//   return a + b;
-// }
-// function sub(a, b) {
-//   return a - b;
-// }
-// function mult(a, b) {
-//   return a * b;
-// }
-// function div(a, b) {
-//   return a / b;
-// }
+function add(a, b) {
+  return a + b;
+}
+function sub(a, b) {
+  return a - b;
+}
+function mult(a, b) {
+  return a * b;
+}
+function div(a, b) {
+  return a / b;
+}
 
 // const operations = [add, sub, mult, div];
 
@@ -863,3 +863,30 @@ const magicSquare = [
 // }
 
 // console.log(newResult);
+
+// const thing = {
+//   doSomething: mult
+// };
+
+// console.log(thing.doSomething(4, 4));
+
+//!============
+//* Functions as Arguments (Higher Order)
+
+// function callTwice(func) {
+//   func();
+//   func();
+// }
+function lauph() {
+  console.log("hahaha");
+}
+
+// callTwice(lauph);
+
+function repeatNTimes(num, func) {
+  for (let i = 0; i < num; i++) {
+    func();
+  }
+}
+
+repeatNTimes(13, lauph);
