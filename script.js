@@ -939,12 +939,20 @@ let num = 7;
 //   console.log("You are old enough");
 // } else {
 //   console.log("You are NOT old enough");
-}
+// }
 //!============
 //* Callbacks
 //? function passed into another function as an argument, which is then involked inside the outer function
 
+// setTimeout(function() {
+//   alert("welcome!");
+// }, 5000); // send alert after 5 seconds
 
+const btn = document.getElementById('button')
+
+btn.addEventListener('click', function() {
+  console.log("button clicked")
+})
 
 //!============
 //* Hoisting
