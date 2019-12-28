@@ -1080,4 +1080,48 @@ let num = 7;
 
 //!============================
 //!  Arrow Functions Intro
+//? syntactically compact alternative to regular function expression.
+
+// const square = x => {
+//   return x * x;
+// };
+// const sum = (x, y) => {
+//   return x + y;
+// };
+// console.log(square(2)); //4
+// console.log(sum(2, 5)); //7
+
+// you can also make them SUPER COMPACT
+// const square2 = x => x * x;
+// console.log(square2(2)); //4
+
+//*========
+
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// const doubles = nums.map(i => i * 2);
+
+// const numbers = [];
+
+// numbers.push(doubles);
+
+// // console.log(numbers);
+
+// const newNum = numbers.map(i => i.join("."));
+
+// // console.log(newNum);
+
+// const splitNum = newNum.map(i => i.split("."));
+
+// console.log(splitNum);
+
+//*========
+//! Arrow + Ternary Function
+
+// const list = nums.map(i => (i % 2 === 0 ? "even" : "odd"));
+
+// console.log(list);
+
+//!============================
+//!  Array.find()
 
