@@ -959,7 +959,7 @@ btn.addEventListener("click", function() {
 let newBtn = document.createElement("button");
 newBtn.innerHTML = "CLICK ME";
 
-newBtn
+newBtn;
 //!============
 //* Hoisting
 
