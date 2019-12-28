@@ -948,12 +948,18 @@ let num = 7;
 //   alert("welcome!");
 // }, 5000); // send alert after 5 seconds
 
-const btn = document.getElementById('button')
+//!======
 
-btn.addEventListener('click', function() {
-  console.log("button clicked")
-})
+const btn = document.getElementById("button");
 
+btn.addEventListener("click", function() {
+  console.log("button clicked");
+});
+
+let newBtn = document.createElement("button");
+newBtn.innerHTML = "CLICK ME";
+
+newBtn
 //!============
 //* Hoisting
 
