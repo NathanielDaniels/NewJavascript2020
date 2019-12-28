@@ -984,19 +984,100 @@ let num = 7;
 //!============================
 //! Array Callback Methods
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // numbers.forEach(i => {
 //   console.log(i);
 // });
 
+// This does same thing (newer version)
+// for (let num of numbers) {
+//   console.log(num);
+// }
+
 // console.log(numbers);
 // console.log(numbers.reverse());
 
-function printTriple(n) {
-  console.log(n * 3);
-}
+//*=====
+// function printTriple(n) {
+//   console.log(n * 3);
+// }
 
 // printTriple(3);
 
-numbers.forEach(printTriple);
+// numbers.forEach(printTriple);
+
+//*=====
+// second parameter is indexing
+// numbers.forEach(function(i, idx) {
+//   console.log(idx, i);
+// });
+
+//!============================
+//! MAP
+// Most used of them all
+
+// const texts = ["rofl", "lol", "omg", "ttyl"];
+// const caps = texts.map(i => {
+//   return i.toUpperCase();
+// });
+
+// console.log(caps);
+
+//*=====
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const words = ["rofl", "lol", "omg", "ttyl"];
+
+// numbers.map(i => {
+//   console.log(i);
+//   words.map(x => {
+//     console.log(`${i} ${x}`);
+//   });
+// });
+
+// const doubles = numbers.map(i => {
+//   return i * 2;
+// });
+
+// console.log(doubles);
+
+//*=====
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// const array = [];
+
+// numbers.map(num => {
+//   // if (num % 2 === 0) {
+//   //   array.push({
+//   //     value: num,
+//   //     isEven: num % 2 === 0
+//   //   });
+//   // }
+
+//   array.push({
+//     value: num,
+//     isEven: num % 2 === 0
+//   });
+// });
+
+// console.log(array);
+
+//*=====
+
+// const words = ["rofl", "lol", "omg", "ttyl"];
+
+// const abbrevs = words.map(i => {
+//   return i
+//     .toUpperCase()
+//     .split("")
+//     .join(".");
+// });
+
+// console.log(words);
+// console.log(abbrevs);
+
+//!============================
+//!  Arrow Functions Intro
+
