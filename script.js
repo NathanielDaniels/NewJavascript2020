@@ -908,35 +908,38 @@ let num = 7;
 //!============
 //* Functions as Return Values
 
-// function makeBetweenFunc(min, max) {
-//   return function(val) {
-//     return val >= min && val <= max;
+// function multiplyBy(num) {
+//   return function(x) {
+//     return x * num;
 //   };
 // }
 
-// const inAgeRange = makeBetweenFunc(18, 100);
+// const triple = multiplyBy(3);
+// const double = multiplyBy(2);
+// const half = multiplyBy(0.5);
 
-// console.log(inAgeRange(17));
-// console.log(inAgeRange(68));
+// console.log(triple(3)); // 9
+// console.log(double(3)); // 6
+// console.log(half(10)); // 5
 
-// if (inAgeRange(16)) {
-//   console.log("welcome");
-// } else {
-//   console.log("not old enough");
-// }
+//!=======
 
-const triple = multiplyBy(3);
-
-function multiplyBy(num) {
-  return function() {
-    console.log("hi");
+function makeBetweenFunc(min, max) {
+  return function(val) {
+    return val >= min && val <= max;
   };
 }
 
-let mystery = multiplyBy();
+const inAgeRange = makeBetweenFunc(18, 100);
 
-console.log(mystery());
+// console.log(inAgeRange(17)); //false
+// console.log(inAgeRange(68)); //true
 
+if (inAgeRange(16)) {
+  console.log("You are old enough");
+} else {
+  console.log("You are NOT old enough");
+}
 //!============
 //* Callbacks
 
