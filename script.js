@@ -984,3 +984,19 @@ let num = 7;
 //!============================
 //! Array Callback Methods
 
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// numbers.forEach(i => {
+//   console.log(i);
+// });
+
+// console.log(numbers);
+// console.log(numbers.reverse());
+
+function printTriple(n) {
+  console.log(n * 3);
+}
+
+// printTriple(3);
+
+numbers.forEach(printTriple);
