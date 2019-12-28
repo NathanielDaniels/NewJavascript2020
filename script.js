@@ -950,18 +950,37 @@ let num = 7;
 
 //!======
 
-const btn = document.getElementById("button");
+// const btn = document.getElementById("button");
 
-btn.addEventListener("click", function() {
-  console.log("button clicked");
-});
+// btn.addEventListener("click", function() {
+//   console.log("button clicked");
+// });
 
-let newBtn = document.createElement("button");
-newBtn.innerHTML = "CLICK ME";
+// let newBtn = document.createElement("button");
+// newBtn.style = "cursor: pointer";
+// newBtn.innerHTML = "CLICK ME";
 
-newBtn;
 //!============
 //* Hoisting
 
+// console.log(animal);
+// var animal = "Dog";
+// console.log(animal);
+//!=====
+// // Function Declarations are hoisted
+// howl();
+// function howl() {
+//   console.log("WOO WOO");
+// }
+
+// //Function Expressions are not
+// owl();
+// let owl = function() {
+//   console.log("WOO WOO");
+// };
+
 //!========================================================
 //!Section 10: Apply Functions to Collections of Data'
+//!============================
+//! Array Callback Methods
+
