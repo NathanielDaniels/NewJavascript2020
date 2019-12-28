@@ -924,24 +924,27 @@ let num = 7;
 
 //!=======
 
-function makeBetweenFunc(min, max) {
-  return function(val) {
-    return val >= min && val <= max;
-  };
-}
+// function makeBetweenFunc(min, max) {
+//   return function(val) {
+//     return val >= min && val <= max;
+//   };
+// }
 
-const inAgeRange = makeBetweenFunc(18, 100);
+// const inAgeRange = makeBetweenFunc(18, 100);
 
-// console.log(inAgeRange(17)); //false
-// console.log(inAgeRange(68)); //true
+// // console.log(inAgeRange(17)); //false
+// // console.log(inAgeRange(68)); //true
 
-if (inAgeRange(16)) {
-  console.log("You are old enough");
-} else {
-  console.log("You are NOT old enough");
+// if (inAgeRange(16)) {
+//   console.log("You are old enough");
+// } else {
+//   console.log("You are NOT old enough");
 }
 //!============
 //* Callbacks
+//? function passed into another function as an argument, which is then involked inside the outer function
+
+
 
 //!============
 //* Hoisting
