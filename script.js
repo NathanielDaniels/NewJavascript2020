@@ -480,11 +480,11 @@ let num = 7;
 
 //!=====
 
-const magicSquare = [
-  [2, 7, 6],
-  [9, 5, 16],
-  [4, 3, 8]
-];
+// const magicSquare = [
+//   [2, 7, 6],
+//   [9, 5, 16],
+//   [4, 3, 8]
+// ];
 
 // for (let i = 0; i < magicSquare.length; i++) {
 //   let row = magicSquare[i];
@@ -836,18 +836,18 @@ const magicSquare = [
 //!============
 //* Functions inside array (not useful, but do-able)
 
-function add(a, b) {
-  return a + b;
-}
-function sub(a, b) {
-  return a - b;
-}
-function mult(a, b) {
-  return a * b;
-}
-function div(a, b) {
-  return a / b;
-}
+// function add(a, b) {
+//   return a + b;
+// }
+// function sub(a, b) {
+//   return a - b;
+// }
+// function mult(a, b) {
+//   return a * b;
+// }
+// function div(a, b) {
+//   return a / b;
+// }
 
 // const operations = [add, sub, mult, div];
 
@@ -873,34 +873,75 @@ function div(a, b) {
 //!============
 //* Functions as Arguments (Higher Order)
 
-function callTwice(func) {
-  func();
-  func();
-}
-function lauph() {
-  console.log("hahaha");
-}
-function cry() {
-  console.log("WAAAAAAAAA");
+// function callTwice(func) {
+//   func();
+//   func();
+// }
+// function lauph() {
+//   console.log("hahaha");
+// }
+// function cry() {
+//   console.log("WAAAAAAAAA");
+// }
+
+// callTwice(lauph);
+
+// function repeatNTimes(num, func) {
+//   for (let i = 0; i < num; i++) {
+//     func();
+//   }
+// }
+
+// // repeatNTimes(13, lauph);
+
+// function pickOne(f1, f2) {
+//   let rand = Math.random();
+//   if (rand < 0.5) {
+//     f1();
+//   } else {
+//     f2();
+//   }
+// }
+
+// console.log(pickOne(lauph, cry));
+
+//!============
+//* Functions as Return Values
+
+// function makeBetweenFunc(min, max) {
+//   return function(val) {
+//     return val >= min && val <= max;
+//   };
+// }
+
+// const inAgeRange = makeBetweenFunc(18, 100);
+
+// console.log(inAgeRange(17));
+// console.log(inAgeRange(68));
+
+// if (inAgeRange(16)) {
+//   console.log("welcome");
+// } else {
+//   console.log("not old enough");
+// }
+
+const triple = multiplyBy(3);
+
+function multiplyBy(num) {
+  return function() {
+    console.log("hi");
+  };
 }
 
-callTwice(lauph);
+let mystery = multiplyBy();
 
-function repeatNTimes(num, func) {
-  for (let i = 0; i < num; i++) {
-    func();
-  }
-}
+console.log(mystery());
 
-// repeatNTimes(13, lauph);
+//!============
+//* Callbacks
 
-function pickOne(f1, f2) {
-  let rand = Math.random();
-  if (rand < 0.5) {
-    f1();
-  } else {
-    f2();
-  }
-}
+//!============
+//* Hoisting
 
-console.log(pickOne(lauph, cry));
+//!========================================================
+//!Section 10: Apply Functions to Collections of Data'
