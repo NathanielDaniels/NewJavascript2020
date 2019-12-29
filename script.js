@@ -1123,5 +1123,51 @@ let num = 7;
 // console.log(list);
 
 //!============================
-//!  Array.find()
+//!  Array.find() + includes()
 
+// let movies = [
+//   "The Fantastic Mr. Fox",
+//   "Mr. and Mrs. Smith",
+//   "Mrs. Doubtfire",
+//   "Mr. Deeds"
+// ];
+
+// let movie = movies.find(mov => mov.includes("Doubt"));
+
+// console.log(movie);
+
+// let movie2 = movies.find(m => m.indexOf("Mrs") === 0);
+
+// console.log(movie2);
+
+//*===========
+
+const books = [
+  {
+    title: "good omens",
+    authors: ["Terry Pratchett", "Neil Gaiman"],
+    rating: 4.25
+  },
+  {
+    title: "Bones: The Complete Edition",
+    authors: ["Jeff Smith"],
+    rating: 4.42
+  },
+  {
+    title: "American Gods",
+    authors: ["Neil Gaiman"],
+    rating: 4.11
+  },
+  {
+    title: "The Gentleman in Moscow",
+    authors: ["Amor Towles"],
+    rating: 4.36
+  }
+];
+
+const goodBook = books.find(i => i.rating >= 4.4);
+const neilBook = books.find(i => {
+  return i.authors.includes("Neil Gaiman") && i.rating <= 4.2;
+});
+console.log(goodBook); //title: Bones...
+console.log(neilBook); //title: American Gods
