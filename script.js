@@ -1124,6 +1124,7 @@ let num = 7;
 
 //!============================
 //!  Array.find() + includes()
+//? Find is used ALOT
 
 // let movies = [
 //   "The Fantastic Mr. Fox",
@@ -1142,32 +1143,58 @@ let num = 7;
 
 //*===========
 
-const books = [
-  {
-    title: "good omens",
-    authors: ["Terry Pratchett", "Neil Gaiman"],
-    rating: 4.25
-  },
-  {
-    title: "Bones: The Complete Edition",
-    authors: ["Jeff Smith"],
-    rating: 4.42
-  },
-  {
-    title: "American Gods",
-    authors: ["Neil Gaiman"],
-    rating: 4.11
-  },
-  {
-    title: "The Gentleman in Moscow",
-    authors: ["Amor Towles"],
-    rating: 4.36
-  }
-];
+// const books = [
+//   {
+//     title: "good omens",
+//     authors: ["Terry Pratchett", "Neil Gaiman"],
+//     rating: 4.25
+//   },
+//   {
+//     title: "Bones: The Complete Edition",
+//     authors: ["Jeff Smith"],
+//     rating: 4.42
+//   },
+//   {
+//     title: "American Gods",
+//     authors: ["Neil Gaiman"],
+//     rating: 4.11
+//   },
+//   {
+//     title: "The Gentleman in Moscow",
+//     authors: ["Amor Towles"],
+//     rating: 4.36
+//   }
+// ];
 
-const goodBook = books.find(i => i.rating >= 4.4);
-const neilBook = books.find(i => {
-  return i.authors.includes("Neil Gaiman") && i.rating <= 4.2;
+// const goodBook = books.find(i => i.rating >= 4.4);
+// const neilBook = books.find(i => {
+//   return i.authors.includes("Neil Gaiman") && i.rating <= 4.2;
+// });
+// console.log(goodBook); //title: Bones...
+// console.log(neilBook); //title: American Gods
+
+//!============================
+//!  Array.filter()
+//? Creates a new array with all elements that pass the test implemented by the provided func.
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const odds = nums.filter(i => {
+  return i % 2 === 1;
 });
-console.log(goodBook); //title: Bones...
-console.log(neilBook); //title: American Gods
+
+console.log("odds", odds);
+
+const firstHalf = nums.filter(i => {
+  return i <= (nums.length + 0.5) / 2;
+});
+
+const lastHalf = nums.filter(i => {
+  return i >= (nums.length + 0.5) / 2;
+});
+
+console.log("first Half", firstHalf);
+console.log("last half", lastHalf);
+
+const reverse = nums.reverse();
+console.log(reverse);
