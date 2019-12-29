@@ -1175,26 +1175,93 @@ let num = 7;
 
 //!============================
 //!  Array.filter()
-//? Creates a new array with all elements that pass the test implemented by the provided func.
+//? Creates a new array with ALL elements that pass the test implemented by the provided func. (not just one, like find())
 
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const odds = nums.filter(i => {
-  return i % 2 === 1;
-});
+// const odds = nums.filter(i => {
+//   return i % 2 === 1;
+// });
 
-console.log("odds", odds);
+// console.log("odds", odds);
 
-const firstHalf = nums.filter(i => {
-  return i <= (nums.length + 0.5) / 2;
-});
+// const firstHalf = nums.filter(i => {
+//   return i <= (nums.length + 0.5) / 2;
+// });
 
-const lastHalf = nums.filter(i => {
-  return i >= (nums.length + 0.5) / 2;
-});
+// const lastHalf = nums.filter(i => {
+//   return i >= (nums.length + 0.5) / 2;
+// });
 
-console.log("first Half", firstHalf);
-console.log("last half", lastHalf);
+// console.log("first Half", firstHalf);
+// console.log("last half", lastHalf);
 
-const reverse = nums.reverse();
-console.log(reverse);
+// const reverse = nums.reverse();
+// console.log(reverse);
+
+//!====
+
+// const books = [
+//   {
+//     title: "good omens",
+//     authors: ["Terry Pratchett", "Neil Gaiman"],
+//     rating: 4.25,
+//     genres: ["fiction", "fantasy"]
+//   },
+//   {
+//     title: "Bones: The Complete Edition",
+//     authors: ["Jeff Smith"],
+//     rating: 4.42,
+//     genres: ["fiction", "graphic novel", "fantasy"]
+//   },
+//   {
+//     title: "American Gods",
+//     authors: ["Neil Gaiman"],
+//     rating: 4.11,
+//     genres: ["fiction", "fantasy"]
+//   },
+//   {
+//     title: "The Gentleman in Moscow",
+//     authors: ["Amor Towles"],
+//     rating: 4.36,
+//     genres: ["fiction", "historical fiction"]
+//   }
+// ];
+
+// const fantasyBooks = books.filter(book => book.genres.includes("fantasy"));
+// const fictionBooks = books.filter(book => book.genres.includes("fiction"));
+// const graphicNovelBooks = books.filter(book =>
+//   book.genres.includes("graphic novel")
+// );
+// const historicalFictionBooks = books.filter(book =>
+//   book.genres.includes("historical fiction")
+// );
+// const ficFantBooks = books.filter(
+//   book => book.genres.includes("fiction") && book.genres.includes("fantasy")
+// );
+
+// const userPrompt = prompt("what type of book are you looking for?");
+
+// switch (userPrompt) {
+//   case "fiction":
+//     console.log(fictionBooks);
+//     break;
+//   case "fantasy":
+//     console.log(fantasyBooks);
+//     break;
+//   case "graphic novel":
+//     console.log(graphicNovelBooks);
+//     break;
+//   case "historical fiction":
+//     console.log(historicalFictionBooks);
+//     break;
+//   case "fiction fantasy":
+//     console.log(ficFantBooks);
+//     break;
+// }
+
+//!============================
+//!  Some & Every
+
+//! Every
+//? Tests whether ALL elements in the array pass the provided function. Returns Boolean Value
