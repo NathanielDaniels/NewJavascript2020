@@ -1265,3 +1265,16 @@ let num = 7;
 
 //! Every
 //? Tests whether ALL elements in the array pass the provided function. Returns Boolean Value
+
+const words = ["dog", "dig", "log", "bag", "wag"];
+
+words.every(word => {
+  return word.length === 3; // true
+});
+
+words.every(word => word[0] === "d"); //false
+
+words.every(w => {
+  let last_letter = w[w.length - 1];
+  return last_letter === "g";
+}); //true
