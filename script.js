@@ -1382,17 +1382,31 @@ let num = 7;
 //!=========
 //! pt.2
 
-const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
+// const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
 
-const totalGrades = grades.reduce((total, currentVal) => total + currentVal);
+// const totalGrades = grades.reduce((total, currentVal) => total + currentVal);
 
-const maxGrades = grades.reduce((max, currVal) => {
-  return Math.max(max, currVal);
-});
+// const maxGrades = grades.reduce((max, currVal) => Math.max(max, currVal));
 
-// console.log("grades", totalGrades);
+// const minGrades = grades.reduce((min, currVal) => Math.min(min, currVal));
 
-console.log("max grade", maxGrades);
+// console.log("total grades", totalGrades);
+
+// console.log("max grade", maxGrades);
+// console.log("min grade", minGrades);
+
+//* Initial Value =================
+
+// const noInitialValue = [4, 5, 6, 7, 8].reduce((acc, currVal) => acc + currVal);
+// const initialValue = [4, 5, 6, 7, 8].reduce((acc, currVal) => {
+//   return acc + currVal;
+// }, 100);
+
+// console.log(noInitialValue, initialValue);
+
+//!=====================
+//!  More Reduce
+//* Tallying
 
 //!======================================
 //* Closure
