@@ -1387,12 +1387,10 @@ const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
 const totalGrades = grades.reduce((total, currentVal) => total + currentVal);
 
 const maxGrades = grades.reduce((max, currVal) => {
-  console.log(max);
-  if (currVal > max) return currVal;
-  return max;
+  return Math.max(max, currVal);
 });
 
-console.log("grades", totalGrades);
+// console.log("grades", totalGrades);
 
 console.log("max grade", maxGrades);
 
