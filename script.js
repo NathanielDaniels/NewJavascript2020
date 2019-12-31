@@ -1266,15 +1266,89 @@ let num = 7;
 //! Every
 //? Tests whether ALL elements in the array pass the provided function. Returns Boolean Value
 
-const words = ["dog", "dig", "log", "bag", "wag"];
+// const words = ["dog", "dig", "log", "bag", "wag"];
 
-words.every(word => {
-  return word.length === 3; // true
+// const length = words.every(word => {
+//   return word.length === 3;
+// });
+// console.log(length); // true
+
+// const firstWord = words.every(word => word[0] === "d");
+// console.log(firstWord); //false
+
+// const lastLetter = words.every(w => {
+//   let last_letter = w[w.length - 1];
+//   return last_letter === "g";
+// });
+// console.log(lastLetter); //true
+
+//!=======================
+//! Some
+//? Similar to Every, but returns true if ANY array elements pass the test
+
+// const words = ["dog", "dig", "log", "bag", "wag", "slag"];
+
+// const dWords = words.some(word => word[0] === "d");
+
+// console.log(dWords); //true
+
+//? W/ Every, this would be false
+
+// const wordLength4 = words.some(word => word.length > 3);
+
+// console.log(wordLength4); //true //? the last element makes it true
+
+//!=======
+
+const books = [
+  {
+    title: "good omens",
+    authors: ["Terry Pratchett", "Neil Gaiman"],
+    rating: 4.25,
+    genres: ["fiction", "fantasy"]
+  },
+  {
+    title: "Bones: The Complete Edition",
+    authors: ["Jeff Smith"],
+    rating: 4.42,
+    genres: ["fiction", "graphic novel", "fantasy"]
+  },
+  {
+    title: "American Gods",
+    authors: ["Neil Gaiman"],
+    rating: 4.11,
+    genres: ["fiction", "fantasy"]
+  },
+  {
+    title: "The Gentleman in Moscow",
+    authors: ["Amor Towles"],
+    rating: 4.36,
+    genres: ["fiction", "historical fiction"]
+  }
+];
+
+//? Grab the title of books with higher ratings than 4.3
+books.some(book => {
+  if (book.rating > 4.3) {
+    console.log(book.title);
+  }
 });
 
-words.every(word => word[0] === "d"); //false
+//? Find titles that have two authors
 
-words.every(w => {
-  let last_letter = w[w.length - 1];
-  return last_letter === "g";
-}); //true
+// const twoAuthors = books.some(book => {
+//   if (book.authors[1]) {
+//     console.log(book.title);
+//   }
+// });
+
+//!======================================
+//* Closure
+
+// const createCounter = (count = 0) => () => ++count;
+
+// const counter = createCounter();
+
+// console.log("counter1", counter());
+// console.log("counter2", counter());
+// console.log("counter3", counter());
