@@ -1345,7 +1345,7 @@ let num = 7;
 //!======================================
 //!  Revisiting Sort
 
-const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
+// const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
 
 // prices.sort(); // converts to string, sorts by first char.
 
@@ -1361,9 +1361,32 @@ const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
 //*  - sort b before a
 //?=========================================
 
-prices.sort((a, b) => a - b);
+// prices.sort((a, b) => a - b);
 
-console.log(prices);
+// console.log(prices);
+
+//!======================================
+//!  Reduce
+//! pt.1
+//? Executes a reducer function on each element of the array, resulting in a single value
+
+//* summing an array
+
+// const sum = [3, 5, 7, 9, 11].reduce((accumulator, currentValue) => {
+//   console.log(accumulator);
+//   return accumulator + currentValue;
+// });
+
+// console.log(sum);
+
+//!=========
+//! pt.2
+
+const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
+
+grades.reduce((total, currentVal) => total + currentVal);
+
+console.log("grades", grades);
 
 //!======================================
 //* Closure
