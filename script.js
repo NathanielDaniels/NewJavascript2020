@@ -1300,39 +1300,39 @@ let num = 7;
 
 //!=======
 
-const books = [
-  {
-    title: "good omens",
-    authors: ["Terry Pratchett", "Neil Gaiman"],
-    rating: 4.25,
-    genres: ["fiction", "fantasy"]
-  },
-  {
-    title: "Bones: The Complete Edition",
-    authors: ["Jeff Smith"],
-    rating: 4.42,
-    genres: ["fiction", "graphic novel", "fantasy"]
-  },
-  {
-    title: "American Gods",
-    authors: ["Neil Gaiman"],
-    rating: 4.11,
-    genres: ["fiction", "fantasy"]
-  },
-  {
-    title: "The Gentleman in Moscow",
-    authors: ["Amor Towles"],
-    rating: 4.36,
-    genres: ["fiction", "historical fiction"]
-  }
-];
+// const books = [
+//   {
+//     title: "good omens",
+//     authors: ["Terry Pratchett", "Neil Gaiman"],
+//     rating: 4.25,
+//     genres: ["fiction", "fantasy"]
+//   },
+//   {
+//     title: "Bones: The Complete Edition",
+//     authors: ["Jeff Smith"],
+//     rating: 4.42,
+//     genres: ["fiction", "graphic novel", "fantasy"]
+//   },
+//   {
+//     title: "American Gods",
+//     authors: ["Neil Gaiman"],
+//     rating: 4.11,
+//     genres: ["fiction", "fantasy"]
+//   },
+//   {
+//     title: "The Gentleman in Moscow",
+//     authors: ["Amor Towles"],
+//     rating: 4.36,
+//     genres: ["fiction", "historical fiction"]
+//   }
+// ];
 
 //? Grab the title of books with higher ratings than 4.3
-books.some(book => {
-  if (book.rating > 4.3) {
-    console.log(book.title);
-  }
-});
+// books.some(book => {
+//   if (book.rating > 4.3) {
+//     console.log(book.title);
+//   }
+// });
 
 //? Find titles that have two authors
 
@@ -1341,6 +1341,29 @@ books.some(book => {
 //     console.log(book.title);
 //   }
 // });
+
+//!======================================
+//!  Revisiting Sort
+
+const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
+
+// prices.sort(); // converts to string, sorts by first char.
+
+// console.log(prices);
+
+//?=========================================
+//* arr.sort(compareFunc(a,b))
+//* if compareFunc(a,b) returns less than 0
+//*  - sort a before b
+//* if compareFunc(a,b) returns 0
+//*  - leave a and b unchanged w/ respect to each other
+//* if compareFunc(a,b) returns > 0
+//*  - sort b before a
+//?=========================================
+
+prices.sort((a, b) => a - b);
+
+console.log(prices);
 
 //!======================================
 //* Closure
