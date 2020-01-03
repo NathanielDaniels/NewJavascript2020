@@ -1408,14 +1408,14 @@ let num = 7;
 //!  More Reduce
 //* Tallying
 
-// const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
+const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
 
-// const tally = votes.reduce((tally, vote) => {
-//   tally[vote] = (tally[vote] || 0) + 1;
-//   return tally;
-// }, {});
+const tally = votes.reduce((tally, vote) => {
+  tally[vote] = (tally[vote] || 0) + 1;
+  return tally;
+}, {});
 
-// console.log(tally);
+console.log(tally);
 //!======================================
 //* Closure
 
