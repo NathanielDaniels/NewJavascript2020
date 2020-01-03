@@ -1417,6 +1417,11 @@ const tally = votes.reduce((tally, vote) => {
 
 console.log(tally);
 
+const results = votes.reduce((tally, val) => {
+  tally[val] = (total[val] || 0) + 1;
+  return tally;
+}, {});
+
 //!======================================
 //* Section 11
 
