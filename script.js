@@ -1408,19 +1408,71 @@ let num = 7;
 //!  More Reduce
 //* Tallying
 
-// const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
+const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
 
-// const tally = votes.reduce((tally, vote) => {
-//   tally[vote] = (tally[vote] || 0) + 1;
-//   return tally;
-// }, {});
+const tally = votes.reduce((tally, vote) => {
+  tally[vote] = (tally[vote] || 0) + 1;
+  return tally;
+}, {});
 
-// console.log(tally);
+console.log(tally);
 
-// const results = votes.reduce((tally, val) => {
-//   tally[val] = (total[val] || 0) + 1;
-//   return tally;
-// }, {});
+const results = votes.reduce((tally, val) => {
+  tally[val] = (total[val] || 0) + 1;
+  return tally;
+}, {});
+
+//*=====================
+
+const books = [
+  {
+    title: "good omens",
+    authors: ["Terry Pratchett", "Neil Gaiman"],
+    rating: 4.25,
+    genres: ["fiction", "fantasy"]
+  },
+  {
+    title: "Bones: The Complete Edition",
+    authors: ["Jeff Smith"],
+    rating: 4.42,
+    genres: ["fiction", "graphic novel", "fantasy"]
+  },
+  {
+    title: "American Gods",
+    authors: ["Neil Gaiman"],
+    rating: 4.11,
+    genres: ["fiction", "fantasy"]
+  },
+  {
+    title: "The Gentleman in Moscow",
+    authors: ["Amor Towles"],
+    rating: 4.36,
+    genres: ["fiction", "historical fiction"]
+  }
+];
+
+books.reduce((groupedBooks, book) => {
+  Math.floor(book.rating);
+  // if (book.rating > 3) {
+  //   console.log("4% books",book)
+  // } else if (book.rating > 2) {
+  //   console.log("3% books", book)
+  // } else if ()
+
+  switch (book) {
+    case book.rating === 3:
+      console.log("4% books", book);
+      break;
+    case book.rating === 2:
+      console.log("3% books", book);
+      break;
+    case book.rating === 1:
+      console.log("1% books", book);
+      break;
+  }
+
+  return book;
+});
 
 //!======================================
 //* Section 11
