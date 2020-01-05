@@ -1472,7 +1472,10 @@ let num = 7;
 // console.log(grouped);
 
 //!======================================
-//* Section 11
+//* === Section 11 ===
+//? Default Parameters, Spread, Destructuring
+
+//* New JS Features Intro
 
 //!======================================
 //* Default Parameters4
