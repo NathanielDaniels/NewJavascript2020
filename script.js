@@ -1498,22 +1498,25 @@ let num = 7;
 //*====
 // Now done with Arrow func
 
-const greet = (person, greeting = "hi") => {
-  console.log(`${greeting}, ${person}`);
-};
+// const greet = (person, greeting = "hi") => {
+//   console.log(`${greeting}, ${person}`);
+// };
 
-greet("Nathan");
+// greet("Nathan");
 
 //*====
 // Now done with Array
 
-const greet2 = (x, y = [1, 2, 3]) => {
-  console.log(x, y);
-};
+// const greet2 = (x, y = [1, 2, 3]) => {
+//   console.log(x, y);
+// };
 
-greet2("Nathan");
+// greet2("Nathan");
 //!======================================
-//* Default Parameters
+//* Spread
+//? Spread Syntax allows an iterable such as an array to be EXPANDED in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected
+
+//* Spread for function calls
 //!======================================
 //* Closure
 
