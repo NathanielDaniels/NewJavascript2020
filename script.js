@@ -1473,12 +1473,47 @@ let num = 7;
 
 //!======================================
 //* === Section 11 ===
-//? Default Parameters, Spread, Destructuring
+//? Default function Parameters, Rest & Spread, Destructuring
 
-//* New JS Features Intro
+//* Default function Parameters
 
+// function multi(a, b) {
+//   b = typeof b !== "undefined" ? b : 1;
+//   return a * b;
+// }
+
+// console.log(multi(7)); //7
+// console.log(multi(7, 3)); //21
+
+//*====
+// Now done with Func Params
+
+// function multi2(a, b = 1) {
+//   return a * b;
+// }
+
+// console.log(multi2(7)); //7
+// console.log(multi2(7, 3)); //21
+
+//*====
+// Now done with Arrow func
+
+const greet = (person, greeting = "hi") => {
+  console.log(`${greeting}, ${person}`);
+};
+
+greet("Nathan");
+
+//*====
+// Now done with Array
+
+const greet2 = (x, y = [1, 2, 3]) => {
+  console.log(x, y);
+};
+
+greet2("Nathan");
 //!======================================
-//* Default Parameters4
+//* Default Parameters
 //!======================================
 //* Closure
 
