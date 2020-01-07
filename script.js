@@ -1516,6 +1516,7 @@ let num = 7;
 //* Spread
 //? Spread Syntax allows an iterable such as an array to be EXPANDED in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected
 
+//*=========
 //* Spread for function calls
 //? Expands an iterable (array, string, etc.) into a list of arguments
 
@@ -1533,7 +1534,7 @@ let num = 7;
 // }
 
 // giveMeMore(4, 5, 6, 7);
-
+//*=========
 //* Spread in Array Literals
 
 // const colors = ["red", "orange", "yellow", "green"];
@@ -1543,19 +1544,56 @@ let num = 7;
 // const str = "goat";
 
 // giveMeMore(...str);
+
+//*=========
 //* Spread in Object Literals
 //? Copies properties from one object into another object literal
 
-const feline = {
-  legs: 4,
-  family: 'Feline'
-}
-const canine = {
-  family: 'Canine',
-  furry: true;
-}
+// const feline = {
+//   legs: 4,
+//   family: "Feline"
+// };
+// const canine = {
+//   family: "Canine",
+//   furry: true
+// };
+// const dog = {
+//   ...canine,
+//   isPet: true,
+//   adorable: true
+// };
+// const cat = {
+//   ...feline,
+//   isGrumpy: true,
+//   personality: "unpredictable"
+// };
 
+// console.log(cat);
 
+// const catClone = { ...cat };
+
+// console.log(catClone);
+
+// console.log(cat === catClone); //false
+
+//*=========
+//* REST
+//? it looks like spread, but it's NOT!
+
+//* The Arguments Object (not new)
+
+//* REST Parameters (new!)
+
+//*=========
+//* Destructuring
+
+//* Destructuring Arrays
+
+//* Destructuring Objects
+
+//* Nested Destructuring
+
+//* Destructuring Parameters
 //!======================================
 //* Closure
 
