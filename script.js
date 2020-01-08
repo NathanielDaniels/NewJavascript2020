@@ -1380,7 +1380,7 @@ let js = document.getElementById("js");
 // console.log(sum);
 
 //!=========
-//! pt.2
+//* pt.2
 
 // const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
 
@@ -1405,7 +1405,8 @@ let js = document.getElementById("js");
 // console.log(noInitialValue, initialValue);
 
 //!=====================
-//!  More Reduce
+//*  More Reduce
+
 //* Tallying
 
 // const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
@@ -1611,13 +1612,13 @@ let js = document.getElementById("js");
 
 //* REST Parameters (new!)
 
-//! Old
+//* Old
 // function sum(...num) {
 //   return sum.reduce((total, currVal) => {
 //     return total + currVal;
 //   });
 
-//! New
+//* New
 
 // multiply = (...nums) => {
 //   return nums.reduce((total, currVal) => total * currVal);
@@ -1653,24 +1654,24 @@ let js = document.getElementById("js");
 //   "Jared Ward"
 // ];
 
-//! Traditional Way
+//* Traditional Way
 // const gold = raceResults[0];
 // const silver = raceResults[1];
 // const bronze = raceResults[2];
 
 // console.log(gold, silver, bronze);
 
-//! Same result, done with Destructuring
+//* Same result, done with Destructuring
 // const [gold, silver, bronze] = raceResults;
 
 // console.log(`Gold: ${gold}, Silver: ${silver}, Bronze: ${bronze}`);
 //*=============
-//! to get the forth element in array
+//* to get the forth element in array
 //! Add commas to separate
 // const [, , , forth] = raceResults;
 // console.log(forth);
 //*=============
-//! using spread with destructuring
+//* using spread with destructuring
 // const [winner, ...rest] = raceResults;
 // console.log(`Winner = ${winner}, Remaining = ${rest}`);
 //*===================================================
