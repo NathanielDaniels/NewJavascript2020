@@ -1612,13 +1612,13 @@ let js = document.getElementById("js");
 
 //* REST Parameters (new!)
 
-//* Old
+//! Old
 // function sum(...num) {
 //   return sum.reduce((total, currVal) => {
 //     return total + currVal;
 //   });
 
-//* New
+//! New
 
 // multiply = (...nums) => {
 //   return nums.reduce((total, currVal) => total * currVal);
@@ -1677,24 +1677,56 @@ let js = document.getElementById("js");
 //*===================================================
 //* Destructuring Objects
 
-const runner = {
-  first: "Eliud",
-  last: "Kipchoge",
-  country: "kenya",
-  title: "Elder of the Order of the Golden Heart of Kenya"
-};
+// const runner = {
+//   first: "Eliud",
+//   last: "Kipchoge",
+//   country: "kenya",
+//   title: "Elder of the Order of the Golden Heart of Kenya"
+// };
 
 //! Naming off of the keys, so you can pick and choose what you want
-const { first, last, title } = runner;
+// const { first, last, title } = runner;
 //! See how this skips over the third item and shows the forth, that is the main difference between array/object destructuring
-console.log(first, last, title); //Eliud Kipchoge kenya
+// console.log(first, last, title); //Eliud Kipchoge kenya
 
 //! You can change the name of the key, here's how
-const { country: location } = runner;
-console.log(location);
+// const { country: from } = runner;
+// console.log(from);
 
+//! Destructuring Runner
+// const { first, last, ...other } = runner;
+// console.log(first, last, other);
 //*===================================================
 //* Nested Destructuring
+
+const results = [
+  {
+    first: "Eliud",
+    last: "Kipchoge",
+    country: "kenya"
+  },
+  {
+    first: "Feyisa",
+    last: "Lilesa",
+    country: "Ethiopia"
+  },
+  {
+    first: "Galen",
+    last: "Rupp",
+    country: "United States"
+  }
+];
+
+// const [{ first, last, country }] = results;
+
+// console.log(results[1]);
+
+//! find results from second object in array
+
+// const [, { first, last, country }] = results;
+//! Remember, adding the comma is what separates each object
+// console.log(first, last, country);
+
 //*===================================================
 //* Destructuring Parameters
 //!======================================
