@@ -1474,6 +1474,7 @@ let js = document.getElementById("js");
 
 //!======================================
 //* === Section 11 ===
+//!========================
 //? Default function Parameters, Rest & Spread, Destructuring
 
 //* Default function Parameters
@@ -1736,27 +1737,27 @@ let js = document.getElementById("js");
 //*===================================================
 //* Destructuring Parameters
 
-const fullName = ({ first, last }) => {
-  return `${first} ${last}`;
-};
+// const fullName = ({ first, last }) => {
+//   return `${first} ${last}`;
+// };
 
-const runner = [
-  {
-    first: "Eliud",
-    last: "Kipchoge",
-    country: "kenya"
-  },
-  {
-    first: "Feyisa",
-    last: "Lilesa",
-    country: "Ethiopia"
-  },
-  {
-    first: "Galen",
-    last: "Rupp",
-    country: "United States"
-  }
-];
+// const runner = [
+//   {
+//     first: "Eliud",
+//     last: "Kipchoge",
+//     country: "kenya"
+//   },
+//   {
+//     first: "Feyisa",
+//     last: "Lilesa",
+//     country: "Ethiopia"
+//   },
+//   {
+//     first: "Galen",
+//     last: "Rupp",
+//     country: "United States"
+//   }
+// ];
 
 // console.log(fullName(runner[2]));
 
@@ -1775,15 +1776,39 @@ const runner = [
 // print(runner[1]);
 
 //! Destructuring Parameters w/ Array
-const response = ["HTTP/1.1", "200 OK", "Application/json"];
+// const response = ["HTTP/1.1", "200 OK", "Application/json"];
 
-function parseResponse([protocol, statusCode, contentType]) {
-  console.log(protocol);
-  console.log(statusCode);
-  console.log(contentType);
-}
+// function parseResponse([protocol, statusCode, contentType]) {
+//   console.log(protocol);
+//   console.log(statusCode);
+//   console.log(contentType);
+// }
 
-parseResponse(response);
+// parseResponse(response);
+
+//!========================================================
+//** Section 12: Object Methods and the "This" keyword **
+//!========================================================
+//* Shorthand Object Properties
+//!================
+//* Computed Properties
+//!================
+//* Adding Methods to Objects
+//!================
+//* Method Shorthand Syntax
+//!================
+//* Intro to Keyword THIS
+//!================
+//* Using THIS in Methods
+//!================
+//* THIS: Invocation Context
+//!================
+//* Annoyomatic Demo
+//!================
+//* Putting it All Together: Deck Of Cards
+//!================
+//* Creating A Deck Factory
+
 //!======================================
 //* Closure
 
