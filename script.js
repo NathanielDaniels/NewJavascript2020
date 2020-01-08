@@ -20,7 +20,7 @@ let js = document.getElementById("js");
 //* ====================
 //! Ternary
 
-let num = 7;
+// let num = 7;
 
 // if (num === 7) {
 //   console.log('lucky!')
@@ -980,9 +980,9 @@ let num = 7;
 // };
 
 //!========================================================
-//!Section 10: Apply Functions to Collections of Data'
+//*Section 10: Apply Functions to Collections of Data'
 //!============================
-//! Array Callback Methods
+//* Array Callback Methods
 
 // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -1014,7 +1014,7 @@ let num = 7;
 // });
 
 //!============================
-//! MAP
+//* MAP
 // Most used of them all
 
 // const texts = ["rofl", "lol", "omg", "ttyl"];
@@ -1079,7 +1079,7 @@ let num = 7;
 // console.log(abbrevs);
 
 //!============================
-//!  Arrow Functions Intro
+//*  Arrow Functions Intro
 //? syntactically compact alternative to regular function expression.
 
 // const square = x => {
@@ -1116,14 +1116,14 @@ let num = 7;
 // console.log(splitNum);
 
 //*========
-//! Arrow + Ternary Function
+//* Arrow + Ternary Function
 
 // const list = nums.map(i => (i % 2 === 0 ? "even" : "odd"));
 
 // console.log(list);
 
 //!============================
-//!  Array.find() + includes()
+//*  Array.find() + includes()
 //? Find is used ALOT
 
 // let movies = [
@@ -1174,7 +1174,7 @@ let num = 7;
 // console.log(neilBook); //title: American Gods
 
 //!============================
-//!  Array.filter()
+//*  Array.filter()
 //? Creates a new array with ALL elements that pass the test implemented by the provided func. (not just one, like find())
 
 // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -1261,9 +1261,9 @@ let num = 7;
 // }
 
 //!============================
-//!  Some & Every
+//*  Some & Every
 
-//! Every
+//* Every
 //? Tests whether ALL elements in the array pass the provided function. Returns Boolean Value
 
 // const words = ["dog", "dig", "log", "bag", "wag"];
@@ -1283,7 +1283,7 @@ let num = 7;
 // console.log(lastLetter); //true
 
 //!=======================
-//! Some
+//* Some
 //? Similar to Every, but returns true if ANY array elements pass the test
 
 // const words = ["dog", "dig", "log", "bag", "wag", "slag"];
@@ -1343,7 +1343,7 @@ let num = 7;
 // });
 
 //!======================================
-//!  Revisiting Sort
+//*  Revisiting Sort
 
 // const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
 
@@ -1366,8 +1366,8 @@ let num = 7;
 // console.log(prices);
 
 //!======================================
-//!  Reduce
-//! pt.1
+//*  Reduce
+//* pt.1
 //? Executes a reducer function on each element of the array, resulting in a single value
 
 //* summing an array
@@ -1619,11 +1619,13 @@ let num = 7;
 
 //! New
 
-multiply = (...nums) => {
-  return nums.reduce((total, currVal) => total * currVal);
-};
+// multiply = (...nums) => {
+//   return nums.reduce((total, currVal) => total * currVal);
+// };
 
-console.log(multiply(5, 5));
+// console.log(multiply(5, 5));
+
+//====================
 
 // function fullName(first, last, ...titles) {
 //   console.log('first', first)
@@ -1632,15 +1634,67 @@ console.log(multiply(5, 5));
 // }
 
 //   console.log(fullName('nathan', 'daniels'))
-//*=========
+
+//*=====================
 //* Destructuring
+//? A short, clean syntax to 'unpack':
+//? - Values from arrays
+//? - Properties from Objects
+//? Into distinct variables
 
 //* Destructuring Arrays
 
+// const raceResults = [
+//   "Eliud Kipchoge",
+//   "Feyisa Lelisa",
+//   "Galen Rupp",
+//   "Ghirmay Ghebreslassie",
+//   "Alphonce Simbu",
+//   "Jared Ward"
+// ];
+
+//! Traditional Way
+// const gold = raceResults[0];
+// const silver = raceResults[1];
+// const bronze = raceResults[2];
+
+// console.log(gold, silver, bronze);
+
+//! Same result, done with Destructuring
+// const [gold, silver, bronze] = raceResults;
+
+// console.log(`Gold: ${gold}, Silver: ${silver}, Bronze: ${bronze}`);
+//*=============
+//! to get the forth element in array
+//! Add commas to separate
+// const [, , , forth] = raceResults;
+// console.log(forth);
+//*=============
+//! using spread with destructuring
+// const [winner, ...rest] = raceResults;
+// console.log(`Winner = ${winner}, Remaining = ${rest}`);
+//*===================================================
 //* Destructuring Objects
 
-//* Nested Destructuring
+const runner = {
+  first: "Eliud",
+  last: "Kipchoge",
+  country: "kenya",
+  title: "Elder of the Order of the Golden Heart of Kenya"
+};
 
+//! Naming off of the keys, so you can pick and choose what you want
+const { first, last, title } = runner;
+//! See how this skips over the third item and shows the forth, that is the main difference between array/object destructuring
+console.log(first, last, title); //Eliud Kipchoge kenya
+
+//! You can change the name of the key, here's how
+const { country: location } = runner;
+console.log(location);
+
+//*===================================================
+//* Nested Destructuring
+//*===================================================
 //* Destructuring Parameters
 //!======================================
 //* Closure
