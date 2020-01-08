@@ -1600,17 +1600,38 @@ let num = 7;
 
 // sum(1, 2, 3, 4, 5); //15
 
-function sum1() {
-  const argsArr = [...arguments];
-  return argsArr.reduce((total, currVal) => {
-    return total + currVal;
-  });
-}
+// function sum1() {
+//   const argsArr = [...arguments];
+//   return argsArr.reduce((total, currVal) => {
+//     return total + currVal;
+//   });
+// }
 
-console.log(sum1(1, 2, 3));
+// console.log(sum1(1, 2, 3));
 
 //* REST Parameters (new!)
 
+//! Old
+// function sum(...num) {
+//   return sum.reduce((total, currVal) => {
+//     return total + currVal;
+//   });
+
+//! New
+
+multiply = (...nums) => {
+  return nums.reduce((total, currVal) => total * currVal);
+};
+
+console.log(multiply(5, 5));
+
+// function fullName(first, last, ...titles) {
+//   console.log('first', first)
+//   console.log('last', last)
+//   console.log('titles', titles)
+// }
+
+//   console.log(fullName('nathan', 'daniels'))
 //*=========
 //* Destructuring
 
