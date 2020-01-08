@@ -1788,10 +1788,37 @@ let js = document.getElementById("js");
 
 //!========================================================
 //** Section 12: Object Methods and the "This" keyword **
+//? The Secret Little Life of OBJECTS
+
+//? Goals:
+//? - Add Methods to Objects
+//? - Use New Object Shorthand Syntax
+//? - Use Computed Properties
+//? - Understand Prototypes
+//? - Explain how the %$@# THIS works...
 //!========================================================
 //* Shorthand Object Properties
+
+// const getStats = arr => {
+//   const max = Math.max(...arr);
+//   const min = Math.min(...arr);
+//   const sum = arr.reduce((sum, r) => sum + r);
+//   const avg = sum / arr.length;
+//   return { max, min, sum, avg };
+// };
+
+// const reviews = [4.5, 5.0, 3.44, 2.8, 3.5, 4.0, 3.5];
+
+// const stats = getStats(reviews);
+
+// console.log(stats); //{max: 5, min: 2.8, sum: 26.74, avg: 3.82}
+
 //!================
 //* Computed Properties
+
+const role = "host";
+const person = "Jools Holland";
+
 //!================
 //* Adding Methods to Objects
 //!================
