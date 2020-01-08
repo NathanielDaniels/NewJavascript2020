@@ -1581,6 +1581,33 @@ let num = 7;
 //? it looks like spread, but it's NOT!
 
 //* The Arguments Object (not new)
+//? Available inside Every function
+//? It's an ARRAY-LIKE object
+//? - Has a length property
+//? - Does not have array methods like push/pop
+//? Contains all the arguments passed to function
+//? Not available Inside Arrow Functions!!!
+//? ++ Not Likely to use this way ++
+
+// function sum(a, b) {
+//   let total = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     total += arguments[i];
+//   }
+//   console.log(total);
+//   return total;
+// }
+
+// sum(1, 2, 3, 4, 5); //15
+
+function sum1() {
+  const argsArr = [...arguments];
+  return argsArr.reduce((total, currVal) => {
+    return total + currVal;
+  });
+}
+
+console.log(sum1(1, 2, 3));
 
 //* REST Parameters (new!)
 
