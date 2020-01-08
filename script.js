@@ -1699,7 +1699,48 @@ let js = document.getElementById("js");
 //*===================================================
 //* Nested Destructuring
 
-const results = [
+// const results = [
+//   {
+//     first: "Eliud",
+//     last: "Kipchoge",
+//     country: "kenya"
+//   },
+//   {
+//     first: "Feyisa",
+//     last: "Lilesa",
+//     country: "Ethiopia"
+//   },
+//   {
+//     first: "Galen",
+//     last: "Rupp",
+//     country: "United States"
+//   }
+// ];
+
+// const [{ first, last, country }] = results;
+
+// console.log(results[1]);
+
+//! find results from second object in array
+
+// const [, { first, last, country }] = results;
+//! Remember, adding the comma is what separates each object
+// console.log(first, last, country);
+
+//! Find the Gold Winner and rename them as such(name in first object)
+//! you can also add keys from other objects (country)
+// const [{ first: goldWinner }, { country }] = results;
+
+// console.log(goldWinner, country); //Eliud , Ethiopia
+
+//*===================================================
+//* Destructuring Parameters
+
+const fullName = ({ first, last }) => {
+  return `${first} ${last}`;
+};
+
+const runner = [
   {
     first: "Eliud",
     last: "Kipchoge",
@@ -1717,18 +1758,32 @@ const results = [
   }
 ];
 
-// const [{ first, last, country }] = results;
+// console.log(fullName(runner[2]));
 
-// console.log(results[1]);
+// function print(person) {
+//   const [{ first, last, country }] = person;
+//   console.log(person[1]);
+// }
 
-//! find results from second object in array
+// print(runner);
 
-// const [, { first, last, country }] = results;
-//! Remember, adding the comma is what separates each object
-// console.log(first, last, country);
+//! Now with Destructuring
+// function print({ first, last, country }) {
+//   console.log(`${first} ${last}, ${country}`);
+// }
 
-//*===================================================
-//* Destructuring Parameters
+// print(runner[1]);
+
+//! Destructuring Parameters w/ Array
+const response = ["HTTP/1.1", "200 OK", "Application/json"];
+
+function parseResponse([protocol, statusCode, contentType]) {
+  console.log(protocol);
+  console.log(statusCode);
+  console.log(contentType);
+}
+
+parseResponse(response);
 //!======================================
 //* Closure
 
