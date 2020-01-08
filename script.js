@@ -1816,11 +1816,36 @@ let js = document.getElementById("js");
 //!================
 //* Computed Properties
 
-const role = "host";
-const person = "Jools Holland";
+// const role = "host";
+// const person = "Jools Holland";
 
+//! Original way
+// const team = {};
+// team[role] = person;
+
+//! New Way
+// const team = {
+//   [role]: person
+// };
+
+// console.log(team);
+
+//! Dynamic Key
+
+// const addProp = (obj, k, v) => {
+//   return {
+//     ...obj,
+//     [k]: v
+//   };
+// };
+
+//! SHORTENED VERSION
+// const addProp = (obj, k, v) => ({ ...obj, [k]: v });
+
+// console.log(addProp(team, "happy", ":)"));
 //!================
 //* Adding Methods to Objects
+
 //!================
 //* Method Shorthand Syntax
 //!================
