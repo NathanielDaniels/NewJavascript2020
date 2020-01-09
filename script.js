@@ -1937,26 +1937,33 @@ let js = document.getElementById("js");
 //!================
 //* Annoyomatic Demo
 
-const annoyer = {
-  phrases: [
-    "Literally",
-    "cray cray",
-    "I can't even",
-    "Totes!",
-    "YOLO",
-    "Can't stop, won't stop"
-  ],
-  pickPhrase() {
-    let math = Math.floor(Math.random() * this.phrases.length);
-    return this.phrases[math];
-  },
-  start() {
-    return setInterval(this.pickPhrase(), 3000);
-  },
-  stop() {}
-};
-console.log(annoyer.stop());
-// setInterval(annoyer.start(), 3000);
+// const annoyer = {
+//   phrases: [
+//     "Literally",
+//     "cray cray",
+//     "I can't even",
+//     "Totes!",
+//     "YOLO",
+//     "Can't stop, won't stop"
+//   ],
+//   pickPhrase() {
+//     const { phrases } = this;
+//     let idx = Math.floor(Math.random() * phrases.length);
+//     return phrases[idx];
+//   },
+//   start() {
+//     this.timerId = setInterval(() => {
+//       //! Must use arrow function, otherwise THIS = Global Windows
+//       console.log(this.pickPhrase());
+//     }, 3000);
+//   },
+//   stop() {
+//     clearInterval(this.timerId);
+//     console.log("Annoyer Stopped");
+//   }
+// };
+
+// annoyer.start();
 
 //!================
 //* Putting it All Together: Deck Of Cards
