@@ -1864,10 +1864,36 @@ let js = document.getElementById("js");
 // math.add(5, 5);
 //!================
 //* Method Shorthand Syntax
+//? You don't need to add keys to Methods. must use Func Dec.
+//? Login/Logout below are shorthand
+
+// const auth = {
+//   username: "TommyBoy",
+//   login(user) {
+//     console.log(`Logged You In, ${user}!!`);
+//   },
+//   logout(user) {
+//     console.log(`${user} has been logged out`);
+//   }
+// };
+
+// auth.login(auth.username);
+// auth.logout(auth.username);
 //!================
 //* Intro to Keyword THIS
+//? This section mainly discusses window object
+
+// console.log(window);
+
+//* One main reason we stopped using var was do to global window object. let/const doesn't add properties to the window object
+// var color = "teal";
+// console.log(window.color);
+
+// console.log(window.blur());
+
 //!================
 //* Using THIS in Methods
+
 //!================
 //* THIS: Invocation Context
 //!================
