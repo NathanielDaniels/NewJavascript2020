@@ -1881,6 +1881,9 @@ let js = document.getElementById("js");
 // auth.logout(auth.username);
 //!================
 //* Intro to Keyword THIS
+//? **Arrow Functions do NOT get their own version of THIS**
+//? - Even inside an object, it will refer to WINDOW
+//! DO NOT USE ARROW FUNCTIONS AS METHODS
 //? This section mainly discusses window object
 
 // console.log(window);
@@ -1923,9 +1926,38 @@ let js = document.getElementById("js");
 // console.log(person.printBio());
 
 //!================
-//* THIS: Invocation Context
+//* THIS: Invocation Context (How You Execute)
+//? The Value of THIS depends on the invocation context of the function it is used in.
+
+//* Change the reference of THIS
+// const printBio = person.printBio();
+
+// console.log(printBio);
+
 //!================
 //* Annoyomatic Demo
+
+const annoyer = {
+  phrases: [
+    "Literally",
+    "cray cray",
+    "I can't even",
+    "Totes!",
+    "YOLO",
+    "Can't stop, won't stop"
+  ],
+  pickPhrase() {
+    let math = Math.floor(Math.random() * this.phrases.length);
+    return this.phrases[math];
+  },
+  start() {
+    return setInterval(this.pickPhrase(), 3000);
+  },
+  stop() {}
+};
+console.log(annoyer.stop());
+// setInterval(annoyer.start(), 3000);
+
 //!================
 //* Putting it All Together: Deck Of Cards
 //!================
