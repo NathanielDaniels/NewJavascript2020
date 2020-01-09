@@ -1889,10 +1889,38 @@ let js = document.getElementById("js");
 // var color = "teal";
 // console.log(window.color);
 
-// console.log(window.blur());
-
 //!================
 //* Using THIS in Methods
+
+// //? A function, not inside an object, is also Global
+// //? Function Expression/Declaration alone
+// function sayHi() {
+//   console.log("hi");
+//   console.log(this);
+//   //this refers to the window (global scope object in browser)
+// }
+
+// //* Here, THIS refers to the Person Object
+// //? Also added destructuring to reduce the need to replicate THIS multiple times
+// const person = {
+//   fName: "Nathan",
+//   lName: "Daniels",
+//   nickName: "Ndzzle",
+//   fullName() {
+//     const { fName, lName, nickName } = this;
+//     return `${fName} ${lName} AKA ${nickName}`;
+//   },
+//   printBio() {
+//     const fullName = this.fullName();
+//     return `${fullName} is a Person!`;
+//   }
+// };
+
+// //* Change Name will reflect in fullName()
+// person.fName = "Tony";
+// // console.log(person.fullName()); //Tony Daniels AKA Ndzzle
+
+// console.log(person.printBio());
 
 //!================
 //* THIS: Invocation Context
