@@ -2009,7 +2009,12 @@ let js = document.getElementById("js");
 
 // drawCard(makeDeck());
 //? New Version adding THIS + Destructuring
-const myDeck = {
+
+//!==================
+//! Creating Multiple Decks
+//? added mainDeck to a new function to call multiple decks
+
+const makeDeck = () => ({
   deck: [],
   drawnCards: [],
   suits: ["hearts", "diamonds", "spades", "clubs"],
@@ -2040,29 +2045,29 @@ const myDeck = {
       console.log(cards);
     }
     return cards;
+  },
+  shuffle() {
+    const { deck } = this;
+    // loop over array backwards
+    for (let i = deck.length - 1; i > 0; i--) {
+      // pick random index before current element
+      let j = Math.floor(Math.random() * (i + 1));
+      //swap
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+      // console.log(`${deck[i]} <--> ${deck[j]}`);
+    }
+    console.log(deck);
   }
-};
+});
 
-//! FISHER YATES SHUFFLE Algorithm
-//? https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
-
-function shuffle(arr) {
-  // loop over array backwards
-  for (let i = arr.length - 1; i > 0; i--) {
-    // pick random index before current element
-    let j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-    console.log(`${arr[i]} -switched- ${arr[j]}`);
-    console.log(arr);
-  }
-}
-
-shuffle(["a", "b", "c", "d", "e", "f"]);
-
-// myDeck.initializeDeck();
-// console.log(myDeck.deck);
-// shuffle(myDeck.deck);
-// console.log(myDeck.deck);
+//* working with single deck
+const myDeck = makeDeck();
+myDeck.initializeDeck();
+myDeck.shuffle();
+//* Adding a new deck
+const myDeck2 = makeDeck();
+myDeck2.initializeDeck();
+console.log(myDeck2); // non shuffled deck
 
 // console.log("=======================");
 // //? Initialize Deck to start
@@ -2081,6 +2086,26 @@ shuffle(["a", "b", "c", "d", "e", "f"]);
 // //? Draw Multiple cards at once (5)
 // const drawFive = myDeck.drawMultiple(5);
 // console.log("multiCards :", drawFive);
+
+//!================
+//! FISHER YATES SHUFFLE Algorithm
+//? https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+
+// function shuffle(arr) {
+//   // loop over array backwards
+//   for (let i = arr.length - 1; i > 0; i--) {
+//     // pick random index before current element
+//     let j = Math.floor(Math.random() * (i + 1));
+//     [arr[i], arr[j]] = [arr[j], arr[i]];
+//     //swap
+//     console.log(`${arr[i]} <--> ${arr[j]}`);
+//     console.log(arr);
+//   }
+// }
+
+// shuffle(["a", "b", "c", "d", "e", "f"]);
+//!====================
+
 //!================
 //* Creating A Deck Factory
 
