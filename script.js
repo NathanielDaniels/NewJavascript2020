@@ -2112,11 +2112,18 @@ let js = document.getElementById("js");
 //!================
 //* Intro to the DOM
 
+//! DO NOT MEMORIZE EVERYTHING
+
 //!================
 //* IMPORTANT NOTE: HTML & CSS
 
 //!================
 //* Taste of the DOM
+
+//? What is the DOM?
+//? - The DOM is a javascript representation of a webpage
+//? - It's your JS 'window' into the contents of a webpage
+//? - It's just a bunch of objects that you can interact with via JS
 
 //!================
 //* Another Fun DOM Example
