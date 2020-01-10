@@ -2012,62 +2012,63 @@ let js = document.getElementById("js");
 
 //!==================
 //! Creating Multiple Decks
+//* Creating A Deck Factory
 //? added mainDeck to a new function to call multiple decks
 
-const makeDeck = () => ({
-  deck: [],
-  drawnCards: [],
-  suits: ["hearts", "diamonds", "spades", "clubs"],
-  values: "2,3,4,5,6,7,8,9,10,J,Q,K,A",
-  initializeDeck() {
-    const { suits, values, deck } = this;
-    for (let value of values.split(",")) {
-      for (let suit of suits) {
-        deck.push({
-          value,
-          suit
-        });
-      }
-    }
-    // return deck;
-  },
-  drawCard() {
-    const { deck, drawnCards } = this;
-    const card = deck.pop();
-    drawnCards.push(card);
-    return card;
-  },
-  drawMultiple(numCards) {
-    const cards = [];
-    for (let i = 0; i < numCards; i++) {
-      const card = this.drawCard();
-      cards.push(card);
-      console.log(cards);
-    }
-    return cards;
-  },
-  shuffle() {
-    const { deck } = this;
-    // loop over array backwards
-    for (let i = deck.length - 1; i > 0; i--) {
-      // pick random index before current element
-      let j = Math.floor(Math.random() * (i + 1));
-      //swap
-      [deck[i], deck[j]] = [deck[j], deck[i]];
-      // console.log(`${deck[i]} <--> ${deck[j]}`);
-    }
-    console.log(deck);
-  }
-});
+// const makeDeck = () => ({
+//   deck: [],
+//   drawnCards: [],
+//   suits: ["hearts", "diamonds", "spades", "clubs"],
+//   values: "2,3,4,5,6,7,8,9,10,J,Q,K,A",
+//   initializeDeck() {
+//     const { suits, values, deck } = this;
+//     for (let value of values.split(",")) {
+//       for (let suit of suits) {
+//         deck.push({
+//           value,
+//           suit
+//         });
+//       }
+//     }
+//     // return deck;
+//   },
+//   drawCard() {
+//     const { deck, drawnCards } = this;
+//     const card = deck.pop();
+//     drawnCards.push(card);
+//     return card;
+//   },
+//   drawMultiple(numCards) {
+//     const cards = [];
+//     for (let i = 0; i < numCards; i++) {
+//       const card = this.drawCard();
+//       cards.push(card);
+//       console.log(cards);
+//     }
+//     return cards;
+//   },
+//   shuffle() {
+//     const { deck } = this;
+//     // loop over array backwards
+//     for (let i = deck.length - 1; i > 0; i--) {
+//       // pick random index before current element
+//       let j = Math.floor(Math.random() * (i + 1));
+//       //swap
+//       [deck[i], deck[j]] = [deck[j], deck[i]];
+//       // console.log(`${deck[i]} <--> ${deck[j]}`);
+//     }
+//     console.log(deck);
+//   }
+// });
 
-//* working with single deck
-const myDeck = makeDeck();
-myDeck.initializeDeck();
-myDeck.shuffle();
-//* Adding a new deck
-const myDeck2 = makeDeck();
-myDeck2.initializeDeck();
-console.log(myDeck2); // non shuffled deck
+// //* working with single deck
+// const myDeck = makeDeck();
+// myDeck.initializeDeck();
+// myDeck.shuffle();
+// //* Adding a new deck
+// const myDeck2 = makeDeck();
+// myDeck2.initializeDeck();
+// console.log(myDeck2); // non shuffled deck
 
 // console.log("=======================");
 // //? Initialize Deck to start
@@ -2104,10 +2105,36 @@ console.log(myDeck2); // non shuffled deck
 // }
 
 // shuffle(["a", "b", "c", "d", "e", "f"]);
-//!====================
+//!=======================================
+//!=======================================
+//! Section 13: JS In The Browser - DOM
 
 //!================
-//* Creating A Deck Factory
+//* Intro to the DOM
+
+//!================
+//* IMPORTANT NOTE: HTML & CSS
+
+//!================
+//* Taste of the DOM
+
+//!================
+//* Another Fun DOM Example
+
+//!================
+//* The Document Object
+
+//!================
+//* getElementById
+
+//!================
+//* getElementsByTagName
+
+//!================
+//* getElementsByClassName
+
+//!================
+//* querySelector & querySelectorAll
 
 //!======================================
 //* Closure
