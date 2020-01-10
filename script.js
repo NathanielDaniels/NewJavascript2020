@@ -1968,21 +1968,119 @@ let js = document.getElementById("js");
 //!================
 //* Putting it All Together: Deck Of Cards
 
-const suits = ["hearts", "diamonds", "spades", "clubs"];
-const values = "1,2,3,4,5,6,7,8,9,10,J,Q,K,A";
-
 // makeDeck() {
 //   [
 //     {value: '5', suit: 'hearts'}
 //   ]
 // }
 
-const makeDeck = function() {
-  const pickSuit = Math.floor(Math.random() * suits.length);
-  console.log(suits[pickSuit]);
+//* My Version (working)
+// const makeDeck = function() {
+//   const suits = ["hearts", "diamonds", "spades", "clubs"];
+//   const values = "1,2,3,4,5,6,7,8,9,10,J,Q,K,A";
+//   const newVal = values.split(",");
+//   const pickSuit = Math.floor(Math.random() * suits.length);
+//   const pickVal = Math.floor(Math.random() * newVal.length);
+//   console.log(`${newVal[pickVal]} of ${suits[pickSuit]}`);
+// };
+
+//* Correct way
+//? using Nested loops + array manipulation
+
+// const makeDeck = function() {
+//   const deck = [];
+//   const suits = ["hearts", "diamonds", "spades", "clubs"];
+//   const values = "2,3,4,5,6,7,8,9,10,J,Q,K,A";
+//   for (let value of values.split(",")) {
+//     for (let suit of suits) {
+//       deck.push({
+//         value,
+//         suit
+//       });
+//     }
+//   }
+//   return deck;
+// };
+
+// function drawCard(deck) {
+//   const lastCard = deck.pop();
+//   console.log(lastCard);
+// }
+
+// drawCard(makeDeck());
+//? New Version adding THIS + Destructuring
+const myDeck = {
+  deck: [],
+  drawnCards: [],
+  suits: ["hearts", "diamonds", "spades", "clubs"],
+  values: "2,3,4,5,6,7,8,9,10,J,Q,K,A",
+  initializeDeck() {
+    const { suits, values, deck } = this;
+    for (let value of values.split(",")) {
+      for (let suit of suits) {
+        deck.push({
+          value,
+          suit
+        });
+      }
+    }
+    // return deck;
+  },
+  drawCard() {
+    const { deck, drawnCards } = this;
+    const card = deck.pop();
+    drawnCards.push(card);
+    return card;
+  },
+  drawMultiple(numCards) {
+    const cards = [];
+    for (let i = 0; i < numCards; i++) {
+      const card = this.drawCard();
+      cards.push(card);
+      console.log(cards);
+    }
+    return cards;
+  }
 };
 
-makeDeck();
+//! FISHER YATES SHUFFLE Algorithm
+//? https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+
+function shuffle(arr) {
+  // loop over array backwards
+  for (let i = arr.length - 1; i > 0; i--) {
+    // pick random index before current element
+    let j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+    console.log(`${arr[i]} -switched- ${arr[j]}`);
+    console.log(arr);
+  }
+}
+
+shuffle(["a", "b", "c", "d", "e", "f"]);
+
+// myDeck.initializeDeck();
+// console.log(myDeck.deck);
+// shuffle(myDeck.deck);
+// console.log(myDeck.deck);
+
+// console.log("=======================");
+// //? Initialize Deck to start
+// myDeck.initializeDeck();
+// console.log(myDeck);
+
+// console.log("=======================");
+// //? run drawCard to put cards into drawnCards array
+// myDeck.drawCard();
+// myDeck.drawCard();
+// myDeck.drawCard();
+// console.log("updatedDeck :", myDeck);
+// console.log("drawnCards :", myDeck.drawnCards);
+
+// console.log("=======================");
+// //? Draw Multiple cards at once (5)
+// const drawFive = myDeck.drawMultiple(5);
+// console.log("multiCards :", drawFive);
 //!================
 //* Creating A Deck Factory
 
