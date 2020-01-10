@@ -2107,7 +2107,7 @@ let js = document.getElementById("js");
 // shuffle(["a", "b", "c", "d", "e", "f"]);
 //!=======================================
 //!=======================================
-//! Section 13: JS In The Browser - DOM
+//* Section 13: JS In The Browser - DOM
 
 //!================
 //* Intro to the DOM
@@ -2148,7 +2148,11 @@ let js = document.getElementById("js");
 //? Pass in CSS selector
 //! Must use (. for class)/(# for id) before the element name
 
-//* querySelector all returns a collection (node)
+//? querySelector all returns a collection (node)
+
+//!=======================================
+//!=======================================
+//* Section 14: Twisting the DOM to our will!
 
 //!======================================
 //* Closure
