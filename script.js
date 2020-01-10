@@ -2113,6 +2113,7 @@ let js = document.getElementById("js");
 //* Intro to the DOM
 
 //! DO NOT MEMORIZE EVERYTHING
+//? Using this section as refresher. Already know everything in this section
 
 //!================
 //* IMPORTANT NOTE: HTML & CSS
@@ -2143,6 +2144,12 @@ let js = document.getElementById("js");
 //!================
 //* querySelector & querySelectorAll
 
+//? A newer. all-in-one method to select A SINGLE ELEMENT (querySelector)
+//? Pass in CSS selector
+//! Must use (. for class)/(# for id) before the element name
+
+//* querySelector all returns a collection (node)
+
 //!======================================
 //* Closure
 
@@ -2153,3 +2160,37 @@ let js = document.getElementById("js");
 // console.log("counter1", counter());
 // console.log("counter2", counter());
 // console.log("counter3", counter());
+
+//===========================================================
+//!DOM MANIPULATIONS (Google Twist)
+
+// var myImg = document.createElement("img");
+// myImg.src =
+//   "https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+
+// myImg.style.width = "200px";
+// document.body.append(myImg);
+// myImg.style.transform = 'translate(300px,200px)'
+// myImg.style.transition = "all 2s";
+
+const sheet = new CSSStyleSheet();
+sheet.replaceSync("* {transition: all 2s}");
+document.adoptedStyleSheets = [sheet];
+// const allEls = document.body.children;
+
+const sheet = new CSSStyleSheet();
+sheet.replaceSync("* {transition: all 2s}");
+document.adoptedStyleSheets = [sheet];
+// const allEls = document.body.children;
+
+// Seperates Elements for Transition
+const allEls = document.getElementById("viewport").children;
+
+setInterval(() => {
+  for (let el of allEls) {
+    const rotation = Math.floor(Math.random() * 360);
+    const x = Math.floor(document.body.clientWidth * Math.random());
+    const y = Math.floor(document.body.clientHeight * Math.random());
+    el.style.transform = `translate(${x}px,${y}px) rotate(${rotation}deg)`;
+  }
+}, 2000);
