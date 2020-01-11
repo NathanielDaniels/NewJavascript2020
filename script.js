@@ -2197,8 +2197,21 @@ let js = document.getElementById("js");
 //!======================================
 //* Getting & Setting Attributes
 //? Access or change attributes in Elements
+//? Attributes like : "type", "min", "max", "value", "step"
+
+// const range = document.querySelector('input[type="range"');
+//! .getAttribute() method
+// range.getAttribute("max"); // shows max attribute
+//! .setAttribute() method
+// range.setAttribute("min", "-500"); // sets min to -500
 //!======================================
 //* Finding Parent/Children/Sibling
+
+//? ul.children
+//? ul.nextElementSibling
+//? ul.nextElementSibling.nextElementSibling
+//? ul.previousElementSibling
+
 //!======================================
 //* Changing Multiple Elements
 //!======================================
@@ -2227,24 +2240,25 @@ let js = document.getElementById("js");
 // myImg.style.transform = 'translate(300px,200px)'
 // myImg.style.transition = "all 2s";
 
-const sheet = new CSSStyleSheet();
-sheet.replaceSync("* {transition: all 2s}");
-document.adoptedStyleSheets = [sheet];
-// const allEls = document.body.children;
+//! Make Webpage jump around
+// const sheet = new CSSStyleSheet();
+// sheet.replaceSync("* {transition: all 2s}");
+// document.adoptedStyleSheets = [sheet];
+// // const allEls = document.body.children;
 
-const sheet = new CSSStyleSheet();
-sheet.replaceSync("* {transition: all 2s}");
-document.adoptedStyleSheets = [sheet];
-// const allEls = document.body.children;
+// const sheet = new CSSStyleSheet();
+// sheet.replaceSync("* {transition: all 2s}");
+// document.adoptedStyleSheets = [sheet];
+// // const allEls = document.body.children;
 
-// Seperates Elements for Transition
-const allEls = document.getElementById("viewport").children;
+// // Seperates Elements for Transition
+// const allEls = document.getElementById("viewport").children;
 
-setInterval(() => {
-  for (let el of allEls) {
-    const rotation = Math.floor(Math.random() * 360);
-    const x = Math.floor(document.body.clientWidth * Math.random());
-    const y = Math.floor(document.body.clientHeight * Math.random());
-    el.style.transform = `translate(${x}px,${y}px) rotate(${rotation}deg)`;
-  }
-}, 2000);
+// setInterval(() => {
+//   for (let el of allEls) {
+//     const rotation = Math.floor(Math.random() * 360);
+//     const x = Math.floor(document.body.clientWidth * Math.random());
+//     const y = Math.floor(document.body.clientHeight * Math.random());
+//     el.style.transform = `translate(${x}px,${y}px) rotate(${rotation}deg)`;
+//   }
+// }, 2000);
