@@ -2154,6 +2154,55 @@ let js = document.getElementById("js");
 //!=======================================
 //* Section 14: Twisting the DOM to our will!
 
+//? MOST IMPORTANT PROPERTIES & METHODS
+//? - classList
+//? - getAttribute()
+//? - setAttribute()
+//? - appendChild()
+//? - append()
+//? - prepend()
+//? - remove()
+//? - createElement
+//? - innerText
+//? - innerContext
+//? - innerHTML
+//? - value
+//? - parentElement
+//? - children
+//? - nextSibling
+//? - previousSibling
+//? - style
+
+//!======================================
+//* Working with InnerText & textContent
+
+//*InnerText
+// document.body.innerText;
+//? This pulls all text from a webpage (skipping any tags)
+
+//*textContent
+//? textContent shows not only text, but any elements inside. It also keeps the layout of the text displayed on the webpage.
+
+//! TextContent is faster (performance) but innerText is used most
+
+//!======================================
+//* InnerHTML
+//? InnerHTML not only displays the given text inside an element, but also all other children tags inside said element
+
+//! This displays a string
+//!======================================
+//* value,src,href, and more
+
+//? value is how you get information out of a form.
+//!======================================
+//* Getting & Setting Attributes
+//!======================================
+//* Finding Parent/Children/Sibling
+//!======================================
+//* Changing Multiple Elements
+//!======================================
+//* Altering Styles
+
 //!======================================
 //* Closure
 
