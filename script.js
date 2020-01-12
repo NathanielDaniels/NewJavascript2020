@@ -2214,8 +2214,54 @@ let js = document.getElementById("js");
 
 //!======================================
 //* Changing Multiple Elements
+
+// const allLis = document.querySelectorAll("li");
+
+// //? Regular for loop w/ innerText
+// // for (let i = 0; i < allLis.length; i++) {
+// //   console.log(allLis[i].innerText);
+// //   allLis[i].innerText = "We Are The Champions";
+// //   console.log(allLis[i].innerText);
+// // }
+
+// //? for of loop w/ innerHTML
+// for (let i of allLis) {
+//   i.innerHTML = "Are We <b>The Champions</b>?";
+// }
+// console.log(li.innerHTML);
 //!======================================
 //* Altering Styles
+
+// const fullList = document.querySelector("ul");
+// const list2 = document.querySelectorAll("li")[1];
+
+// console.log(list2);
+
+// fullList.style.color = "blue";
+// list2.style.background = "red";
+// fullList.style.fontSize = "20px";
+
+////==================================================\
+// const allLi = document.querySelectorAll("li");
+// const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+// for (let li of allLi) {
+//   li.style.color = colors[2];
+//   li.style.background = colors[4];
+//   li.style.fontSize = "1.5rem";
+//   li.style.width = "4.5rem";
+//   li.style.textAlign = "center";
+// }
+
+//! using forEach instead of for of
+// allLi.forEach((li, i) => {
+//   const color = colors[i];
+//   console.log(color);
+//   li.style.color = color;
+// });
+
+//!======================================
+//* getComputedStyle
 
 //!======================================
 //* Closure
