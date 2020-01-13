@@ -2261,8 +2261,34 @@ let js = document.getElementById("js");
 // });
 
 //!======================================
-//* getComputedStyle
+//* getComputedStyle (lecture #145)
+//? when working with styles through javascript, .styles looks at inline styles.
+//? if you want to look at styles from a style sheet (css), then use .getComputedStyles
 
+// const li = document.querySelector("li");
+// const compStyles = getComputedStyle(li);
+
+// console.log(compStyles.color);
+// li.style.color = "red";
+// console.log(compStyles.color);
+// console.log(compStyles.fontSize);
+
+//!======================================
+//* Manipulating Classes (lecture #146)
+//!======================================
+//* Creating Elements (lecture #147)
+//!======================================
+//* Append, Prepend, & insertBefore (lecture #148)
+//!======================================
+//* removeChild & remove (lecture #149)
+//!======================================
+//* NBA Scores Chart Pt.1 (lecture #150)
+//!======================================
+//* NBA Scores Chart Refactor (lecture #151)
+
+//!=======================================
+//!=======================================
+//* Section 15: Communicating with Events
 //!======================================
 //* Closure
 
