@@ -2312,6 +2312,66 @@ let js = document.getElementById("js");
 // console.log(todos);
 //!======================================
 //* Append, Prepend, & insertBefore (lecture #148)
+
+// const parentUl = document.querySelector("ul");
+// const newLi = document.createElement("li");
+// newLi.innerText = "New Li";
+
+// parentUl.appendChild(newLi);
+//! When you appendChild, it puts that element at the bottom
+
+//*=================
+//* .InsertBefore()
+// //? If you want to append to the beginning of a list
+// //? first select the first Li
+// const firstLi = document.querySelector("li");
+// //? then insert -NewLi- before -firstLi- inside -parentUl-
+// parentUl.insertBefore(newLi, firstLi);
+// //! Now, 'newLi' is at the top of the list!
+
+// //* Insert element before last element inside last Ul
+// const lastUl = document.querySelectorAll("ul")[1];
+// const lastLi = document.querySelectorAll("li.todo")[2];
+// console.log(lastUl);
+// console.log(lastLi);
+
+// lastUl.insertBefore(newLi, lastLi);
+
+//*=================
+//* .InsertAdjacentElement()
+//? targetElement.insertAdjacentElement(position, element)
+//! position (4 choices) :
+//! - 'beforebegin' : before the targetElement itself
+//! - 'afterbegin' : Just inside the targetElement, before first child
+//! - 'beforeend' : Just inside targetElement, after last child
+//! - 'afterend' : After the targetElement itself
+
+//!=================
+
+//* Example) ==================
+//* <!-- beforebegin ==>
+//* <p>
+//*  <!-- afterbegin -->
+//*   foo
+//*  <!-- beforeend -->
+//* </p>
+//*  <!-- afterend -->
+//* ===========================
+
+// const i = document.createElement("i");
+// i.innerText = "I am Italics!";
+
+// const firstP = document.querySelector("p");
+
+// firstP.insertAdjacentElement("beforeend", i);
+
+// //* ===========================
+// //* Append, prepend (nice and short)
+// //? Append inserts -after- (last child)
+// //? Prepend inserts -before- (first child)
+// // firstP.append(i, newLi);
+// firstP.prepend(i, newLi);
+
 //!======================================
 //* removeChild & remove (lecture #149)
 //!======================================
