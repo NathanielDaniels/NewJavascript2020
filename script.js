@@ -2275,6 +2275,19 @@ let js = document.getElementById("js");
 
 //!======================================
 //* Manipulating Classes (lecture #146)
+
+// const allTodos = document.querySelectorAll("#todos");
+const todo = document.querySelector("#todos .todo");
+
+//! Instead of calling multiple styles through JS
+// todo.style.color = "gray";
+// todo.style.textDecoration = "line-through";
+// todo.style.fontSize = "20px";
+// todo.style.opacity = "50%";
+
+//! You can just set an element to a new style class
+todo.getAttribute("class");
+todo.setAttribute("class", "done");
 //!======================================
 //* Creating Elements (lecture #147)
 //!======================================
