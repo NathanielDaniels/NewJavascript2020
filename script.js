@@ -2276,7 +2276,7 @@ let js = document.getElementById("js");
 //!======================================
 //* Manipulating Classes (lecture #146)
 
-const todo = document.querySelector("#todos .todo");
+// const todo = document.querySelector("#todos .todo");
 
 //! Instead of calling multiple styles through JS
 // todo.style.color = "gray";
@@ -2298,6 +2298,18 @@ const todo = document.querySelector("#todos .todo");
 // todo.classList.toggle("done");
 //!======================================
 //* Creating Elements (lecture #147)
+
+// const todo = document.querySelector("#todos .todo");
+// const todos = document.querySelector("#todos");
+
+// const newH2 = document.createElement("h2");
+// newH2.innerHTML = "<b>Hello H2!</b>";
+// newH2.classList.add("done");
+// todos.appendChild(newH2);
+
+// console.log(newH2);
+
+// console.log(todos);
 //!======================================
 //* Append, Prepend, & insertBefore (lecture #148)
 //!======================================
