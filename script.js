@@ -2479,7 +2479,85 @@ const warriorsGames = [
   }
 ];
 
-console.log(warriorsGames.points);
+const container = document.querySelector(".container");
+const ulParent = document.createElement("ul");
+for (let game of warriorsGames) {
+  const { homeTeam, awayTeam } = game;
+  const gameLi = document.createElement("li");
+  const { team: hTeam, points: hPoints } = homeTeam;
+  const { team: aTeam, points: aPoints } = awayTeam;
+  let scoreLine;
+  let teamNames;
+  if (aPoints > hPoints) {
+    scoreLine = `<b>${aPoints}</b> - ${hPoints}`;
+    teamNames = `<b>${aTeam}</b> @ ${hTeam}`;
+  } else {
+    scoreLine = `${aPoints} - <b>${hPoints}</b>`;
+    teamNames = `${aTeam} @ <b>${hTeam}</b>`;
+  }
+
+  const warriors = hTeam === "Golden State" ? homeTeam : awayTeam;
+  gameLi.classList.add(warriors.isWinner ? "win" : "loss");
+  gameLi.innerHTML = `${teamNames} ${scoreLine}`;
+
+  ulParent.appendChild(gameLi);
+}
+
+container.appendChild(ulParent);
+//==========================================
+// My Doing
+// const warriorsAwayPoints = [];
+// const warriorsHomePoints = [];
+
+// const warriors = () => {
+//   const warriorsAway = function() {
+//     for (let games of warriorsGames) {
+//       if (games.awayTeam.team === "Golden State") {
+//         const points = games.awayTeam.points;
+//         warriorsAwayPoints.push(points);
+//       }
+//     }
+//   };
+//   const warriorsHome = function() {
+//     for (let game of warriorsGames) {
+//       if (game.homeTeam.team === "Golden State") {
+//         const points = game.homeTeam.points;
+//         warriorsHomePoints.push(points);
+//       }
+//     }
+//   };
+
+//   warriorsAway();
+//   warriorsHome();
+// };
+
+// warriors();
+
+// console.log(warriorsAwayPoints);
+// console.log(warriorsHomePoints);
+
+// const awayTeamPoints = function() {
+//   for (let games of warriorsGames) {
+//     return games.awayTeam.points;
+//   }
+// };
+// const homeTeamPoints = function() {
+//   for (let games of warriorsGames) {
+//     return games.homeTeam.points;
+//   }
+// };
+
+// const awayVsHome = () => {
+//   const awayPoints = Math.floor(awayTeamPoints());
+//   const homePoints = Math.floor(homeTeamPoints());
+//   if (awayPoints > homePoints) {
+//     console.log("Away Team wins!");
+//   } else {
+//     console.log("home team wins!");
+//   }
+// };
+
+// awayVsHome();
 //!======================================
 //* NBA Scores Chart Refactor (lecture #151)
 
