@@ -2530,6 +2530,51 @@ let js = document.getElementById("js");
 //!=======================================
 //!=======================================
 //* Section 15: Communicating with Events (152-161)
+//? clicks
+//? drags
+//? drops
+//? hovers
+//? scrolls
+//? form submission
+//? key presses
+//? focus/blur
+//? mouse wheel
+//? double click
+//? copying
+//? pasting
+//? audio start
+//? screen resize
+//? printing
+
+document.addEventListener("mouseleave", () => {
+  console.log("you left the screen!");
+});
+
+//!===============
+//* Intro to DOM Events
+
+//!===============
+//* 2 Ways NOT to Add Events
+
+//!===============
+//* addEventListener
+
+//!===============
+//* The Impossible Button Demo
+
+//!===============
+//* Events on Multiple Elements
+
+//!===============
+//* Event Object
+//!===============
+//* Key Events: Keypress, keyup, & keydown
+//!===============
+//* Coin Game Demo
+//!===============
+//* Form Events & PreventDefault
+//!===============
+//* Input & Change Events
 
 //!======================================
 //* Closure
