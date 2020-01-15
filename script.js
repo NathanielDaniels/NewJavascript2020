@@ -2390,191 +2390,147 @@ let js = document.getElementById("js");
 // const firstLi = document.querySelector("li");
 // firstLi.remove();
 //!======================================
-//* NBA Scores Chart Pt.1 (lecture #150)
+//* NBA Scores Chart Pt.1 (lecture #150) + (lecture #151)
+//? Creating Dynamic Charts
 
-const warriorsGames = [
-  {
-    awayTeam: {
-      team: "Golden State",
-      points: 119,
-      isWinner: true
-    },
-    homeTeam: {
-      team: "Houston",
-      points: 106,
-      isWinner: false
-    }
-  },
-  {
-    awayTeam: {
-      team: "Golden State",
-      points: 105,
-      isWinner: false
-    },
-    homeTeam: {
-      team: "Houston",
-      points: 127,
-      isWinner: true
-    }
-  },
-  {
-    homeTeam: {
-      team: "Golden State",
-      points: 126,
-      isWinner: true
-    },
-    awayTeam: {
-      team: "Houston",
-      points: 85,
-      isWinner: false
-    }
-  },
-  {
-    homeTeam: {
-      team: "Golden State",
-      points: 92,
-      isWinner: false
-    },
-    awayTeam: {
-      team: "Houston",
-      points: 95,
-      isWinner: true
-    }
-  },
-  {
-    awayTeam: {
-      team: "Golden State",
-      points: 94,
-      isWinner: false
-    },
-    homeTeam: {
-      team: "Houston",
-      points: 98,
-      isWinner: true
-    }
-  },
-  {
-    homeTeam: {
-      team: "Golden State",
-      points: 115,
-      isWinner: true
-    },
-    awayTeam: {
-      team: "Houston",
-      points: 86,
-      isWinner: false
-    }
-  },
-  {
-    awayTeam: {
-      team: "Golden State",
-      points: 101,
-      isWinner: true
-    },
-    homeTeam: {
-      team: "Houston",
-      points: 92,
-      isWinner: false
-    }
-  }
-];
-
-const makeChart = games => {
-  const container = document.querySelector(".container");
-  const ulParent = document.createElement("ul");
-  for (let game of games) {
-    const { homeTeam, awayTeam } = game;
-    const gameLi = document.createElement("li");
-    gameLi.innerHTML = getScoreLine(game);
-
-    // const warriors = hTeam === "Golden State" ? homeTeam : awayTeam;
-    // gameLi.classList.add(warriors.isWinner ? "win" : "loss");
-
-    ulParent.appendChild(gameLi);
-  }
-  return ulParent;
-};
-
-const getScoreLine = ({ homeTeam, awayTeam }) => {
-  const { team: hTeam, points: hPoints } = homeTeam;
-  const { team: aTeam, points: aPoints } = awayTeam;
-  let scoreLine;
-  let teamNames;
-  if (aPoints > hPoints) {
-    scoreLine = `<b>${aPoints}</b> - ${hPoints}`;
-    teamNames = `<b>${aTeam}</b> @ ${hTeam}`;
-  } else {
-    scoreLine = `${aPoints} - <b>${hPoints}</b>`;
-    teamNames = `${aTeam} @ <b>${hTeam}</b>`;
-  }
-  return `${teamNames} ${scoreLine}`;
-};
-
-const chart1 = makeChart(warriorsGames, "Golden State");
-document.body.prepend(chart1);
-
-// const chart2 = makeChart(warriorsGames, "houston");
-// document.body.prepend(chart2);
-//==========================================
-// My Doing
-// const warriorsAwayPoints = [];
-// const warriorsHomePoints = [];
-
-// const warriors = () => {
-//   const warriorsAway = function() {
-//     for (let games of warriorsGames) {
-//       if (games.awayTeam.team === "Golden State") {
-//         const points = games.awayTeam.points;
-//         warriorsAwayPoints.push(points);
-//       }
+// const warriorsGames = [
+//   {
+//     awayTeam: {
+//       team: "Golden State",
+//       points: 119,
+//       isWinner: true
+//     },
+//     homeTeam: {
+//       team: "Houston",
+//       points: 106,
+//       isWinner: false
 //     }
-//   };
-//   const warriorsHome = function() {
-//     for (let game of warriorsGames) {
-//       if (game.homeTeam.team === "Golden State") {
-//         const points = game.homeTeam.points;
-//         warriorsHomePoints.push(points);
-//       }
+//   },
+//   {
+//     awayTeam: {
+//       team: "Golden State",
+//       points: 105,
+//       isWinner: false
+//     },
+//     homeTeam: {
+//       team: "Houston",
+//       points: 127,
+//       isWinner: true
 //     }
-//   };
-
-//   warriorsAway();
-//   warriorsHome();
-// };
-
-// warriors();
-
-// console.log(warriorsAwayPoints);
-// console.log(warriorsHomePoints);
-
-// const awayTeamPoints = function() {
-//   for (let games of warriorsGames) {
-//     return games.awayTeam.points;
+//   },
+//   {
+//     homeTeam: {
+//       team: "Golden State",
+//       points: 126,
+//       isWinner: true
+//     },
+//     awayTeam: {
+//       team: "Houston",
+//       points: 85,
+//       isWinner: false
+//     }
+//   },
+//   {
+//     homeTeam: {
+//       team: "Golden State",
+//       points: 92,
+//       isWinner: false
+//     },
+//     awayTeam: {
+//       team: "Houston",
+//       points: 95,
+//       isWinner: true
+//     }
+//   },
+//   {
+//     awayTeam: {
+//       team: "Golden State",
+//       points: 94,
+//       isWinner: false
+//     },
+//     homeTeam: {
+//       team: "Houston",
+//       points: 98,
+//       isWinner: true
+//     }
+//   },
+//   {
+//     homeTeam: {
+//       team: "Golden State",
+//       points: 115,
+//       isWinner: true
+//     },
+//     awayTeam: {
+//       team: "Houston",
+//       points: 86,
+//       isWinner: false
+//     }
+//   },
+//   {
+//     awayTeam: {
+//       team: "Golden State",
+//       points: 101,
+//       isWinner: true
+//     },
+//     homeTeam: {
+//       team: "Houston",
+//       points: 92,
+//       isWinner: false
+//     }
 //   }
-// };
-// const homeTeamPoints = function() {
-//   for (let games of warriorsGames) {
-//     return games.homeTeam.points;
+// ];
+
+// const makeChart = (games, targetTeam) => {
+//   const container = document.querySelector(".container");
+//   const ulParent = document.createElement("ul");
+//   for (let game of games) {
+//     const { homeTeam, awayTeam } = game;
+//     const gameLi = document.createElement("li");
+//     gameLi.innerHTML = getScoreLine(game);
+
+//     gameLi.classList.add(isWinner(game, targetTeam) ? "win" : "loss");
+
+//     ulParent.appendChild(gameLi);
 //   }
+//   return ulParent;
 // };
 
-// const awayVsHome = () => {
-//   const awayPoints = Math.floor(awayTeamPoints());
-//   const homePoints = Math.floor(homeTeamPoints());
-//   if (awayPoints > homePoints) {
-//     console.log("Away Team wins!");
+// const isWinner = ({ homeTeam, awayTeam }, targetTeam) => {
+//   const target = homeTeam.team === targetTeam ? homeTeam : awayTeam;
+//   return target.isWinner;
+// };
+
+// const getScoreLine = ({ homeTeam, awayTeam }) => {
+//   const { team: hTeam, points: hPoints } = homeTeam;
+//   const { team: aTeam, points: aPoints } = awayTeam;
+//   let scoreLine;
+//   let teamNames;
+//   if (aPoints > hPoints) {
+//     scoreLine = `<b>${aPoints}</b> - ${hPoints}`;
+//     teamNames = `<b>${aTeam}</b> @ ${hTeam}`;
 //   } else {
-//     console.log("home team wins!");
+//     scoreLine = `${aPoints} - <b>${hPoints}</b>`;
+//     teamNames = `${aTeam} @ <b>${hTeam}</b>`;
 //   }
+//   return `${teamNames} ${scoreLine}`;
 // };
 
-// awayVsHome();
-//!======================================
-//* NBA Scores Chart Refactor (lecture #151)
+// gsSection = document.getElementById("gs");
+// hrSection = document.getElementById("hr");
+
+// const gsChart = makeChart(warriorsGames, "Golden State");
+// // document.body.prepend(chart1);
+// gsSection.appendChild(gsChart);
+
+// const hrChart = makeChart(warriorsGames, "Houston");
+// // document.body.prepend(chart2);
+// hrSection.appendChild(hrChart);
+//==========================================
 
 //!=======================================
 //!=======================================
-//* Section 15: Communicating with Events
+//* Section 15: Communicating with Events (152-161)
+
 //!======================================
 //* Closure
 
