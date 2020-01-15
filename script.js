@@ -2482,7 +2482,7 @@ const warriorsGames = [
 const makeChart = games => {
   const container = document.querySelector(".container");
   const ulParent = document.createElement("ul");
-  for (let game of warriorsGames) {
+  for (let game of games) {
     const { homeTeam, awayTeam } = game;
     const gameLi = document.createElement("li");
     const { team: hTeam, points: hPoints } = homeTeam;
@@ -2503,10 +2503,14 @@ const makeChart = games => {
 
     ulParent.appendChild(gameLi);
   }
-  container.appendChild(ulParent);
+  return ulParent;
 };
 
-makeChart(warriorsGames);
+const chart1 = makeChart(warriorsGames);
+document.body.prepend(chart1);
+
+const chart2 = makeChart(warriorsGames);
+document.body.prepend(chart2);
 //==========================================
 // My Doing
 // const warriorsAwayPoints = [];
