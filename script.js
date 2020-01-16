@@ -2530,6 +2530,8 @@ let js = document.getElementById("js");
 //!=======================================
 //!=======================================
 //* Section 15: Communicating with Events (152-161)
+//* Intro to DOM Events
+
 //? clicks
 //? drags
 //? drops
@@ -2553,10 +2555,6 @@ let js = document.getElementById("js");
 // document.addEventListener("mouseout", () => {
 //   alert("Don't leave Me!!");
 // });
-
-//!===============
-//* Intro to DOM Events
-
 //!===============
 //* 2 Ways NOT to Add Events
 
