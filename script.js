@@ -2538,17 +2538,21 @@ let js = document.getElementById("js");
 //? form submission
 //? key presses
 //? focus/blur
-//? mouse wheel
-//? double click
+//? mousewheel
+//? dblclick (double click)
 //? copying
 //? pasting
 //? audio start
 //? screen resize
 //? printing
+//? ....
 
-document.addEventListener("mouseleave", () => {
-  console.log("you left the screen!");
-});
+//! Fun test using Event listener on DOM w/ mouseleave.
+//? This is what websites use to alert for sign up before leaving page
+// // const btn = document.getElementById("button");
+// document.addEventListener("mouseout", () => {
+//   alert("Don't leave Me!!");
+// });
 
 //!===============
 //* Intro to DOM Events
