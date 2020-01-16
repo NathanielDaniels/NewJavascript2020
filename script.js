@@ -2558,8 +2558,36 @@ let js = document.getElementById("js");
 //!===============
 //* 2 Ways NOT to Add Events
 
+//==================================
+// the thing     event type     the code to run
+// button          click          change the color
+// input          hits return      get searching result
+// image           mouseover        display the img caption
+//==================================
+
+//! First is not to add onclick events to inline HTML Elements
+
+//! Second is to add an event to a button that runs a function
+//? locate btn in DOM
+// const btn = document.getElementById("button");
+//? Add a mouseover event to btn.
+// btn.onmouseover = function() {
+//   console.log("hover btn");
+// };
+
+//! You are forced to keep track of all these event functions
+
 //!===============
 //* addEventListener
+//! .addEventListener method is a dynamic way to watch for events without cluttering up HTML properties. You can also attach multiple events to a single element (which you can't do with the other two)
+
+//? locate btn in DOM
+const btn = document.getElementById("button");
+
+//? Add click event to btn
+btn.addEventListener("click", () => {
+  console.log("clicked");
+});
 
 //!===============
 //* The Impossible Button Demo
