@@ -2581,16 +2581,56 @@ let js = document.getElementById("js");
 //* addEventListener
 //! .addEventListener method is a dynamic way to watch for events without cluttering up HTML properties. You can also attach multiple events to a single element (which you can't do with the other two)
 
-//? locate btn in DOM
-const btn = document.getElementById("button");
+// //? locate btn in DOM
+// const btn = document.getElementById("button");
 
-//? Add click event to btn
-btn.addEventListener("click", () => {
-  console.log("clicked");
-});
+// //? Add click event to btn
+// btn.addEventListener("click", () => {
+//   console.log("clicked");
+// });
+
+// //? you can also add multiple events to a single element (btn)
+// btn.addEventListener("mouseover", function() {
+//   btn.innerText = "No Touch!!";
+//   btn.style.cursor = "pointer";
+// });
+
+// btn.addEventListener("mouseout", function() {
+//   btn.innerText = "Click Me";
+// });
+
+// //? You can also add events to window object (DOM)
+// //! this is how websites use popups to get you to sign up before you leave the page
+// window.addEventListener("mouseout", () => {
+//   console.log("leaving window");
+// });
 
 //!===============
 //* The Impossible Button Demo
+
+const btn = document.getElementById("button");
+
+btn.addEventListener("click", function() {
+  alert("you clicked the button");
+});
+
+btn.addEventListener("mouseover", function() {
+  btn.style.cursor = "pointer";
+  const w = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
+  );
+  const h = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0
+  );
+  btn.style.left = `${Math.floor(Math.random() * w)}px`;
+  btn.style.top = `${Math.floor(Math.random() * h)}px`;
+});
+// btn.addEventListener("mouseleave", function() {
+//   btn.style.left = `${Math.floor(Math.random() * 100)}px`;
+//   btn.style.top = `${Math.floor(Math.random() * 100)}px`;
+// });
 
 //!===============
 //* Events on Multiple Elements
