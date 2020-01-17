@@ -1,3 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
 li {
   color: blue;
 }
@@ -31,4 +42,24 @@ button {
   top: 0;
   left: 0;
   transition: all 0.3s ease-in-out;
+}
+
+#boxes {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 200px;
+  height: 150px;
+}
+
+h1 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 3rem;
 }

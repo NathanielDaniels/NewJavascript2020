@@ -1,3 +1,5 @@
+//2609 Impossible Button Demo
+
 let js = document.getElementById("js");
 
 //* ====================
@@ -2608,28 +2610,79 @@ let js = document.getElementById("js");
 //!===============
 //* The Impossible Button Demo
 
-const btn = document.getElementById("button");
+// const btn = document.getElementById("button");
 
-btn.addEventListener("click", function() {
-  btn.innerHTML = "<b>You Got Me!!</b>";
-  btn.style.backgroundColor = "blueviolet";
-  btn.style.color = "white";
-});
+// btn.addEventListener("click", function() {
+//   btn.innerHTML = "<b>You Got Me!!</b>";
+//   btn.style.backgroundColor = "blueviolet";
+//   btn.style.color = "white";
+//   document.body.style.backgroundColor = "green";
+// });
 
-btn.addEventListener("mouseover", function() {
-  btn.style.cursor = "pointer";
-  const width = Math.floor(Math.random() * window.innerWidth);
-  const height = Math.floor(Math.random() * window.innerHeight);
-  btn.style.left = `${width}px`;
-  btn.style.top = `${height}px`;
-});
+// btn.addEventListener("mouseover", function() {
+//   btn.style.cursor = "pointer";
+//   const width = Math.floor(Math.random() * window.innerWidth);
+//   const height = Math.floor(Math.random() * window.innerHeight);
+//   btn.style.left = `${width}px`;
+//   btn.style.top = `${height}px`;
+// });
 //!===============
 //* Events on Multiple Elements
+//? loop through array, adding each color to the background of a div
 
-//!===============
+const colors = [
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "indigo",
+  "violet"
+];
+
+//? You can seperate functions for readability
+//? this is an "event handler"
+const changeColor = function() {
+  const h1 = document.querySelector("h1");
+  h1.style.color = this.style.backgroundColor;
+  console.log(`clicked ${this.style.backgroundColor} box`);
+};
+
+const container = document.getElementById("boxes");
+
+const pick = document.getElementById("displayPick");
+
+for (color of colors) {
+  const box = document.createElement("div");
+  box.style.backgroundColor = color;
+  box.style.cursor = "pointer";
+  box.classList.add("box");
+  container.appendChild(box);
+  box.addEventListener("click", changeColor);
+}
+
+//! Currently trying to get each div to click (w/ correct color if possible)
+
+console.log(boxes);
+
+//!==
 //* Event Object
+
+// document.body.addEventListener("keypress", function(e) {
+//   console.log(e);
+// });
 //!===============
 //* Key Events: Keypress, keyup, & keydown
+
+const addItemInput = document.querySelector("#addItemInput");
+const itemsUL = document.querySelector("#items");
+
+addItemInput.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    console.log("you pressed enter");
+  }
+});
 //!===============
 //* Coin Game Demo
 //!===============
