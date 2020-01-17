@@ -2611,27 +2611,18 @@ let js = document.getElementById("js");
 const btn = document.getElementById("button");
 
 btn.addEventListener("click", function() {
-  alert("you clicked the button");
+  btn.innerHTML = "<b>You Got Me!!</b>";
+  btn.style.backgroundColor = "blueviolet";
+  btn.style.color = "white";
 });
 
 btn.addEventListener("mouseover", function() {
   btn.style.cursor = "pointer";
-  const w = Math.max(
-    document.documentElement.clientWidth,
-    window.innerWidth || 0
-  );
-  const h = Math.max(
-    document.documentElement.clientHeight,
-    window.innerHeight || 0
-  );
-  btn.style.left = `${Math.floor(Math.random() * w)}px`;
-  btn.style.top = `${Math.floor(Math.random() * h)}px`;
+  const width = Math.floor(Math.random() * window.innerWidth);
+  const height = Math.floor(Math.random() * window.innerHeight);
+  btn.style.left = `${width}px`;
+  btn.style.top = `${height}px`;
 });
-// btn.addEventListener("mouseleave", function() {
-//   btn.style.left = `${Math.floor(Math.random() * 100)}px`;
-//   btn.style.top = `${Math.floor(Math.random() * 100)}px`;
-// });
-
 //!===============
 //* Events on Multiple Elements
 

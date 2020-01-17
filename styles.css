@@ -26,6 +26,7 @@ li {
 
 /* The impossible button demo */
 button {
+  padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
