@@ -2675,14 +2675,19 @@ console.log(boxes);
 //!===============
 //* Key Events: Keypress, keyup, & keydown
 
-const addItemInput = document.querySelector("#addItemInput");
-const itemsUL = document.querySelector("#items");
+// const addItemInput = document.querySelector("#addItemInput");
+// const itemsUL = document.querySelector("#items");
 
-addItemInput.addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    console.log("you pressed enter");
-  }
-});
+// addItemInput.addEventListener("keydown", function(e) {
+//   if (e.key === "Enter") {
+//     if (!this.value) return;
+//     const li = document.createElement("li");
+//     // li.append(this.value);
+//     li.innerText = this.value;
+//     itemsUL.appendChild(li);
+//     this.value = "";
+//   }
+// });
 //!===============
 //* Coin Game Demo
 //!===============
