@@ -63,3 +63,12 @@ h1 {
   transform: translate(-50%);
   font-size: 3rem;
 }
+
+/* Coin Toss Game */
+
+img {
+  width: 100px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+}
