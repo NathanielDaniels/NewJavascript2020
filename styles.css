@@ -9,66 +9,74 @@ body {
   width: 100%;
 }
 
-li {
+/* li {
   color: blue;
-}
+} */
 
-.todo {
+/* .todo {
   font-size: 30px;
   color: olive;
-}
+} */
 
-.done {
+/* .done {
   color: gray;
   text-decoration: line-through;
   opacity: 50%;
-}
+} */
 
 /* b {
   color: orangered;
 } */
 
-.win {
+/* .win {
   background-color: rgba(0, 255, 0, 0.3);
-}
-.loss {
+} */
+/* .loss {
   background-color: rgba(255, 0, 0, 0.3);
-}
+} */
 
 /* The impossible button demo */
-button {
+/* button {
   padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.3s ease-in-out;
-}
+} */
 
-#boxes {
+/* #boxes {
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.box {
+/* .box {
   width: 200px;
   height: 150px;
-}
+} */
 
-h1 {
+/* h1 {
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translate(-50%);
   font-size: 3rem;
-}
+} */
 
 /* Coin Toss Game */
 
 img {
-  width: 100px;
+  width: 4rem;
   position: absolute;
   top: 100px;
   left: 10px;
+}
+
+/* img#coin {
+  margin: 50px 100px;
+} */
+
+img#player {
+  top: 100px;
 }

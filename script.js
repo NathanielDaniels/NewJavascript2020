@@ -2630,41 +2630,41 @@ let js = document.getElementById("js");
 //* Events on Multiple Elements
 //? loop through array, adding each color to the background of a div
 
-const colors = [
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "purple",
-  "indigo",
-  "violet"
-];
+// const colors = [
+//   "red",
+//   "orange",
+//   "yellow",
+//   "green",
+//   "blue",
+//   "purple",
+//   "indigo",
+//   "violet"
+// ];
 
-//? You can seperate functions for readability
-//? this is an "event handler"
-const changeColor = function() {
-  const h1 = document.querySelector("h1");
-  h1.style.color = this.style.backgroundColor;
-  console.log(`clicked ${this.style.backgroundColor} box`);
-};
+// //? You can seperate functions for readability
+// //? this is an "event handler"
+// const changeColor = function() {
+//   const h1 = document.querySelector("h1");
+//   h1.style.color = this.style.backgroundColor;
+//   console.log(`clicked ${this.style.backgroundColor} box`);
+// };
 
-const container = document.getElementById("boxes");
+// const container = document.getElementById("boxes");
 
-const pick = document.getElementById("displayPick");
+// const pick = document.getElementById("displayPick");
 
-for (color of colors) {
-  const box = document.createElement("div");
-  box.style.backgroundColor = color;
-  box.style.cursor = "pointer";
-  box.classList.add("box");
-  container.appendChild(box);
-  box.addEventListener("click", changeColor);
-}
+// for (color of colors) {
+//   const box = document.createElement("div");
+//   box.style.backgroundColor = color;
+//   box.style.cursor = "pointer";
+//   box.classList.add("box");
+//   container.appendChild(box);
+//   box.addEventListener("click", changeColor);
+// }
 
-//! Currently trying to get each div to click (w/ correct color if possible)
+// //! Currently trying to get each div to click (w/ correct color if possible)
 
-console.log(boxes);
+// console.log(boxes);
 
 //!==
 //* Event Object
@@ -2691,17 +2691,57 @@ console.log(boxes);
 //!===============
 //* Coin Game Demo
 
-// function isTouching(a, b) {
-//   const aRect = a.getBoundingClientRect();
-//   const bRect = b.getBoundingClientRect();
+const player = document.getElementById("player");
+const coin = document.getElementById("coin");
 
-//   return !(
-//     aRect.top + aRect.height < bRect.top ||
-//     aRect.top > bRect.top + bRect.height ||
-//     aRect.left + aRect.width < bRect.left ||
-//     aRect.left > bRect.left + bRect.width
-//   );
-// }
+window.addEventListener("keydown", function(e) {
+  const currTop = extractPos(player.style.top);
+  const currLeft = extractPos(player.style.left);
+  const currRight = extractPos(player.style.right);
+  const currBottom = extractPos(player.style.bottom);
+
+  switch (e.key) {
+    case "ArrowLeft":
+      console.log("left");
+      player.style.right = `${currRight + 50}px`;
+      break;
+    case "ArrowRight":
+      console.log("Right");
+      player.style.left = `${currLeft + 50}px`;
+      break;
+    case "ArrowUp":
+      console.log("Up");
+      player.style.bottom = `${currBottom + 50}px`;
+      break;
+    case "ArrowDown":
+      console.log("Down");
+      player.style.top = `${currTop + 50}px`;
+      break;
+    default:
+      return;
+  }
+});
+
+// let pos = "240px";
+// parseInt(pos.slice(0, -2));
+// console.log(pos);
+
+const extractPos = pos => {
+  if (!pos) return 0;
+  console.log(pos);
+  return parseInt(pos.slice(0, -2));
+};
+
+function isTouching(a, b) {
+  const aRect = a.getBoundingClientRect();
+  const bRect = b.getBoundingClientRect();
+  return !(
+    aRect.top + aRect.height < bRect.top ||
+    aRect.top > bRect.top + bRect.height ||
+    aRect.left + aRect.width < bRect.left ||
+    aRect.left > bRect.left + bRect.width
+  );
+}
 
 //!===============
 //* Form Events & PreventDefault
