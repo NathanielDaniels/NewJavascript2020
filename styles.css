@@ -7,6 +7,7 @@
 body {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 /* li {
@@ -73,10 +74,16 @@ img {
   left: 100px;
 }
 
-/* img#coin {
-  margin: 50px 100px;
-} */
+img#coin {
+  transition: all 1s ease-in-out;
+}
 
 img#player {
   top: 100px;
+  transition: all 0.1s ease-in-out;
+}
+
+h1.postScore {
+  position: float;
+  left: 0;
 }

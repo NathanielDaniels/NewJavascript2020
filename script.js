@@ -2693,43 +2693,60 @@ let js = document.getElementById("js");
 
 const player = document.getElementById("player");
 const coin = document.getElementById("coin");
+const postScore = document.querySelector("#postScore");
+let score = 0;
 
-window.addEventListener("keydown", function(e) {
+window.addEventListener("keyup", function(e) {
   const currTop = extractPos(player.style.top);
   const currLeft = extractPos(player.style.left);
   switch (e.key) {
     case "ArrowLeft" || "Left":
-      // console.log("left");
       player.style.transform = "scaleX(-1)";
-      player.style.left = `${currLeft - 50}px`;
+      moveHorizontal(player, -50);
       break;
     case "ArrowRight" || "Right":
-      // console.log("Right");
       player.style.transform = "scaleX(1)";
-      player.style.left = `${currLeft + 50}px`;
+      moveHorizontal(player, 50);
       break;
     case "ArrowUp" || "Up":
-      // console.log("Up");
       player.style.transform = "scaleX(-1)";
-      player.style.top = `${currTop - 50}px`;
+      moveVertical(player, -50);
       break;
     case "ArrowDown" || "Down":
-      // console.log("Down");
       player.style.transform = "scaleX(1)";
-      player.style.top = `${currTop + 50}px`;
+      moveVertical(player, 50);
       break;
     default:
       return;
   }
+  if (isTouching(coin, player)) {
+    score++;
+    postScore.innerText = `Points: ${score}`;
+    moveCoin();
+  }
 });
 
-// let pos = "240px";
-// parseInt(pos.slice(0, -2));
-// console.log(pos);
+const moveVertical = (element, amount) => {
+  const currTop = extractPos(element.style.top);
+  element.style.top = `${currTop + amount}px`;
+};
+
+const moveHorizontal = (element, amount) => {
+  const currLeft = extractPos(element.style.left);
+  element.style.left = `${currLeft + amount}px`;
+};
+
+const moveCoin = () => {
+  const height = Math.floor(Math.random() * window.innerHeight);
+  const width = Math.floor(Math.random() * window.innerWidth);
+  coin.style.top = `${height}px`;
+  coin.style.left = `${width}px`;
+};
+
+moveCoin();
 
 const extractPos = pos => {
   if (!pos) return 100;
-  console.log(pos);
   return parseInt(pos.slice(0, -2));
 };
 
@@ -2743,6 +2760,8 @@ function isTouching(a, b) {
     aRect.left > bRect.left + bRect.width
   );
 }
+
+isTouching(player, coin);
 
 //!===============
 //* Form Events & PreventDefault
