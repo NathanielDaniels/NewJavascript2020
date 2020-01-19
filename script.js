@@ -2691,80 +2691,82 @@ let js = document.getElementById("js");
 //!===============
 //* Coin Game Demo
 
-const player = document.getElementById("player");
-const coin = document.getElementById("coin");
-const postScore = document.querySelector("#postScore");
-let score = 0;
+// const player = document.getElementById("player");
+// const coin = document.getElementById("coin");
+// const postScore = document.querySelector("#postScore");
+// let score = 0;
 
-window.addEventListener("keyup", function(e) {
-  const currTop = extractPos(player.style.top);
-  const currLeft = extractPos(player.style.left);
-  switch (e.key) {
-    case "ArrowLeft" || "Left":
-      player.style.transform = "scaleX(-1)";
-      moveHorizontal(player, -50);
-      break;
-    case "ArrowRight" || "Right":
-      player.style.transform = "scaleX(1)";
-      moveHorizontal(player, 50);
-      break;
-    case "ArrowUp" || "Up":
-      player.style.transform = "scaleX(-1)";
-      moveVertical(player, -50);
-      break;
-    case "ArrowDown" || "Down":
-      player.style.transform = "scaleX(1)";
-      moveVertical(player, 50);
-      break;
-    default:
-      return;
-  }
-  if (isTouching(coin, player)) {
-    score++;
-    postScore.innerText = `Points: ${score}`;
-    moveCoin();
-  }
-});
+// window.addEventListener("keyup", function(e) {
+//   const currTop = extractPos(player.style.top);
+//   const currLeft = extractPos(player.style.left);
+//   switch (e.key) {
+//     case "ArrowLeft" || "Left":
+//       player.style.transform = "scaleX(-1)";
+//       moveHorizontal(player, -50);
+//       break;
+//     case "ArrowRight" || "Right":
+//       player.style.transform = "scaleX(1)";
+//       moveHorizontal(player, 50);
+//       break;
+//     case "ArrowUp" || "Up":
+//       player.style.transform = "scaleX(-1)";
+//       moveVertical(player, -50);
+//       break;
+//     case "ArrowDown" || "Down":
+//       player.style.transform = "scaleX(1)";
+//       moveVertical(player, 50);
+//       break;
+//     default:
+//       return;
+//   }
+//   if (isTouching(coin, player)) {
+//     score++;
+//     postScore.innerText = `Points: ${score}`;
+//     moveCoin();
+//   }
+// });
 
-const moveVertical = (element, amount) => {
-  const currTop = extractPos(element.style.top);
-  element.style.top = `${currTop + amount}px`;
-};
+// const moveVertical = (element, amount) => {
+//   const currTop = extractPos(element.style.top);
+//   element.style.top = `${currTop + amount}px`;
+// };
 
-const moveHorizontal = (element, amount) => {
-  const currLeft = extractPos(element.style.left);
-  element.style.left = `${currLeft + amount}px`;
-};
+// const moveHorizontal = (element, amount) => {
+//   const currLeft = extractPos(element.style.left);
+//   element.style.left = `${currLeft + amount}px`;
+// };
 
-const moveCoin = () => {
-  const height = Math.floor(Math.random() * window.innerHeight);
-  const width = Math.floor(Math.random() * window.innerWidth);
-  coin.style.top = `${height}px`;
-  coin.style.left = `${width}px`;
-};
+// const moveCoin = () => {
+//   const height = Math.floor(Math.random() * window.innerHeight);
+//   const width = Math.floor(Math.random() * window.innerWidth);
+//   coin.style.top = `${height}px`;
+//   coin.style.left = `${width}px`;
+// };
 
-moveCoin();
+// moveCoin();
 
-const extractPos = pos => {
-  if (!pos) return 100;
-  return parseInt(pos.slice(0, -2));
-};
+// const extractPos = pos => {
+//   if (!pos) return 100;
+//   return parseInt(pos.slice(0, -2));
+// };
 
-function isTouching(a, b) {
-  const aRect = a.getBoundingClientRect();
-  const bRect = b.getBoundingClientRect();
-  return !(
-    aRect.top + aRect.height < bRect.top ||
-    aRect.top > bRect.top + bRect.height ||
-    aRect.left + aRect.width < bRect.left ||
-    aRect.left > bRect.left + bRect.width
-  );
-}
+// function isTouching(a, b) {
+//   const aRect = a.getBoundingClientRect();
+//   const bRect = b.getBoundingClientRect();
+//   return !(
+//     aRect.top + aRect.height < bRect.top ||
+//     aRect.top > bRect.top + bRect.height ||
+//     aRect.left + aRect.width < bRect.left ||
+//     aRect.left > bRect.left + bRect.width
+//   );
+// }
 
-isTouching(player, coin);
+// isTouching(player, coin);
 
 //!===============
 //* Form Events & PreventDefault
+//? PreventDefault is used on forms to stop the page from reloading
+
 //!===============
 //* Input & Change Events
 
