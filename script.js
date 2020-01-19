@@ -2697,24 +2697,25 @@ const coin = document.getElementById("coin");
 window.addEventListener("keydown", function(e) {
   const currTop = extractPos(player.style.top);
   const currLeft = extractPos(player.style.left);
-  const currRight = extractPos(player.style.right);
-  const currBottom = extractPos(player.style.bottom);
-
   switch (e.key) {
-    case "ArrowLeft":
-      console.log("left");
-      player.style.right = `${currRight + 50}px`;
+    case "ArrowLeft" || "Left":
+      // console.log("left");
+      player.style.transform = "scaleX(-1)";
+      player.style.left = `${currLeft - 50}px`;
       break;
-    case "ArrowRight":
-      console.log("Right");
+    case "ArrowRight" || "Right":
+      // console.log("Right");
+      player.style.transform = "scaleX(1)";
       player.style.left = `${currLeft + 50}px`;
       break;
-    case "ArrowUp":
-      console.log("Up");
-      player.style.bottom = `${currBottom + 50}px`;
+    case "ArrowUp" || "Up":
+      // console.log("Up");
+      player.style.transform = "scaleX(-1)";
+      player.style.top = `${currTop - 50}px`;
       break;
-    case "ArrowDown":
-      console.log("Down");
+    case "ArrowDown" || "Down":
+      // console.log("Down");
+      player.style.transform = "scaleX(1)";
       player.style.top = `${currTop + 50}px`;
       break;
     default:
@@ -2727,7 +2728,7 @@ window.addEventListener("keydown", function(e) {
 // console.log(pos);
 
 const extractPos = pos => {
-  if (!pos) return 0;
+  if (!pos) return 100;
   console.log(pos);
   return parseInt(pos.slice(0, -2));
 };
