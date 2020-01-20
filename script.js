@@ -2766,6 +2766,19 @@ let js = document.getElementById("js");
 //!===============
 //* Form Events & PreventDefault
 //? PreventDefault is used on forms to stop the page from reloading
+// Extract Data from Form
+
+const creditCard = document.querySelector("input[type=text]");
+const checkbox = document.querySelector("input[type=checkbox]");
+const options = document.querySelector("#options");
+const form = document.querySelector("#signup-form");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  console.log("credit Card: ", creditCard.value);
+  console.log("checkbox: ", checkbox.checked);
+  console.log("Veggie Options: ", options.value);
+});
 
 //!===============
 //* Input & Change Events

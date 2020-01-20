@@ -88,4 +88,8 @@ h1.postScore {
   left: 0;
 } */
 
-/* ================ / Coin Toss Game ===================*/
+/* ================ Form Events / PreventDefault ===================*/
+
+section > form {
+  padding: 20px;
+}
