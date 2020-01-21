@@ -2775,29 +2775,35 @@ const form = document.querySelector("#signup-form");
 
 const formData = {};
 
+for (let input of [creditCard, checkbox, options]) {
+  input.addEventListener("input", e => {
+    formData[e.target.name] = e.target.value;
+  });
+}
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  console.log("credit Card: ", creditCard.value);
-  console.log("checkbox: ", checkbox.checked);
-  console.log("Veggie Options: ", options.value);
+  // console.log("credit Card: ", creditCard.value);
+  // console.log("checkbox: ", checkbox.checked);
+  // console.log("Veggie Options: ", options.value);
 });
 
 // Using THIS (Function Declaration)
-creditCard.addEventListener("input", function(e) {
-  console.log("credit card Changed: ", e);
-  formData["cc"] = this.value;
-});
+// creditCard.addEventListener("input", function(e) {
+//   console.log("credit card Changed: ", e);
+//   formData["cc"] = this.value;
+// });
 
-// Using Arrow Functions
-options.addEventListener("input", e => {
-  console.log("Options Changed: ", e);
-  formData["option"] = e.target.value;
-});
+// // Using Arrow Functions
+// options.addEventListener("input", e => {
+//   console.log("Options Changed: ", e);
+//   formData["option"] = e.target.value;
+// });
 
-checkbox.addEventListener("input", e => {
-  console.log("Checkbox Changed: ", e);
-  formData["checkbox"] = e.target.checked;
-});
+// checkbox.addEventListener("input", e => {
+//   console.log("Checkbox Changed: ", e);
+//   formData["checkbox"] = e.target.checked;
+// });
 
 //!===============
 //* Input & Change Events
