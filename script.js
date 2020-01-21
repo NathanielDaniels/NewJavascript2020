@@ -2773,6 +2773,8 @@ const checkbox = document.querySelector("input[type=checkbox]");
 const options = document.querySelector("#options");
 const form = document.querySelector("#signup-form");
 
+const formData = {};
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   console.log("credit Card: ", creditCard.value);
@@ -2780,8 +2782,29 @@ form.addEventListener("submit", function(e) {
   console.log("Veggie Options: ", options.value);
 });
 
+// Using THIS (Function Declaration)
+creditCard.addEventListener("input", function(e) {
+  console.log("credit card Changed: ", e);
+  formData["cc"] = this.value;
+});
+
+// Using Arrow Functions
+options.addEventListener("input", e => {
+  console.log("Options Changed: ", e);
+  formData["option"] = e.target.value;
+});
+
+checkbox.addEventListener("input", e => {
+  console.log("Checkbox Changed: ", e);
+  formData["checkbox"] = e.target.checked;
+});
+
 //!===============
 //* Input & Change Events
+
+//!=======================================
+//!=======================================
+//* Section 16: Asynchronous Code, Callbacks & Promises (162-171)
 
 //!======================================
 //* Closure
