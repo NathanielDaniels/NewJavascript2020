@@ -2776,19 +2776,21 @@ const form = document.querySelector("#signup-form");
 const formData = {};
 
 for (let input of [creditCard, checkbox, options]) {
-  input.addEventListener("input", e => {
-    formData[e.target.name] = e.target.value;
+  input.addEventListener("input", ({ target }) => {
+    console.log(target);
+    console.log(target.value);
+    formData[target.name] = target.value;
+    if (target.type === "checkbox") {
+      target.value = target.checked;
+    }
   });
 }
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  // console.log("credit Card: ", creditCard.value);
-  // console.log("checkbox: ", checkbox.checked);
-  // console.log("Veggie Options: ", options.value);
 });
 
-// Using THIS (Function Declaration)
+// // Using THIS (Function Declaration)
 // creditCard.addEventListener("input", function(e) {
 //   console.log("credit card Changed: ", e);
 //   formData["cc"] = this.value;
