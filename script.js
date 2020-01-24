@@ -2777,35 +2777,18 @@ const formData = {};
 
 for (let input of [creditCard, checkbox, options]) {
   input.addEventListener("input", ({ target }) => {
-    console.log(target);
-    console.log(target.value);
-    formData[target.name] = target.value;
-    if (target.type === "checkbox") {
-      target.value = target.checked;
-    }
+    const { name, type, value, checked } = target;
+    formData[name] = type === "checkbox" ? checked : value;
+    console.log(formData);
   });
 }
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
+  console.log(creditCard.value);
+  console.log(checkbox.value);
+  console.log(options.value);
 });
-
-// // Using THIS (Function Declaration)
-// creditCard.addEventListener("input", function(e) {
-//   console.log("credit card Changed: ", e);
-//   formData["cc"] = this.value;
-// });
-
-// // Using Arrow Functions
-// options.addEventListener("input", e => {
-//   console.log("Options Changed: ", e);
-//   formData["option"] = e.target.value;
-// });
-
-// checkbox.addEventListener("input", e => {
-//   console.log("Checkbox Changed: ", e);
-//   formData["checkbox"] = e.target.checked;
-// });
 
 //!===============
 //* Input & Change Events
