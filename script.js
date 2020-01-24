@@ -2799,6 +2799,11 @@ let js = document.getElementById("js");
 
 //!===============
 //* The Call Stack
+//? The Mechanism the JS interpreter uses to keep track of its place in a ascript that calls multiple functions
+//? How JS 'Knows' what function is currently being run and what functions are called from with
+
+//! Call Stack - (Call = Function Calls) (Stack = Data Structure)
+//? Stack is a type of Data Structure where the last item is placed on top (stack of books), but the first item removed (pop) takes that top item
 //!===============
 //* Call Stack Debugging w/ Dev Tools
 //!===============
