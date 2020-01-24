@@ -2764,38 +2764,59 @@ let js = document.getElementById("js");
 // isTouching(player, coin);
 
 //!===============
-//* Form Events & PreventDefault
+//* Form Events & PreventDefault &
+//* Input & Change Events
 //? PreventDefault is used on forms to stop the page from reloading
 // Extract Data from Form
 
-const creditCard = document.querySelector("input[type=text]");
-const checkbox = document.querySelector("input[type=checkbox]");
-const options = document.querySelector("#options");
-const form = document.querySelector("#signup-form");
+// const creditCard = document.querySelector("input[type=text]");
+// const checkbox = document.querySelector("input[type=checkbox]");
+// const options = document.querySelector("#options");
+// const form = document.querySelector("#signup-form");
 
-const formData = {};
+// const formData = {};
 
-for (let input of [creditCard, checkbox, options]) {
-  input.addEventListener("input", ({ target }) => {
-    const { name, type, value, checked } = target;
-    formData[name] = type === "checkbox" ? checked : value;
-    console.log(formData);
-  });
-}
+// for (let input of [creditCard, checkbox, options]) {
+//   input.addEventListener("input", ({ target }) => {
+//     const { name, type, value, checked } = target;
+//     formData[name] = type === "checkbox" ? checked : value;
+//     console.log(formData);
+//   });
+// }
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  console.log(creditCard.value);
-  console.log(checkbox.value);
-  console.log(options.value);
-});
+// form.addEventListener("submit", function(e) {
+//   e.preventDefault();
+//   console.log(creditCard.value);
+//   console.log(checkbox.value);
+//   console.log(options.value);
+// });
 
 //!===============
-//* Input & Change Events
 
 //!=======================================
 //!=======================================
 //* Section 16: Asynchronous Code, Callbacks & Promises (162-171)
+
+//!===============
+//* The Call Stack
+//!===============
+//* Call Stack Debugging w/ Dev Tools
+//!===============
+//* JS is Single Threaded
+//!===============
+//* How Asynchronous Callbacks Actually Work
+//!===============
+//* Welcome to Callback Hell
+//!===============
+//* Introducing Promises!
+//!===============
+//* Returning Promises from Functions
+//!===============
+//* Resolving/Rejecting w/Values
+//!===============
+//* The Delights of Promise Chaining
+//!===============
+//* Refactoring w/Promises
 
 //!======================================
 //* Closure
