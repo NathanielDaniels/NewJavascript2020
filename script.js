@@ -2836,8 +2836,41 @@ isRightTriangle(3, 4, 5); //true
 //? This means JS only does one thing at a time
 //!===============
 //* How Asynchronous Callbacks Actually Work
+
+// console.log("I happen first!");
+// setTimeout(() => {
+//   console.log("i happen third");
+// }, 3000);
+// console.log("I happen second");
+
+//! How Does this work?
+//? Browsers come with Web APIs that are able to handle certain tasks in the background (like making requests or setTimout)
+//? The JS call stack recognizes these web API functions and passes them off to the browser to take care of
+//? Once The Browser finishes those tasks, they return and are pushed onto the stack as a callback
+
+//? So setTimeout() is treated like an API, gets pushed to the browser to run until its time is complete. At that point it gets sent to Callback Queue for which JS can grab from and run
+
 //!===============
 //* Welcome to Callback Hell
+
+const btn = document.querySelector("button");
+
+////Nested setTimeout()
+// setTimeout(() => {
+//   btn.style.transition = "all 0.3s ease-in-out";
+//   btn.style.transform = "translateX(100px)";
+//   setTimeout(() => {
+//     btn.style.transform = "translateX(200px)";
+//   }, 1000);
+// }, 1000);
+
+const moveX = function(el, amount, timeout) {
+  setTimeout(() => {
+    el.style.transform = `translateX(${amount}px)`;
+  }, timeout);
+};
+
+moveX(btn, 100, 1000);
 //!===============
 //* Introducing Promises!
 //!===============
