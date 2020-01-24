@@ -2799,15 +2799,41 @@ let js = document.getElementById("js");
 
 //!===============
 //* The Call Stack
+
 //? The Mechanism the JS interpreter uses to keep track of its place in a ascript that calls multiple functions
 //? How JS 'Knows' what function is currently being run and what functions are called from with
 
 //! Call Stack - (Call = Function Calls) (Stack = Data Structure)
 //? Stack is a type of Data Structure where the last item is placed on top (stack of books), but the first item removed (pop) takes that top item
+//? In Short (Last Item Added = First Item Removed)
+
+//! How It Works
+//? When a Script calls a function, the interpreter adds it to the callstack and then starts carrying out the function
+//? Any Function that are called by that Function are added to the call stack further up, and run where their calls are reached
+//? When the current function is finished, the interpretere takes it off the stack and resumes execution where it left off in the last code listing.
+
+//! Ex)
+const multiply = (x, y) => x * y;
+const square = x => multiply(x, x);
+
+const isRightTriangle = (a, b, c) => {
+  return square(a) + square(b) === square(c);
+};
+
+isRightTriangle(3, 4, 5); //true
+
+//? Becuase each function is calling on another function, they are then stacked.
+//? multiply <> square <> isRightTriangle
+//? isRIghtTriangle is called, which calls on square(), when then calls on multiply()
+//? Once multiply() finishes (once value is returned), its removed from the call stack
+//? The Stack Runs for EVERY Argument in the function call (this runs 3 times here)
 //!===============
 //* Call Stack Debugging w/ Dev Tools
+//? Learned about Debugger/Breakpoints
 //!===============
 //* JS is Single Threaded
+//? At any given point in time, that single JS thread is running at most one line of JS code
+//? This means JS only does one thing at a time
 //!===============
 //* How Asynchronous Callbacks Actually Work
 //!===============
