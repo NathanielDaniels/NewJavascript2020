@@ -2866,28 +2866,73 @@ const btn = document.querySelector("button");
 
 //==================
 
-const moveX = function(el, amount, timeout, callback) {
+const moveX = function(el, amount, timeout, onSuccess, onFailure) {
   const boundry = document.body.clientWidth;
-  console.log(boundry);
-  const btnLocation = btn.getBoundingClientRect().right;
-  console.log(btnLocation);
-  if (btnLocation > boundry) {
-    console.log("btn too far");
+  const elLocation = el.getBoundingClientRect().right;
+  const currLeft = el.getBoundingClientRect().left;
+  if (elLocation + amount > boundry) {
+    onFailure();
+    console.log("El too far");
+    el.innerText = "The End";
+    el.style.backgroundColor = "red";
+    el.style.color = "#fff";
+    el.style.padding = "5px 10px";
+  } else {
+    setTimeout(() => {
+      el.style.transform = `translateX(${currLeft + amount}px)`;
+      onSuccess();
+    }, timeout);
   }
-  setTimeout(() => {
-    el.style.transform = `translateX(${amount}px)`;
-    if (callback) callback();
-  }, timeout);
+  console.log(elLocation, currLeft);
 };
 
 // console.log(btn.getBoundingClientRect());
 
-moveX(btn, 100, 1000, () =>
-  moveX(btn, 200, 1000, () =>
-    moveX(btn, 300, 1000, () =>
-      moveX(btn, 600, 1000, () => moveX(btn, 800, 1000))
-    )
-  )
+// moveX(btn, 100, 1000, () => moveX(btn, 200, 1000));
+
+// moveX(btn, 100, 1000, () =>
+//   moveX(btn, 100, 1000, () =>
+//     moveX(btn, 100, 1000, () =>
+//       moveX(btn, 100, 1000, () => {
+//         moveX(btn, 100, 1000);
+//       })
+//     )
+//   )
+// );
+
+moveX(
+  btn,
+  100,
+  1000,
+  () => {
+    //success
+    moveX(
+      btn,
+      200,
+      1000,
+      () => {
+        moveX(
+          btn,
+          200,
+          1000,
+          () => {
+            console.log("Really?! We Still Have Screen Left!?");
+          },
+          () => {
+            alert("cannot move further");
+          }
+        );
+      },
+      () => {
+        //fail
+        alert("cannot move further!");
+      }
+    );
+  },
+  () => {
+    //fail
+    alert("cannot move further!");
+  }
 );
 
 //!===============
