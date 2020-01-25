@@ -2864,13 +2864,32 @@ const btn = document.querySelector("button");
 //   }, 1000);
 // }, 1000);
 
-const moveX = function(el, amount, timeout) {
+//==================
+
+const moveX = function(el, amount, timeout, callback) {
+  const boundry = document.body.clientWidth;
+  console.log(boundry);
+  const btnLocation = btn.getBoundingClientRect().right;
+  console.log(btnLocation);
+  if (btnLocation > boundry) {
+    console.log("btn too far");
+  }
   setTimeout(() => {
     el.style.transform = `translateX(${amount}px)`;
+    if (callback) callback();
   }, timeout);
 };
 
-moveX(btn, 100, 1000);
+// console.log(btn.getBoundingClientRect());
+
+moveX(btn, 100, 1000, () =>
+  moveX(btn, 200, 1000, () =>
+    moveX(btn, 300, 1000, () =>
+      moveX(btn, 600, 1000, () => moveX(btn, 800, 1000))
+    )
+  )
+);
+
 //!===============
 //* Introducing Promises!
 //!===============
