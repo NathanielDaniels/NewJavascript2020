@@ -2813,14 +2813,14 @@ let js = document.getElementById("js");
 //? When the current function is finished, the interpretere takes it off the stack and resumes execution where it left off in the last code listing.
 
 //! Ex)
-const multiply = (x, y) => x * y;
-const square = x => multiply(x, x);
+// const multiply = (x, y) => x * y;
+// const square = x => multiply(x, x);
 
-const isRightTriangle = (a, b, c) => {
-  return square(a) + square(b) === square(c);
-};
+// const isRightTriangle = (a, b, c) => {
+//   return square(a) + square(b) === square(c);
+// };
 
-isRightTriangle(3, 4, 5); //true
+// isRightTriangle(3, 4, 5); //true
 
 //? Becuase each function is calling on another function, they are then stacked.
 //? multiply <> square <> isRightTriangle
@@ -2853,7 +2853,7 @@ isRightTriangle(3, 4, 5); //true
 //!===============
 //* Welcome to Callback Hell
 
-const btn = document.querySelector("button");
+// const btn = document.querySelector("button");
 
 ////Nested setTimeout()
 // setTimeout(() => {
@@ -2866,12 +2866,90 @@ const btn = document.querySelector("button");
 
 //==================
 
-const moveX = function(el, amount, timeout, onSuccess, onFailure) {
+// const moveX = function(el, amount, timeout, onSuccess, onFailure) {
+//   const boundry = document.body.clientWidth;
+//   const elLocation = el.getBoundingClientRect().right;
+//   const currLeft = el.getBoundingClientRect().left;
+//   if (elLocation + amount > boundry) {
+//     onFailure();
+//     console.log("El too far");
+//     el.innerText = "The End";
+//     el.style.backgroundColor = "red";
+//     el.style.color = "#fff";
+//     el.style.padding = "5px 10px";
+//   } else {
+//     setTimeout(() => {
+//       el.style.transform = `translateX(${currLeft + amount}px)`;
+//       onSuccess();
+//     }, timeout);
+//   }
+//   console.log(elLocation, currLeft);
+// };
+
+// // console.log(btn.getBoundingClientRect());
+
+// // moveX(btn, 100, 1000, () => moveX(btn, 200, 1000));
+
+// // moveX(btn, 100, 1000, () =>
+// //   moveX(btn, 100, 1000, () =>
+// //     moveX(btn, 100, 1000, () =>
+// //       moveX(btn, 100, 1000, () => {
+// //         moveX(btn, 100, 1000);
+// //       })
+// //     )
+// //   )
+// // );
+
+// moveX(
+//   btn,
+//   100,
+//   1000,
+//   () => {
+//     //success
+//     moveX(
+//       btn,
+//       200,
+//       1000,
+//       () => {
+//         moveX(
+//           btn,
+//           200,
+//           1000,
+//           () => {
+//             console.log("Really?! We Still Have Screen Left!?");
+//           },
+//           () => {
+//             alert("cannot move further");
+//           }
+//         );
+//       },
+//       () => {
+//         //fail
+//         alert("cannot move further!");
+//       }
+//     );
+//   },
+//   () => {
+//     //fail
+//     alert("cannot move further!");
+//   }
+// );
+
+//!===============
+//* Introducing Promises!
+//* Returning Promises from Functions
+//? A promise is an object representing the eventual completion or failure of an asynchronous operation
+
+// Here we will take the code from above and turn it into a more readable version with way less lines of code
+
+//copied from above
+const btn = document.querySelector("button");
+const moveXPromise = function(el, amount, timeout, onSuccess, onFailure) {
   const boundry = document.body.clientWidth;
   const elLocation = el.getBoundingClientRect().right;
   const currLeft = el.getBoundingClientRect().left;
   if (elLocation + amount > boundry) {
-    onFailure();
+    // onFailure();
     console.log("El too far");
     el.innerText = "The End";
     el.style.backgroundColor = "red";
@@ -2880,65 +2958,47 @@ const moveX = function(el, amount, timeout, onSuccess, onFailure) {
   } else {
     setTimeout(() => {
       el.style.transform = `translateX(${currLeft + amount}px)`;
-      onSuccess();
+      // onSuccess();
     }, timeout);
   }
   console.log(elLocation, currLeft);
 };
 
-// console.log(btn.getBoundingClientRect());
-
-// moveX(btn, 100, 1000, () => moveX(btn, 200, 1000));
-
-// moveX(btn, 100, 1000, () =>
-//   moveX(btn, 100, 1000, () =>
-//     moveX(btn, 100, 1000, () =>
-//       moveX(btn, 100, 1000, () => {
-//         moveX(btn, 100, 1000);
-//       })
-//     )
-//   )
-// );
-
-moveX(
-  btn,
-  100,
-  1000,
-  () => {
-    //success
-    moveX(
-      btn,
-      200,
-      1000,
-      () => {
-        moveX(
-          btn,
-          200,
-          1000,
-          () => {
-            console.log("Really?! We Still Have Screen Left!?");
-          },
-          () => {
-            alert("cannot move further");
-          }
-        );
-      },
-      () => {
-        //fail
-        alert("cannot move further!");
+// setup new promise
+const makeDogPromise = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const rand = Math.floor(Math.random() * 10);
+      if (rand < 5) {
+        // console.log(rand);
+        resolve();
+      } else {
+        // console.log(rand);
+        reject();
       }
-    );
-  },
-  () => {
-    //fail
-    alert("cannot move further!");
-  }
-);
+    }, 5000);
+  });
+};
+makeDogPromise()
+  .then(() => {
+    //called when resolved
+    console.log("Resolved, Congrats! You got a dog!");
+  })
+  .catch(() => {
+    //called when rejected
+    console.log("Rejected, no dog for you");
+  });
 
-//!===============
-//* Introducing Promises!
-//!===============
-//* Returning Promises from Functions
+// moveXPromise(btn, 100, 1000)
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .then(() => moveXPromise(btn, 100, 1000))
+//   .catch(position => {
+//     alert("cannot move further");
+//   });
 //!===============
 //* Resolving/Rejecting w/Values
 //!===============
