@@ -2942,52 +2942,105 @@ let js = document.getElementById("js");
 
 // Here we will take the code from above and turn it into a more readable version with way less lines of code
 
-//copied from above
-const btn = document.querySelector("button");
-const moveXPromise = function(el, amount, timeout, onSuccess, onFailure) {
-  const boundry = document.body.clientWidth;
-  const elLocation = el.getBoundingClientRect().right;
-  const currLeft = el.getBoundingClientRect().left;
-  if (elLocation + amount > boundry) {
-    // onFailure();
-    console.log("El too far");
-    el.innerText = "The End";
-    el.style.backgroundColor = "red";
-    el.style.color = "#fff";
-    el.style.padding = "5px 10px";
-  } else {
-    setTimeout(() => {
-      el.style.transform = `translateX(${currLeft + amount}px)`;
-      // onSuccess();
-    }, timeout);
-  }
-  console.log(elLocation, currLeft);
-};
+// //copied from above
+// const btn = document.querySelector("button");
+// const moveXPromise = function(el, amount, timeout, onSuccess, onFailure) {
+//   const boundry = document.body.clientWidth;
+//   const elLocation = el.getBoundingClientRect().right;
+//   const currLeft = el.getBoundingClientRect().left;
+//   if (elLocation + amount > boundry) {
+//     // onFailure();
+//     console.log("El too far");
+//     el.innerText = "The End";
+//     el.style.backgroundColor = "red";
+//     el.style.color = "#fff";
+//     el.style.padding = "5px 10px";
+//   } else {
+//     setTimeout(() => {
+//       el.style.transform = `translateX(${currLeft + amount}px)`;
+//       // onSuccess();
+//     }, timeout);
+//   }
+//   console.log(elLocation, currLeft);
+// };
 
-// setup new promise
-const makeDogPromise = () => {
+// // setup new promise
+// const makeDogPromise = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const rand = Math.floor(Math.random() * 10);
+//       if (rand < 5) {
+//         // console.log(rand);
+//         resolve();
+//       } else {
+//         // console.log(rand);
+//         reject();
+//       }
+//     }, 5000);
+//   });
+// };
+// makeDogPromise()
+//   .then(() => {
+//     //called when resolved
+//     console.log("Resolved, Congrats! You got a dog!");
+//   })
+//   .catch(() => {
+//     //called when rejected
+//     console.log("Rejected, no dog for you");
+//   });
+
+//!===============
+//* Resolving/Rejecting w/Values
+
+const fakeRequest = url => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const rand = Math.floor(Math.random() * 10);
-      if (rand < 5) {
-        // console.log(rand);
-        resolve();
+      const pages = {
+        "/users": [
+          { id: 1, username: "Bilbo" },
+          { id: 2, username: "Esmerelda" }
+        ],
+        "/about": "This is about page"
+      };
+      const data = pages[url];
+      if (data) {
+        resolve({ status: 200, data });
       } else {
-        // console.log(rand);
-        reject();
+        resolve({ status: 404 });
       }
-    }, 5000);
+    }, 1000);
   });
 };
-makeDogPromise()
-  .then(() => {
-    //called when resolved
-    console.log("Resolved, Congrats! You got a dog!");
+
+fakeRequest("/about")
+  .then(res => {
+    console.log("request completed");
+    console.log("Status: ", res.status);
+    console.log("Data: ", res.data);
   })
-  .catch(() => {
-    //called when rejected
-    console.log("Rejected, no dog for you");
+  .catch(res => {
+    console.log("request failed");
+    console.log("status: ", res.status);
   });
+
+setTimeout(() => {
+  console.log("//===================================");
+}, 1000);
+
+fakeRequest("/dogs")
+  .then(res => {
+    console.log("request completed");
+    console.log("Status: ", res.status);
+    console.log("Data: ", res.data);
+    console.log(res);
+  })
+  .catch(res => {
+    console.log("request failed");
+    console.log("status: ", res.status);
+  });
+
+//!===============
+//* The Delights of Promise Chaining
 
 // moveXPromise(btn, 100, 1000)
 //   .then(() => moveXPromise(btn, 100, 1000))
@@ -2999,10 +3052,6 @@ makeDogPromise()
 //   .catch(position => {
 //     alert("cannot move further");
 //   });
-//!===============
-//* Resolving/Rejecting w/Values
-//!===============
-//* The Delights of Promise Chaining
 //!===============
 //* Refactoring w/Promises
 
