@@ -3084,25 +3084,56 @@ let js = document.getElementById("js");
 //? Asynchronous Javascript & XML
 //!===============
 //*JSON & XML
+//? JSON = Java Script Object Notation
 //! XML is outdated. So we now use JSON
 //? - JSON is a format for sending data
+//! JSON cannot hold functions
+
 //!===============
 //* XMLHttpRequests: The Basics
+//? The "Original" way of sending requests via JS
+//? DOes Not Support promises, so... lots of callbacks
+//? WTF is going on with the weird Capitalization?
+//? Clunky syntax that I rind difficult to remember
+
+//Dad Joke Machine (The old way)
+const myReq = new XMLHttpRequest();
+
+myReq.onload = function() {
+  const data = JSON.parse(this.responseText);
+  console.log(data.joke);
+  document.body.append(data.joke);
+};
+
+myReq.onerror = function(err) {
+  console.log("error", err);
+};
+
+myReq.open("get", "https://icanhazdadjoke.com/", true);
+myReq.setRequestHeader("Accept", " application/json");
+myReq.send();
 //!===============
 //* XMLHttpRequests: Chaining
+
 //!===============
 //* A Better Way: Fetch!
 //!===============
+
 //* Refactoring Fetch Chains
 //!===============
+
 //* An Even Better Way: Axios *Library
 //!===============
+
 //* Chaining Fetch Requests
 //!===============
+
 //* Refactoring Fetch Chains
 //!===============
+
 //* An Even Better Way: Axios
 //!===============
+
 //* Sequential Axios Requests
 
 //!=======================================
