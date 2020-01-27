@@ -2992,43 +2992,43 @@ let js = document.getElementById("js");
 //!===============
 //* Resolving/Rejecting w/Values
 
-const fakeRequest = url => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const pages = {
-        "/users": [
-          { id: 1, username: "Bilbo" },
-          { id: 5, username: "Esmerelda" }
-        ],
-        "/users/1": {
-          id: 1,
-          username: "Bilbo",
-          upvotes: 360,
-          city: "Lisbon",
-          topPostId: 454321
-        },
-        "/users/5": {
-          id: 5,
-          username: "Esmerelda",
-          upvotes: 571,
-          city: "Honolulu",
-          topPostId: 123456
-        },
-        "/posts/454321": {
-          id: 454321,
-          title: "Ladies and Gentlemen, may I have your attention"
-        },
-        "/about": "This is about page"
-      };
-      const data = pages[url];
-      if (data) {
-        resolve({ status: 200, data });
-      } else {
-        resolve({ status: 404 });
-      }
-    }, 1000);
-  });
-};
+// const fakeRequest = url => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const pages = {
+//         "/users": [
+//           { id: 1, username: "Bilbo" },
+//           { id: 5, username: "Esmerelda" }
+//         ],
+//         "/users/1": {
+//           id: 1,
+//           username: "Bilbo",
+//           upvotes: 360,
+//           city: "Lisbon",
+//           topPostId: 454321
+//         },
+//         "/users/5": {
+//           id: 5,
+//           username: "Esmerelda",
+//           upvotes: 571,
+//           city: "Honolulu",
+//           topPostId: 123456
+//         },
+//         "/posts/454321": {
+//           id: 454321,
+//           title: "Ladies and Gentlemen, may I have your attention"
+//         },
+//         "/about": "This is about page"
+//       };
+//       const data = pages[url];
+//       if (data) {
+//         resolve({ status: 200, data });
+//       } else {
+//         resolve({ status: 404 });
+//       }
+//     }, 1000);
+//   });
+// };
 
 // fakeRequest("/about")
 //   .then(res => {
@@ -3060,32 +3060,54 @@ const fakeRequest = url => {
 //!===============
 //* The Delights of Promise Chaining
 
-fakeRequest("/users")
-  .then(res => {
-    const id = res.data[0].id;
-    return fakeRequest(`/users/${id}`);
-  })
-  .then(res => {
-    const postId = res.data.topPostId;
-    return fakeRequest(`/posts/${postId}`);
-  })
-  .then(res => {
-    const title = res.data.title;
-    console.log(title);
-  })
-  .catch(err => {
-    console.log("error found: ", err);
-  });
-
-// fakeRequest('/users')
-//   .then((res) =>  const id = res.data[5].id)
-//   .then((res) => moveXPromise(btn, 100, 1000))
-//   .then((res) => moveXPromise(btn, 100, 1000))
+// fakeRequest("/users")
+//   .then(res => {
+//     const id = res.data[0].id;
+//     return fakeRequest(`/users/${id}`);
+//   })
+//   .then(res => {
+//     const postId = res.data.topPostId;
+//     return fakeRequest(`/posts/${postId}`);
+//   })
+//   .then(res => {
+//     const title = res.data.title;
+//     console.log(title);
+//   })
 //   .catch(err => {
-// console.log("error found: ", err);
-// });
+//     console.log("error found: ", err);
+//   });
+
+//!=======================================
+//!=======================================
+//* Section 17: Making HTTP Requests (172-180)
+//* Intro to AJAX
+//? Asynchronous Javascript & XML
 //!===============
-//* Refactoring w/Promises
+//*JSON & XML
+//! XML is outdated. So we now use JSON
+//? - JSON is a format for sending data
+//!===============
+//* XMLHttpRequests: The Basics
+//!===============
+//* XMLHttpRequests: Chaining
+//!===============
+//* A Better Way: Fetch!
+//!===============
+//* Refactoring Fetch Chains
+//!===============
+//* An Even Better Way: Axios *Library
+//!===============
+//* Chaining Fetch Requests
+//!===============
+//* Refactoring Fetch Chains
+//!===============
+//* An Even Better Way: Axios
+//!===============
+//* Sequential Axios Requests
+
+//!=======================================
+//!=======================================
+//* Section 18: Async & Await: JS Magic (181-187)
 
 //!======================================
 //* Closure
