@@ -3096,22 +3096,53 @@ let js = document.getElementById("js");
 //? WTF is going on with the weird Capitalization?
 //? Clunky syntax that I rind difficult to remember
 
-//Dad Joke Machine (The old way)
-const myReq = new XMLHttpRequest();
+//* Dad Joke Machine (The old way)
+// const myReq = new XMLHttpRequest();
 
-myReq.onload = function() {
+// myReq.onload = function() {
+//   const data = JSON.parse(this.responseText);
+//   console.log(data);
+//   document.body.append(data.joke);
+// };
+
+// myReq.onerror = function(err) {
+//   console.log("error", err);
+// };
+
+// myReq.open("get", "https://icanhazdadjoke.com/", true);
+// myReq.setRequestHeader("Accept", " application/json");
+// myReq.send();
+
+//===============================
+//* Working with Star Wars API
+//! now using Event Listeneres intead of onload/onerror
+
+const arrNames = [];
+
+const firstReq = new XMLHttpRequest();
+firstReq.addEventListener("load", function() {
   const data = JSON.parse(this.responseText);
-  console.log(data.joke);
-  document.body.append(data.joke);
-};
+  const dataResults = JSON.parse(this.responseText).results;
+  const firstPlanet = JSON.parse(this.responseText).results[0].name;
+  // console.log("data: ", data);
+  // console.log("results: ", dataResults);
+  // console.log(firstPlanet);
+  for (let planet of dataResults) {
+    const planetNames = planet.name;
+    arrNames.push(planetNames);
+  }
+});
 
-myReq.onerror = function(err) {
-  console.log("error", err);
-};
+console.log("planet names: ", arrNames);
 
-myReq.open("get", "https://icanhazdadjoke.com/", true);
-myReq.setRequestHeader("Accept", " application/json");
-myReq.send();
+firstReq.addEventListener("error", () => {
+  console.log("Error");
+});
+
+firstReq.open("get", "https://swapi.co/api/planets/");
+// firstReq.setRequestHeader("Accept", " application/json");
+firstReq.send();
+console.log("Request Sent!");
 //!===============
 //* XMLHttpRequests: Chaining
 
