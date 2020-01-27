@@ -2998,8 +2998,26 @@ const fakeRequest = url => {
       const pages = {
         "/users": [
           { id: 1, username: "Bilbo" },
-          { id: 2, username: "Esmerelda" }
+          { id: 5, username: "Esmerelda" }
         ],
+        "/users/1": {
+          id: 1,
+          username: "Bilbo",
+          upvotes: 360,
+          city: "Lisbon",
+          topPostId: 454321
+        },
+        "/users/5": {
+          id: 5,
+          username: "Esmerelda",
+          upvotes: 571,
+          city: "Honolulu",
+          topPostId: 123456
+        },
+        "/posts/454321": {
+          id: 454321,
+          title: "Ladies and Gentlemen, may I have your attention"
+        },
         "/about": "This is about page"
       };
       const data = pages[url];
@@ -3012,46 +3030,60 @@ const fakeRequest = url => {
   });
 };
 
-fakeRequest("/about")
-  .then(res => {
-    console.log("request completed");
-    console.log("Status: ", res.status);
-    console.log("Data: ", res.data);
-  })
-  .catch(res => {
-    console.log("request failed");
-    console.log("status: ", res.status);
-  });
+// fakeRequest("/about")
+//   .then(res => {
+//     console.log("request completed");
+//     console.log("Status: ", res.status);
+//     console.log("Data: ", res.data);
+//   })
+//   .catch(res => {
+//     console.log("request failed");
+//     console.log("status: ", res.status);
+//   });
 
-setTimeout(() => {
-  console.log("//===================================");
-}, 1000);
+// setTimeout(() => {
+//   console.log("//===================================");
+// }, 1000);
 
-fakeRequest("/dogs")
-  .then(res => {
-    console.log("request completed");
-    console.log("Status: ", res.status);
-    console.log("Data: ", res.data);
-    console.log(res);
-  })
-  .catch(res => {
-    console.log("request failed");
-    console.log("status: ", res.status);
-  });
+// fakeRequest("/dogs")
+//   .then(res => {
+//     console.log("request completed");
+//     console.log("Status: ", res.status);
+//     console.log("Data: ", res.data);
+//     console.log(res);
+//   })
+//   .catch(res => {
+//     console.log("request failed");
+//     console.log("status: ", res.status);
+//   });
 
 //!===============
 //* The Delights of Promise Chaining
 
-// moveXPromise(btn, 100, 1000)
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .then(() => moveXPromise(btn, 100, 1000))
-//   .catch(position => {
-//     alert("cannot move further");
-//   });
+fakeRequest("/users")
+  .then(res => {
+    const id = res.data[0].id;
+    return fakeRequest(`/users/${id}`);
+  })
+  .then(res => {
+    const postId = res.data.topPostId;
+    return fakeRequest(`/posts/${postId}`);
+  })
+  .then(res => {
+    const title = res.data.title;
+    console.log(title);
+  })
+  .catch(err => {
+    console.log("error found: ", err);
+  });
+
+// fakeRequest('/users')
+//   .then((res) =>  const id = res.data[5].id)
+//   .then((res) => moveXPromise(btn, 100, 1000))
+//   .then((res) => moveXPromise(btn, 100, 1000))
+//   .catch(err => {
+// console.log("error found: ", err);
+// });
 //!===============
 //* Refactoring w/Promises
 
