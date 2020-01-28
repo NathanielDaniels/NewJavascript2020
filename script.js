@@ -3096,23 +3096,6 @@ let js = document.getElementById("js");
 //? WTF is going on with the weird Capitalization?
 //? Clunky syntax that I rind difficult to remember
 
-//* Dad Joke Machine (The old way)
-// const myReq = new XMLHttpRequest();
-
-// myReq.onload = function() {
-//   const data = JSON.parse(this.responseText);
-//   console.log(data);
-//   document.body.append(data.joke);
-// };
-
-// myReq.onerror = function(err) {
-//   console.log("error", err);
-// };
-
-// myReq.open("get", "https://icanhazdadjoke.com/", true);
-// myReq.setRequestHeader("Accept", " application/json");
-// myReq.send();
-
 //===============================
 //* Working with Star Wars API
 //* XMLHttpRequests: Chaining
@@ -3158,40 +3141,71 @@ let js = document.getElementById("js");
 //? Supports promises!
 //? NOT Supported in IE (Internet Expolorer)
 
-// Revamp Dad Jokes with Fetch()
-fetch("https://icanhazdadjoke.com/", {
-  headers: { Accept: "application/json" }
-})
+//* Dad Joke Machine (The old way)
+// const myReq = new XMLHttpRequest();
+
+// myReq.onload = function() {
+//   const data = JSON.parse(this.responseText);
+//   console.log("Old Way: ", data.joke);
+//   document.body.append(data.joke);
+// };
+
+// myReq.onerror = function(err) {
+//   console.log("error", err);
+// };
+
+// myReq.open("get", "https://icanhazdadjoke.com/", true);
+// myReq.setRequestHeader("Accept", " application/json");
+// myReq.send();
+
+//====================================
+//* Dad Joke Machine with Fetch()
+// fetch("https://icanhazdadjoke.com/", {
+//   headers: { Accept: "application/json" }
+// })
+//   .then(res => {
+//     if (res.status !== 200) {
+//       console.log("problem!", res.status);
+//       return;
+//     }
+//     res.json().then(data => {
+//       console.log("Fetch(): ", data.joke);
+//     });
+//   })
+//   .catch(function(err) {
+//     console.log("Fetch Error: ", err);
+//   });
+
+//====================================
+//* W/ Starwars API
+
+fetch("https://swapi.co/api/planets/")
   .then(res => {
-    if (res.status !== 200) {
-      console.log("problem!", res.status);
-      return;
+    if (!res.ok) {
+      throw new Error(`Status Code Error: ${res.status}`);
+      //throw new Error gives access to .catch()
+    } else {
+      res.json().then(data => {
+        for (let planet of data.results) {
+          console.log(planet);
+        }
+      });
     }
-    res.json().then(data => {
-      console.log(data.joke);
-    });
   })
-  .catch(function(err) {
-    console.log("Fetch Error: ", err);
+  .catch(err => {
+    console.log("Something Went Wrong");
+    console.log(err);
   });
-
 //!===============
-
-//* Refactoring Fetch Chains
-//!===============
-
-//* An Even Better Way: Axios *Library
-//!===============
-
 //* Chaining Fetch Requests
-//!===============
 
+//!===============
 //* Refactoring Fetch Chains
-//!===============
 
+//!===============
 //* An Even Better Way: Axios
-//!===============
 
+//!===============
 //* Sequential Axios Requests
 
 //!=======================================
