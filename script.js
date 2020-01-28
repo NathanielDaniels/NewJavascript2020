@@ -3115,46 +3115,66 @@ let js = document.getElementById("js");
 
 //===============================
 //* Working with Star Wars API
+//* XMLHttpRequests: Chaining
 //! now using Event Listeneres intead of onload/onerror
 
-const arrNames = [];
+// const arrNames = [];
 
-const firstReq = new XMLHttpRequest();
-firstReq.addEventListener("load", function() {
-  const data = JSON.parse(this.responseText);
-  const dataResults = JSON.parse(this.responseText).results;
-  const firstPlanet = JSON.parse(this.responseText).results[0].name;
-  const filmURL = data.results[0].films[0];
-  const filmReq = new XMLHttpRequest();
-  filmReq.addEventListener("load", function() {
-    console.log(this);
-  });
-  filmReq.addEventListener("error", function(e) {
-    console.log("error!", e);
-  });
-  filmReq.open("GET", filmURL);
-  filmReq.send();
-  // for (let planet of dataResults) {
-  //   const planetNames = planet.name;
-  //   arrNames.push(planetNames);
-  // }
-});
+// const firstReq = new XMLHttpRequest();
+// firstReq.addEventListener("load", function() {
+//   const data = JSON.parse(this.responseText);
+//   // const dataResults = JSON.parse(this.responseText).results;
+//   // const firstPlanet = JSON.parse(this.responseText).results[0].name;
+//   const filmURL = data.results[0].films[0];
+//   const filmReq = new XMLHttpRequest();
+//   filmReq.addEventListener("load", function() {
+//     console.log(this);
+//   });
+//   filmReq.addEventListener("error", function(e) {
+//     console.log("error!", e);
+//   });
+//   filmReq.open("GET", filmURL);
+//   filmReq.send();
+//   // for (let planet of dataResults) {
+//   //   const planetNames = planet.name;
+//   //   arrNames.push(planetNames);
+//   // }
+// });
 
-// console.log("planet names: ", arrNames);
+// // console.log("planet names: ", arrNames);
 
-firstReq.addEventListener("error", () => {
-  console.log("Error");
-});
+// firstReq.addEventListener("error", () => {
+//   console.log("Error");
+// });
 
-firstReq.open("get", "https://swapi.co/api/planets/");
-// firstReq.setRequestHeader("Accept", " application/json");
-firstReq.send();
-console.log("Request Sent!");
-//!===============
-//* XMLHttpRequests: Chaining
-
+// firstReq.open("get", "https://swapi.co/api/planets/");
+// // firstReq.setRequestHeader("Accept", " application/json");
+// firstReq.send();
+// console.log("Request Sent!");
 //!===============
 //* A Better Way: Fetch!
+//* Fetch API
+//? The Newer way of making requests via JS
+//? Supports promises!
+//? NOT Supported in IE (Internet Expolorer)
+
+// Revamp Dad Jokes with Fetch()
+fetch("https://icanhazdadjoke.com/", {
+  headers: { Accept: "application/json" }
+})
+  .then(res => {
+    if (res.status !== 200) {
+      console.log("problem!", res.status);
+      return;
+    }
+    res.json().then(data => {
+      console.log(data.joke);
+    });
+  })
+  .catch(function(err) {
+    console.log("Fetch Error: ", err);
+  });
+
 //!===============
 
 //* Refactoring Fetch Chains
