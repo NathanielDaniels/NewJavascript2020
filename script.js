@@ -3124,16 +3124,23 @@ firstReq.addEventListener("load", function() {
   const data = JSON.parse(this.responseText);
   const dataResults = JSON.parse(this.responseText).results;
   const firstPlanet = JSON.parse(this.responseText).results[0].name;
-  // console.log("data: ", data);
-  // console.log("results: ", dataResults);
-  // console.log(firstPlanet);
-  for (let planet of dataResults) {
-    const planetNames = planet.name;
-    arrNames.push(planetNames);
-  }
+  const filmURL = data.results[0].films[0];
+  const filmReq = new XMLHttpRequest();
+  filmReq.addEventListener("load", function() {
+    console.log(this);
+  });
+  filmReq.addEventListener("error", function(e) {
+    console.log("error!", e);
+  });
+  filmReq.open("GET", filmURL);
+  filmReq.send();
+  // for (let planet of dataResults) {
+  //   const planetNames = planet.name;
+  //   arrNames.push(planetNames);
+  // }
 });
 
-console.log("planet names: ", arrNames);
+// console.log("planet names: ", arrNames);
 
 firstReq.addEventListener("error", () => {
   console.log("Error");
