@@ -3215,18 +3215,37 @@ let js = document.getElementById("js");
 //* An Even Better Way: Axios
 //? A Library for making HTTP requests
 
-axios
-  .get("https://swapi.co/api/planets/")
-  .then(res => {
-    for (let planet of res.data.results) {
-      console.log(planet.name);
-    }
-  })
+// axios
+//   .get("https://swapi.co/api/planets/")
+//   .then(res => {
+//     for (let planet of res.data.results) {
+//       console.log(planet.name);
+//     }
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+//!===============
+//* Sequential Axios Requests
+
+const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
+  return axios.get(url);
+};
+const printPlanets = ({ data }) => {
+  for (let planet of data.results) {
+    console.log(planet.name);
+  }
+  return Promise.resolve(data.next);
+};
+fetchNextPlanets()
+  .then(printPlanets)
+  .then(fetchNextPlanets)
+  .then(printPlanets)
+  .then(fetchNextPlanets)
+  .then(printPlanets)
   .catch(err => {
     console.log(err);
   });
-//!===============
-//* Sequential Axios Requests
 
 //!=======================================
 //!=======================================
