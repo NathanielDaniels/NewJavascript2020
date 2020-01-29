@@ -3182,38 +3182,49 @@ let js = document.getElementById("js");
 //* Refactoring Fetch Chains
 //? - Refactoring broke it down into seperate functions
 
-const checkStatusAndParse = response => {
-  if (!response.ok) throw new Error(`Status Code Error: ${response.status}`);
-  return response.json();
-};
+// const checkStatusAndParse = response => {
+//   if (!response.ok) throw new Error(`Status Code Error: ${response.status}`);
+//   return response.json();
+// };
 
-const printPlanets = data => {
-  for (let planet of data.results) {
-    console.log(planet.name);
-  }
-  return Promise.resolve(data.next);
-};
+// const printPlanets = data => {
+//   for (let planet of data.results) {
+//     console.log(planet.name);
+//   }
+//   return Promise.resolve(data.next);
+// };
 
-const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
-  return fetch(url);
-};
+// const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
+//   return fetch(url);
+// };
 
-const error = err => {
-  console.log("Something Went Wrong");
-  console.log(err);
-};
+// const error = err => {
+//   console.log("Something Went Wrong");
+//   console.log(err);
+// };
 
-fetchNextPlanets()
-  .then(checkStatusAndParse)
-  .then(printPlanets)
-  .then(fetchNextPlanets)
-  .then(checkStatusAndParse)
-  .then(printPlanets)
-  .catch(error);
+// fetchNextPlanets()
+//   .then(checkStatusAndParse)
+//   .then(printPlanets)
+//   .then(fetchNextPlanets)
+//   .then(checkStatusAndParse)
+//   .then(printPlanets)
+//   .catch(error);
 
 //!===============
 //* An Even Better Way: Axios
+//? A Library for making HTTP requests
 
+axios
+  .get("https://swapi.co/api/planets/")
+  .then(res => {
+    for (let planet of res.data.results) {
+      console.log(planet.name);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+  });
 //!===============
 //* Sequential Axios Requests
 
