@@ -3180,35 +3180,36 @@ let js = document.getElementById("js");
 //* W/ Starwars API
 //* Chaining Fetch Requests
 //* Refactoring Fetch Chains
+//? - Refactoring broke it down into seperate functions
 
 const checkStatusAndParse = response => {
   if (!response.ok) throw new Error(`Status Code Error: ${response.status}`);
   return response.json();
 };
 
-fetch("https://swapi.co/api/planets/")
+const printPlanets = data => {
+  for (let planet of data.results) {
+    console.log(planet.name);
+  }
+  return Promise.resolve(data.next);
+};
+
+const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
+  return fetch(url);
+};
+
+const error = err => {
+  console.log("Something Went Wrong");
+  console.log(err);
+};
+
+fetchNextPlanets()
   .then(checkStatusAndParse)
-  .then(data => {
-    for (let planet of data.results) {
-      console.log(planet.name);
-    }
-    const nextPage = data.next;
-    return fetch(nextPage);
-  })
-  .then(res => {
-    if (!res.ok) throw new Error(`Status Code Error: ${res.status}`);
-    return res.json();
-  })
-  .then(data => {
-    console.log("Fetched Next 10 Planets");
-    for (let planet of data.results) {
-      console.log(planet.name);
-    }
-  })
-  .catch(err => {
-    console.log("Something Went Wrong");
-    console.log(err);
-  });
+  .then(printPlanets)
+  .then(fetchNextPlanets)
+  .then(checkStatusAndParse)
+  .then(printPlanets)
+  .catch(error);
 
 //!===============
 //* An Even Better Way: Axios
