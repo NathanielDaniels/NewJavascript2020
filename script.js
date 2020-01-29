@@ -3178,29 +3178,37 @@ let js = document.getElementById("js");
 
 //====================================
 //* W/ Starwars API
+//* Chaining Fetch Requests
+//* Refactoring Fetch Chains
+
+const checkStatusAndParse = response => {
+  if (!response.ok) throw new Error(`Status Code Error: ${response.status}`);
+  return response.json();
+};
 
 fetch("https://swapi.co/api/planets/")
+  .then(checkStatusAndParse)
+  .then(data => {
+    for (let planet of data.results) {
+      console.log(planet.name);
+    }
+    const nextPage = data.next;
+    return fetch(nextPage);
+  })
   .then(res => {
-    if (!res.ok) {
-      throw new Error(`Status Code Error: ${res.status}`);
-      //throw new Error gives access to .catch()
-    } else {
-      res.json().then(data => {
-        for (let planet of data.results) {
-          console.log(planet);
-        }
-      });
+    if (!res.ok) throw new Error(`Status Code Error: ${res.status}`);
+    return res.json();
+  })
+  .then(data => {
+    console.log("Fetched Next 10 Planets");
+    for (let planet of data.results) {
+      console.log(planet.name);
     }
   })
   .catch(err => {
     console.log("Something Went Wrong");
     console.log(err);
   });
-//!===============
-//* Chaining Fetch Requests
-
-//!===============
-//* Refactoring Fetch Chains
 
 //!===============
 //* An Even Better Way: Axios
