@@ -3266,6 +3266,7 @@ let js = document.getElementById("js");
 //! When you add 'async' infront of a function, it will return a promise (followed by the value of the function)
 //? If the function returns a value, the promise will be resolved with that value
 //? If the Function throws an exeption, the promise will be rejected
+//! Async is an Easy Way of wrapping a function in a promise
 
 // async function hello() {
 //   return "Hey!";
@@ -3295,24 +3296,47 @@ let js = document.getElementById("js");
 
 //!===============
 //* Await keyword
-//? We can only use the await keyword inside of function declared with async
+//? We can only use the await keyword inside of function declared with async***
 //? await will pause the execution of the function, waiting for a promise to be resolved
+//! Instead of using .next() && without having to nest with callbacks
 
-async function climate() {
-  const res = await axios.get("https://swapi.co/api/planets/");
-  console.log(res.data);
-}
-
-climate();
-
-// climate().then(res => {
+// async function getPlanets() {
+//   const res = await axios.get("https://swapi.co/api/planets/");
+//   console.log(res.data);
 //   for (let planet of res.data.results) {
 //     console.log(`${planet.name} has ${planet.climate} climate`);
 //   }
+// }
+
+// getPlanets();
+
+//! .then() is NO LONGER NEEDED with await
+// getPlanets().then(res => {
+//   console.log(res.data);
 // });
 
 //!===============
 //* Error Handling in Async Function
+//? Above shows what happens when the async promise gets resolved
+//? Here we show what happens when the promise gets rejected
+
+async function getPlanets() {
+  try {
+    const res = await axios.get("https://swapi.co/api/planets/");
+    // console.log(res.data);
+    for (let planet of res.data.results) {
+      console.log(`${planet.name} has ${planet.climate} climate`);
+    }
+  } catch (err) {
+    console.log("error! ", err);
+  }
+}
+getPlanets();
+
+//! Backup to catch multiple errors (old way)
+// getPlanets().catch(err => {
+//   console.log("error! ", err);
+// });
 
 //!===============
 //* Multiple Awaits
