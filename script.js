@@ -3228,28 +3228,100 @@ let js = document.getElementById("js");
 //!===============
 //* Sequential Axios Requests
 
-const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
-  return axios.get(url);
-};
-const printPlanets = ({ data }) => {
-  for (let planet of data.results) {
-    console.log(planet.name);
-  }
-  return Promise.resolve(data.next);
-};
-fetchNextPlanets()
-  .then(printPlanets)
-  .then(fetchNextPlanets)
-  .then(printPlanets)
-  .then(fetchNextPlanets)
-  .then(printPlanets)
-  .catch(err => {
-    console.log(err);
-  });
+// const fetchNextPlanets = (url = "https://swapi.co/api/planets/") => {
+//   return axios.get(url);
+// };
+// const printPlanets = ({ data }) => {
+//   for (let planet of data.results) {
+//     console.log(planet.name);
+//   }
+//   return Promise.resolve(data.next);
+// };
+// fetchNextPlanets()
+//   .then(printPlanets)
+//   .then(fetchNextPlanets)
+//   .then(printPlanets)
+//   .then(fetchNextPlanets)
+//   .then(printPlanets)
+//   .catch(err => {
+//     console.log(err);
+//   });
 
 //!=======================================
 //!=======================================
 //* Section 18: Async & Await: JS Magic (181-187)
+//* Async Function Overview
+
+// const getData = () => {
+//   axios.get("https://swapi.co/api/planets/").then(res => {
+//     for (let planet of res.data.results) {
+//       console.log(planet.name);
+//     }
+//   });
+// };
+
+// getData();
+//!===============
+//* Async Keyword
+//! When you add 'async' infront of a function, it will return a promise (followed by the value of the function)
+//? If the function returns a value, the promise will be resolved with that value
+//? If the Function throws an exeption, the promise will be rejected
+
+// async function hello() {
+//   return "Hey!";
+// }
+// hello();
+// async function uhOh() {
+//   throw new Error("oh No!");
+// }
+// uhOh();
+
+// function add(a, b) {
+//   return new Promise((resolve, reject) => {
+//     if (typeof a !== "number" || typeof b !== "number") {
+//       reject(`A and B must be numbers`);
+//     }
+//     resolve(a + b);
+//   });
+// }
+
+// add(1, 2)
+//   .then(val => {
+//     console.log(`promise resolved with: `, val);
+//   })
+//   .catch(err => {
+//     console.log(`promise rejected with: `, err);
+//   });
+
+//!===============
+//* Await keyword
+//? We can only use the await keyword inside of function declared with async
+//? await will pause the execution of the function, waiting for a promise to be resolved
+
+async function climate() {
+  const res = await axios.get("https://swapi.co/api/planets/");
+  console.log(res.data);
+}
+
+climate();
+
+// climate().then(res => {
+//   for (let planet of res.data.results) {
+//     console.log(`${planet.name} has ${planet.climate} climate`);
+//   }
+// });
+
+//!===============
+//* Error Handling in Async Function
+
+//!===============
+//* Multiple Awaits
+
+//!===============
+//* Parallel Vs. Sequential Requests
+
+//!===============
+//* Refactoring with Promise.all
 
 //!======================================
 //* Closure
