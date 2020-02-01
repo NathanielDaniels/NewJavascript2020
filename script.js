@@ -3320,18 +3320,18 @@ let js = document.getElementById("js");
 //? Above shows what happens when the async promise gets resolved
 //? Here we show what happens when the promise gets rejected
 
-async function getPlanets() {
-  try {
-    const res = await axios.get("https://swapi.co/api/planets/");
-    // console.log(res.data);
-    for (let planet of res.data.results) {
-      console.log(`${planet.name} has ${planet.climate} climate`);
-    }
-  } catch (err) {
-    console.log("error! ", err);
-  }
-}
-getPlanets();
+// async function getPlanets() {
+//   try {
+//     const res = await axios.get("https://swapi.co/api/planets/");
+//     // console.log(res.data);
+//     for (let planet of res.data.results) {
+//       console.log(`${planet.name} has ${planet.climate} climate`);
+//     }
+//   } catch (err) {
+//     console.log("error! ", err);
+//   }
+// }
+// getPlanets();
 
 //! Backup to catch multiple errors (old way)
 // getPlanets().catch(err => {
@@ -3341,12 +3341,102 @@ getPlanets();
 //!===============
 //* Multiple Awaits
 
+// const btn = document.querySelector("button");
+// const moveX = function(el, amount, timeout, resolve, reject) {
+//   const boundry = document.body.clientWidth;
+//   const elLocation = el.getBoundingClientRect().right;
+//   const currLeft = el.getBoundingClientRect().left;
+//   if (elLocation + amount > boundry) {
+//     reject({ boundry, elLocation, amount });
+//   } else {
+//     setTimeout(() => {
+//       el.style.transform = `translateX(${currLeft + amount}px)`;
+//       resolve();
+//     }, timeout);
+//   }
+//   console.log(elLocation, currLeft);
+// };
+
+// moveX(btn, 100, 1000, () => {
+//   moveX(btn, 100, 1000, () => {
+//     moveX(btn, 100, 1000);
+//   });
+// });
+
+//! Refactor with async await
+
+// async function animate(el) {
+//   await moveX(el, 100, 1000);
+//   await moveX(el, 100, 1000);
+//   await moveX(el, 100, 1000);
+//   await moveX(el, 100, 1000);
+// }
+
+// animate(btn);
+
 //!===============
 //* Parallel Vs. Sequential Requests
+//* + Refactoring with Promise.all
+
+// // Sequential Requests (run one after the other)
+// async function get3Pokemon() {
+//   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
+//   const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
+//   const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
+//   console.log(poke1.data.species.name);
+//   console.log(poke2.data.species.name);
+//   console.log(poke3.data.species.name);
+// }
+
+// // Parallel Requests (run one after the other)
+// async function get3Pokemon() {
+//   const prom1 = axios.get("https://pokeapi.co/api/v2/pokemon/1");
+//   const prom2 = axios.get("https://pokeapi.co/api/v2/pokemon/2");
+//   const prom3 = axios.get("https://pokeapi.co/api/v2/pokemon/3");
+//   const results = await Promise.all([prom1, prom2, prom3]);
+//   //! below is all replaced by above (results)
+//   // const poke1 = await prom1;
+//   // const poke2 = await prom2;
+//   // const poke3 = await prom3;
+//   // console.log(prom1.data.species.name);
+//   // console.log(poke2.data.species.name);
+//   // console.log(poke3.data.species.name);
+//   //? Promise.all takes an array, you await that array and store it in a variable (results). You then run a loop to pull out what you need from the array.
+//   printPokemon(results);
+
+//   console.log(results[1].data.name); // select single ELement in Array
+// }
+
+// function printPokemon(results) {
+//   for (let pokemon of results) {
+//     // select as group
+//     console.log(pokemon.data.name);
+//   }
+// }
+
+// get3Pokemon();
+
+//!=======================================
+//!=======================================
+//* Section 19: Prototypes, Classes, & The New Operator (188-194)
 
 //!===============
-//* Refactoring with Promise.all
+//* Intro to OOP
 
+//!===============
+//* Factory Functions
+
+//!===============
+//* Constructor Function
+
+//!===============
+//* JS Classes - Syntactical Sugar
+
+//!===============
+//* A Big More Practice With Classes
+
+//!===============
+//* Extends, Super, and Subclasses
 //!======================================
 //* Closure
 
