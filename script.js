@@ -3487,6 +3487,16 @@ console.log("RGBA:", color1.rgba(0.2));
 //! Links (sets the constructor of) this object to another object
 //! Passes the newly created object from Step 1 as the THIS context
 //! Returns THIS if the function doesn't return its own object
+
+//===========================
+// Bitwise Operators
+// The left shift operator moves all the bits in its first operand to the left by the number of places specified in the second operand. New bits are filled with zeros.Shifting a value left by one position is equivalent to multiplying it by 2, shifting two positions is equivalent to multiplying by 4, and so on.
+
+// var a = 2; // Bit presentation 10
+// var b = 3; // Bit presentation 11
+// document.write("(a << b) => ");
+// result = a << b;
+// document.write(result); //16
 //!===============
 //* JS Classes - Syntactical Sugar
 
@@ -3540,3 +3550,24 @@ console.log("RGBA:", color1.rgba(0.2));
 //     el.style.transform = `translate(${x}px,${y}px) rotate(${rotation}deg)`;
 //   }
 // }, 2000);
+
+//====================================================
+//! Finding Pokemon Images and Print to DOM
+
+// Connect to pokeapi
+// Find bulbasaur
+// Find sprite image
+// Create img element
+// Set attribute to and JS link
+// Append to DOM
+
+async function getPokemon() {
+  const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
+  console.log(poke1.data.species.name);
+  const img = document.createElement("img");
+  img.setAttribute("src", poke1.data.sprites.front_default);
+  console.log(img);
+  document.body.append(img);
+}
+
+getPokemon();
