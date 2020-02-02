@@ -3419,16 +3419,74 @@ let js = document.getElementById("js");
 //!=======================================
 //!=======================================
 //* Section 19: Prototypes, Classes, & The New Operator (188-194)
-
-//!===============
-//* Intro to OOP
-
 //!===============
 //* Factory Functions
 
+// function hex(r, g, b) {
+//   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+// }
+
+// function rgb(r, g, b) {
+//   return `rgb(${r},${g},${b})`;
+// }
+
+// function makeColor(r, g, b) {
+//   const color = {};
+//   color.r = r;
+//   color.g = g;
+//   color.b = b;
+//   color.rgb = function() {
+//     const { r, g, b } = this;
+//     return `rgb(${r},${g},${b})`;
+//   };
+//   return color;
+// }
+
+// const firstColor = makeColor(333, 3, 2);
+// console.log(firstColor.rgb());
 //!===============
 //* Constructor Function
+//? NEW
+//! new is an operator
 
+function color(r, g, b, a) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+  this.a = a;
+  // this.rgb = function() {
+  //   const { r, g, b } = this;
+  //   return `rgb(${r},${g},${b})`;
+  // };
+  // console.log(this);
+}
+
+//! Best to place prototypes outside of THIS function
+color.prototype.rgb = function() {
+  const { r, g, b } = this;
+  return `rgb(${r},${g},${b})`;
+};
+color.prototype.hex = function() {
+  const { r, g, b } = this;
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+};
+
+color.prototype.rgba = function(a = 1.0) {
+  const { r, g, b } = this;
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+};
+
+const color1 = new color(255, 255, 255);
+
+//! Now we can access out new (rgb & hex) methods we created above with prototype
+// console.log("RGB: ", color1.rgb());
+// console.log("HEX:", color1.hex());
+console.log("RGBA:", color1.rgba(0.2));
+
+//! Creates a blank, plain javascript object
+//! Links (sets the constructor of) this object to another object
+//! Passes the newly created object from Step 1 as the THIS context
+//! Returns THIS if the function doesn't return its own object
 //!===============
 //* JS Classes - Syntactical Sugar
 
