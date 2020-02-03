@@ -3572,7 +3572,6 @@ if (typeof window.innerWidth != "undefined") {
   viewportWidth = window.innerWidth;
   viewportHeight = window.innerHeight;
 }
-
 console.log(viewportWidth);
 console.log(viewportHeight);
 
@@ -3592,15 +3591,19 @@ getPokemon();
 const move = {
   right: function(current) {
     img.style.left = parseInt(img.style.left) + current + "px";
+    img.style.transform = "rotateY(180deg)";
   },
   left: function(current) {
     img.style.left = parseInt(img.style.left) - current + "px";
+    img.style.transform = "rotateY(0deg)";
   },
   up: function(current) {
     img.style.top = parseInt(img.style.top) - current + "px";
+    img.style.transform = "rotateY(0deg)";
   },
   down: function(current) {
     img.style.top = parseInt(img.style.top) + current + "px";
+    img.style.transform = "rotateY(180deg)";
   }
 };
 
