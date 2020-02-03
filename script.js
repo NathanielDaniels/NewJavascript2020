@@ -3449,39 +3449,44 @@ let js = document.getElementById("js");
 //? NEW
 //! new is an operator
 
-function color(r, g, b, a) {
-  this.r = r;
-  this.g = g;
-  this.b = b;
-  this.a = a;
-  // this.rgb = function() {
-  //   const { r, g, b } = this;
-  //   return `rgb(${r},${g},${b})`;
-  // };
-  // console.log(this);
-}
+// function color(r, g, b, a) {
+//   this.r = r;
+//   this.g = g;
+//   this.b = b;
+//   this.a = a;
+//   // this.rgb = function() {
+//   //   const { r, g, b } = this;
+//   //   return `rgb(${r},${g},${b})`;
+//   // };
+//   // console.log(this);
+// }
 
 //! Best to place prototypes outside of THIS function
-color.prototype.rgb = function() {
-  const { r, g, b } = this;
-  return `rgb(${r},${g},${b})`;
-};
-color.prototype.hex = function() {
-  const { r, g, b } = this;
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-};
+// color.prototype.rgb = function() {
+//   const { r, g, b } = this;
+//   return `rgb(${r},${g},${b})`;
+// };
+// color.prototype.hex = function() {
+//   const { r, g, b } = this;
+//   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+// };
 
-color.prototype.rgba = function(a = 1.0) {
-  const { r, g, b } = this;
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
-};
+// color.prototype.rgba = function(a = 1.0) {
+//   const { r, g, b } = this;
+//   return `rgba(${r}, ${g}, ${b}, ${a})`;
+// };
 
-const color1 = new color(255, 255, 255);
+// const color1 = new color(0, 255, 0);
 
 //! Now we can access out new (rgb & hex) methods we created above with prototype
 // console.log("RGB: ", color1.rgb());
 // console.log("HEX:", color1.hex());
-console.log("RGBA:", color1.rgba(0.2));
+// console.log("RGBA:", color1.rgba(0.2));
+
+// Change background color of DOM
+// document.body.style.backgroundColor = color1.rgb();
+// document.body.style.backgroundColor = color1.rgba(0.5);
+// document.body.style.backgroundColor = color1.rgba(0.2);
 
 //! Creates a blank, plain javascript object
 //! Links (sets the constructor of) this object to another object
@@ -3499,6 +3504,7 @@ console.log("RGBA:", color1.rgba(0.2));
 // document.write(result); //16
 //!===============
 //* JS Classes - Syntactical Sugar
+//? Classes take what we built above, but w/ cleaner syntax
 
 //!===============
 //* A Big More Practice With Classes
@@ -3554,20 +3560,41 @@ console.log("RGBA:", color1.rgba(0.2));
 //====================================================
 //! Finding Pokemon Images and Print to DOM
 
-// Connect to pokeapi
-// Find bulbasaur
-// Find sprite image
-// Create img element
-// Set attribute to and JS link
-// Append to DOM
+//? Connect to pokeapi
+//? Find bulbasaur
+//? Find sprite image
+//? Create img element
+//? Set attribute to and JS link
+//? Append to DOM
+
+const img = document.querySelector("img");
+const body = document.body;
 
 async function getPokemon() {
   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
-  console.log(poke1.data.species.name);
-  const img = document.createElement("img");
   img.setAttribute("src", poke1.data.sprites.front_default);
-  console.log(img);
-  document.body.append(img);
+}
+getPokemon();
+
+async function moveRight() {
+  const right = (img.style.marginLeft = "2rem");
+  await right;
 }
 
-getPokemon();
+body.addEventListener("keyup", e => {
+  switch (e.key) {
+    case "ArrowLeft":
+      console.log("left");
+      moveRight();
+      break;
+    case "ArrowRight":
+      console.log("Right");
+      break;
+    case "ArrowUp":
+      console.log("Up");
+      break;
+    case "ArrowDown":
+      console.log("Down");
+      break;
+  }
+});
