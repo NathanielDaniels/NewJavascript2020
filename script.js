@@ -3566,9 +3566,22 @@ let js = document.getElementById("js");
 //? Create img element
 //? Set attribute to and JS link
 //? Append to DOM
+//! Added arrow functions to move pokemon around the DOM
 
-const img = document.querySelector("img");
+if (typeof window.innerWidth != "undefined") {
+  viewportWidth = window.innerWidth;
+  viewportHeight = window.innerHeight;
+}
+
+console.log(viewportWidth);
+console.log(viewportHeight);
+
 const body = document.body;
+const img = document.createElement("img");
+body.appendChild(img);
+img.style.position = "relative";
+img.style.left = "0px";
+img.style.top = "0px";
 
 async function getPokemon() {
   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
@@ -3576,25 +3589,36 @@ async function getPokemon() {
 }
 getPokemon();
 
-async function moveRight() {
-  const right = (img.style.marginLeft = "2rem");
-  await right;
+function moveRight(amount) {
+  const right = (img.style.left = parseInt(img.style.left) + amount + "px");
+  return right;
+}
+function moveLeft(amount) {
+  const left = (img.style.left = parseInt(img.style.left) - amount + "px");
+  return left;
+}
+function moveUp(amount) {
+  const up = (img.style.top = parseInt(img.style.top) - amount + "px");
+  return up;
+}
+function moveDown(amount) {
+  const down = (img.style.top = parseInt(img.style.top) + amount + "px");
+  return down;
 }
 
 body.addEventListener("keyup", e => {
   switch (e.key) {
     case "ArrowLeft":
-      console.log("left");
-      moveRight();
+      moveLeft(25);
       break;
     case "ArrowRight":
-      console.log("Right");
+      moveRight(25);
       break;
     case "ArrowUp":
-      console.log("Up");
+      moveUp(25);
       break;
     case "ArrowDown":
-      console.log("Down");
+      moveDown(25);
       break;
   }
 });
