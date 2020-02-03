@@ -3589,36 +3589,34 @@ async function getPokemon() {
 }
 getPokemon();
 
-function moveRight(amount) {
-  const right = (img.style.left = parseInt(img.style.left) + amount + "px");
-  return right;
-}
-function moveLeft(amount) {
-  const left = (img.style.left = parseInt(img.style.left) - amount + "px");
-  return left;
-}
-function moveUp(amount) {
-  const up = (img.style.top = parseInt(img.style.top) - amount + "px");
-  return up;
-}
-function moveDown(amount) {
-  const down = (img.style.top = parseInt(img.style.top) + amount + "px");
-  return down;
-}
+const move = {
+  right: function(current) {
+    img.style.left = parseInt(img.style.left) + current + "px";
+  },
+  left: function(current) {
+    img.style.left = parseInt(img.style.left) - current + "px";
+  },
+  up: function(current) {
+    img.style.top = parseInt(img.style.top) - current + "px";
+  },
+  down: function(current) {
+    img.style.top = parseInt(img.style.top) + current + "px";
+  }
+};
 
 body.addEventListener("keyup", e => {
   switch (e.key) {
     case "ArrowLeft":
-      moveLeft(25);
+      move.left(25);
       break;
     case "ArrowRight":
-      moveRight(25);
+      move.right(25);
       break;
     case "ArrowUp":
-      moveUp(25);
+      move.up(25);
       break;
     case "ArrowDown":
-      moveDown(25);
+      move.down(25);
       break;
   }
 });
