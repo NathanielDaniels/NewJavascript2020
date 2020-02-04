@@ -3568,13 +3568,6 @@ let js = document.getElementById("js");
 //? Append to DOM
 //! Added arrow functions to move pokemon around the DOM
 
-if (typeof window.innerWidth != "undefined") {
-  viewportWidth = window.innerWidth;
-  viewportHeight = window.innerHeight;
-}
-console.log(viewportWidth);
-console.log(viewportHeight);
-
 const body = document.body;
 const img = document.createElement("img");
 body.appendChild(img);
@@ -3588,14 +3581,23 @@ async function getPokemon() {
 }
 getPokemon();
 
+if (typeof window.innerWidth != "undefined") {
+  viewportWidth = window.innerWidth;
+  viewportHeight = window.innerHeight;
+}
+console.log(viewportWidth);
+console.log(viewportHeight);
+
 const move = {
   right: function(current) {
     img.style.left = parseInt(img.style.left) + current + "px";
     img.style.transform = "rotateY(180deg)";
+    body.style.backgroundColor = "blueviolet";
   },
   left: function(current) {
     img.style.left = parseInt(img.style.left) - current + "px";
     img.style.transform = "rotateY(0deg)";
+    // body.style.backgroundColor = "green";
   },
   up: function(current) {
     img.style.top = parseInt(img.style.top) - current + "px";
@@ -3608,6 +3610,14 @@ const move = {
 };
 
 body.addEventListener("keyup", e => {
+  const rect = img.getBoundingClientRect();
+  if (rect.x >= viewportWidth - 50 || rect.x < 0) {
+    console.log("too far");
+    img.style.left = `${viewportWidth - 100}px`;
+  } else if (rect.y >= viewportHeight - 50 || rect.y < 0) {
+    console.log("too far south");
+    img.style.top = `${viewportHeight - 100}px`;
+  }
   switch (e.key) {
     case "ArrowLeft":
       move.left(25);
