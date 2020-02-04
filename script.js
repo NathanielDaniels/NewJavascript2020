@@ -3506,6 +3506,14 @@ let js = document.getElementById("js");
 //* JS Classes - Syntactical Sugar
 //? Classes take what we built above, but w/ cleaner syntax
 
+class Color {
+  constructor(r, g, b) {
+    console.log("inside Constructor");
+    console.log(r, g, b);
+  }
+}
+
+const c1 = new Color(0, 255, 0);
 //!===============
 //* A Big More Practice With Classes
 
@@ -3559,6 +3567,7 @@ let js = document.getElementById("js");
 
 //====================================================
 //! Finding Pokemon Images and Print to DOM
+//! Built completely from scratch (skill test)
 
 //? Connect to pokeapi
 //? Find bulbasaur
@@ -3568,68 +3577,76 @@ let js = document.getElementById("js");
 //? Append to DOM
 //! Added arrow functions to move pokemon around the DOM
 
-const body = document.body;
-const img = document.createElement("img");
-body.appendChild(img);
-img.style.position = "relative";
-img.style.left = "0px";
-img.style.top = "0px";
+// const body = document.body;
+// const img = document.createElement("img");
+// body.appendChild(img);
+// img.style.position = "relative";
+// img.style.left = "0px";
+// img.style.top = "0px";
 
-async function getPokemon() {
-  const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
-  img.setAttribute("src", poke1.data.sprites.front_default);
-}
-getPokemon();
+// async function getPokemon() {
+//   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
+//   img.setAttribute("src", poke1.data.sprites.front_default);
+// }
+// getPokemon();
 
-if (typeof window.innerWidth != "undefined") {
-  viewportWidth = window.innerWidth;
-  viewportHeight = window.innerHeight;
-}
-console.log(viewportWidth);
-console.log(viewportHeight);
+// if (typeof window.innerWidth != "undefined") {
+//   viewportWidth = window.innerWidth;
+//   viewportHeight = window.innerHeight;
+// }
+// console.log(viewportWidth);
+// console.log(viewportHeight);
 
-const move = {
-  right: function(current) {
-    img.style.left = parseInt(img.style.left) + current + "px";
-    img.style.transform = "rotateY(180deg)";
-    body.style.backgroundColor = "blueviolet";
-  },
-  left: function(current) {
-    img.style.left = parseInt(img.style.left) - current + "px";
-    img.style.transform = "rotateY(0deg)";
-    // body.style.backgroundColor = "green";
-  },
-  up: function(current) {
-    img.style.top = parseInt(img.style.top) - current + "px";
-    img.style.transform = "rotateY(0deg)";
-  },
-  down: function(current) {
-    img.style.top = parseInt(img.style.top) + current + "px";
-    img.style.transform = "rotateY(180deg)";
-  }
-};
+// let startWidth = 7;
+// const move = {
+//   right: function(current) {
+//     img.style.left = parseInt(img.style.left) + current + "px";
+//     img.style.transform = "rotateY(180deg)";
+//     body.style.backgroundColor = "blueviolet";
+//     // img.style.width = `${(startWidth += 1)}rem`;
+//   },
+//   left: function(current) {
+//     img.style.left = parseInt(img.style.left) - current + "px";
+//     img.style.transform = "rotateY(0deg)";
+//     // img.style.width = `${(startWidth -= 1)}rem`;
+//   },
+//   up: function(current) {
+//     img.style.top = parseInt(img.style.top) - current + "px";
+//     img.style.transform = "rotateY(0deg)";
+//     img.style.height = `${(startWidth -= 1)}rem`;
+//   },
+//   down: function(current) {
+//     img.style.top = parseInt(img.style.top) + current + "px";
+//     img.style.transform = "rotateY(180deg)";
+//     img.style.height = `${(startWidth += 1)}rem`;
+//   }
+// };
 
-body.addEventListener("keyup", e => {
-  const rect = img.getBoundingClientRect();
-  if (rect.x >= viewportWidth - 50 || rect.x < 0) {
-    console.log("too far");
-    img.style.left = `${viewportWidth - 100}px`;
-  } else if (rect.y >= viewportHeight - 50 || rect.y < 0) {
-    console.log("too far south");
-    img.style.top = `${viewportHeight - 100}px`;
-  }
-  switch (e.key) {
-    case "ArrowLeft":
-      move.left(25);
-      break;
-    case "ArrowRight":
-      move.right(25);
-      break;
-    case "ArrowUp":
-      move.up(25);
-      break;
-    case "ArrowDown":
-      move.down(25);
-      break;
-  }
-});
+// body.addEventListener("keyup", e => {
+//   const rect = img.getBoundingClientRect();
+//   if (rect.x >= viewportWidth - 50) {
+//     console.log("too far right");
+//     img.style.right = `${viewportWidth - 50}px`;
+//   }
+//   if (rect.x < 0) {
+//     console.log("too far left");
+//     img.style.left = `${0}px`;
+//   } else if (rect.y >= viewportHeight - 50 || rect.y < 0) {
+//     console.log("too far south");
+//     img.style.top = `${0}px`;
+//   }
+//   switch (e.key) {
+//     case "ArrowLeft":
+//       move.left(25);
+//       break;
+//     case "ArrowRight":
+//       move.right(25);
+//       break;
+//     case "ArrowUp":
+//       move.up(25);
+//       break;
+//     case "ArrowDown":
+//       move.down(25);
+//       break;
+//   }
+// });

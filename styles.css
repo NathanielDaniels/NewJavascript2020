@@ -107,8 +107,6 @@ select {
   padding: 5px;
 }
 
-/* img {
-  position: relative;
-  top: 0;
-  left: 0;
-} */
+img {
+  font-size: 2rem;
+}
