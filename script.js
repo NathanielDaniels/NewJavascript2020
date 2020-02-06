@@ -3505,19 +3505,43 @@ let js = document.getElementById("js");
 //!===============
 //* JS Classes - Syntactical Sugar
 //? Classes take what we built above, but w/ cleaner syntax
-//! Classes always have a constructor
+//! Classes always have a constructor, inside the constructor, you use THIS
 
 class Color {
-  constructor(r, g, b) {
-    console.log("inside Constructor");
-    console.log(r, g, b);
+  constructor(r, g, b, name) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.name = name;
+    // console.log("inside Constructor");
+    // console.log(r, g, b, name);
+  }
+  innerRGB() {
+    const { r, g, b } = this;
+    return `${r}, ${g}, ${b}`;
+  }
+  rgb() {
+    return `rgb(${this.innerRGB()})`;
+  }
+  rgba(a = 1.0) {
+    return `rgb(${this.innerRGB()}, ${a})`;
+  }
+  hex() {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
 }
 
-const c1 = new Color(0, 255, 0);
-//!===============
-//* A Big More Practice With Classes
+//! Class Constructor cannot be involked without 'new'
+const green = new Color(0, 255, 0, "Green");
 
+//! constructor turns into an object when you call it (with new)
+// console.log(c1); //Color {r: 0, g: 255, b: 0, name: "green"}
+console.log(green.rgb());
+console.log(green.rgba(0.5));
+// console.log(c1.hex());
+
+// Change Background Color with new Constructor
+document.body.style.backgroundColor = green.rgba(0.5);
 //!===============
 //* Extends, Super, and Subclasses
 //!======================================
