@@ -3505,6 +3505,7 @@ let js = document.getElementById("js");
 //!===============
 //* JS Classes - Syntactical Sugar
 //? Classes take what we built above, but w/ cleaner syntax
+//! Classes always have a constructor
 
 class Color {
   constructor(r, g, b) {
