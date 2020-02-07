@@ -3513,8 +3513,6 @@ class Color {
     this.g = g;
     this.b = b;
     this.name = name;
-    // console.log("inside Constructor");
-    // console.log(r, g, b, name);
   }
   innerRGB() {
     const { r, g, b } = this;
@@ -3529,7 +3527,48 @@ class Color {
   hex() {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
+  calcHSL() {
+    const { r, g, b } = this;
+    // Make r,g, and b Fractions of 1
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    // Find greatest and smalles channel values
+    let cmin = Math.min(r, g, b),
+      cmax = Math.max(r, g, b),
+      delta = cmax - cmin,
+      h = 0,
+      s = 0,
+      l = 0;
+
+    if (delta === 0) h = 0;
+    else if (cmax === r)
+      // Red is Max
+      h = ((g - b) / delta) % 6;
+    else if (cmax === g)
+      // Green is Max
+      h = (b - r) / delta + 2;
+    //Blue is Max
+    else h = (r - g) / delta + 4;
+    h = Math.round(h * 60);
+
+    // Make negative hues positive behind 360deg
+    if (h < 0) h += 360;
+    // Calculate lightness
+    l = (cmax + cmin) / 2;
+    // calculate saturation
+    s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+    //Multiply l and s by 100
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+  }
 }
+
+const hsl = new Color(0, 255, 0);
+
+console.log(hsl());
 
 //! Class Constructor cannot be involked without 'new'
 const green = new Color(0, 255, 0, "Green");
@@ -3538,10 +3577,14 @@ const green = new Color(0, 255, 0, "Green");
 // console.log(c1); //Color {r: 0, g: 255, b: 0, name: "green"}
 console.log(green.rgb());
 console.log(green.rgba(0.5));
+console.log(green.rgba(0.5));
 // console.log(c1.hex());
 
 // Change Background Color with new Constructor
 document.body.style.backgroundColor = green.rgba(0.5);
+//!===============
+//* A Bit More Practice With Classes
+
 //!===============
 //* Extends, Super, and Subclasses
 //!======================================
