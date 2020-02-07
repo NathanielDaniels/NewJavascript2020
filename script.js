@@ -3513,6 +3513,7 @@ class Color {
     this.g = g;
     this.b = b;
     this.name = name;
+    this.calcHSL();
   }
   innerRGB() {
     const { r, g, b } = this;
@@ -3527,8 +3528,22 @@ class Color {
   hex() {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
+  hsl() {
+    const { h, s, l } = this;
+    return `hsl(${h},${s}%,${l}%)`;
+  }
+  fullSaturation() {
+    const { h, s, l } = this;
+    const sat = 100;
+    return `hsl(${h},${sat}%,${l}%)`;
+  }
+  opposite() {
+    const { h, s, l } = this;
+    const newHue = (h + 180) % 360;
+    return `hsl(${newHue},${s}%,${l}%)`;
+  }
   calcHSL() {
-    const { r, g, b } = this;
+    let { r, g, b } = this;
     // Make r,g, and b Fractions of 1
     r /= 255;
     g /= 255;
@@ -3563,25 +3578,38 @@ class Color {
     //Multiply l and s by 100
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
+    this.h = h;
+    this.s = s;
+    this.l = l;
   }
 }
 
-const hsl = new Color(0, 255, 0);
+// const hsl = new Color(100, 50, 50);
 
-console.log(hsl());
+// console.log(hsl.calcHSL);
+
+// document.body.style.backgroundColor = hsl;
 
 //! Class Constructor cannot be involked without 'new'
 const green = new Color(0, 255, 0, "Green");
+// console.log(green.calcHSL());
+// console.log(green.hsl());
+// console.log(green.opposite());
+console.log(green.fullSaturation());
+
+// document.body.style.backgroundColor = green.hsl();
+document.body.style.backgroundColor = green.opposite();
 
 //! constructor turns into an object when you call it (with new)
 // console.log(c1); //Color {r: 0, g: 255, b: 0, name: "green"}
-console.log(green.rgb());
-console.log(green.rgba(0.5));
-console.log(green.rgba(0.5));
+// console.log(green.rgb());
+// console.log(green.rgba(0.5));
+// console.log(green.rgba(0.5));
+
 // console.log(c1.hex());
 
 // Change Background Color with new Constructor
-document.body.style.backgroundColor = green.rgba(0.5);
+// document.body.style.backgroundColor = green.rgba(0.5);
 //!===============
 //* A Bit More Practice With Classes
 
