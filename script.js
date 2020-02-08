@@ -3507,82 +3507,82 @@ let js = document.getElementById("js");
 //? Classes take what we built above, but w/ cleaner syntax
 //! Classes always have a constructor, inside the constructor, you use THIS
 
-class Color {
-  constructor(r, g, b, name) {
-    this.r = r;
-    this.g = g;
-    this.b = b;
-    this.name = name;
-    this.calcHSL();
-  }
-  innerRGB() {
-    const { r, g, b } = this;
-    return `${r}, ${g}, ${b}`;
-  }
-  rgb() {
-    return `rgb(${this.innerRGB()})`;
-  }
-  rgba(a = 1.0) {
-    return `rgb(${this.innerRGB()}, ${a})`;
-  }
-  hex() {
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-  }
-  hsl() {
-    const { h, s, l } = this;
-    return `hsl(${h},${s}%,${l}%)`;
-  }
-  fullSaturation() {
-    const { h, s, l } = this;
-    const sat = 100;
-    return `hsl(${h},${sat}%,${l}%)`;
-  }
-  opposite() {
-    const { h, s, l } = this;
-    const newHue = (h + 180) % 360;
-    return `hsl(${newHue},${s}%,${l}%)`;
-  }
-  calcHSL() {
-    let { r, g, b } = this;
-    // Make r,g, and b Fractions of 1
-    r /= 255;
-    g /= 255;
-    b /= 255;
+// class Color {
+//   constructor(r, g, b, name) {
+//     this.r = r;
+//     this.g = g;
+//     this.b = b;
+//     this.name = name;
+//     this.calcHSL();
+//   }
+//   innerRGB() {
+//     const { r, g, b } = this;
+//     return `${r}, ${g}, ${b}`;
+//   }
+//   rgb() {
+//     return `rgb(${this.innerRGB()})`;
+//   }
+//   rgba(a = 1.0) {
+//     return `rgb(${this.innerRGB()}, ${a})`;
+//   }
+//   hex() {
+//     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//   }
+//   hsl() {
+//     const { h, s, l } = this;
+//     return `hsl(${h},${s}%,${l}%)`;
+//   }
+//   fullSaturation() {
+//     const { h, s, l } = this;
+//     const sat = 100;
+//     return `hsl(${h},${sat}%,${l}%)`;
+//   }
+//   opposite() {
+//     const { h, s, l } = this;
+//     const newHue = (h + 180) % 360;
+//     return `hsl(${newHue},${s}%,${l}%)`;
+//   }
+//   calcHSL() {
+//     let { r, g, b } = this;
+//     // Make r,g, and b Fractions of 1
+//     r /= 255;
+//     g /= 255;
+//     b /= 255;
 
-    // Find greatest and smalles channel values
-    let cmin = Math.min(r, g, b),
-      cmax = Math.max(r, g, b),
-      delta = cmax - cmin,
-      h = 0,
-      s = 0,
-      l = 0;
+//     // Find greatest and smalles channel values
+//     let cmin = Math.min(r, g, b),
+//       cmax = Math.max(r, g, b),
+//       delta = cmax - cmin,
+//       h = 0,
+//       s = 0,
+//       l = 0;
 
-    if (delta === 0) h = 0;
-    else if (cmax === r)
-      // Red is Max
-      h = ((g - b) / delta) % 6;
-    else if (cmax === g)
-      // Green is Max
-      h = (b - r) / delta + 2;
-    //Blue is Max
-    else h = (r - g) / delta + 4;
-    h = Math.round(h * 60);
+//     if (delta === 0) h = 0;
+//     else if (cmax === r)
+//       // Red is Max
+//       h = ((g - b) / delta) % 6;
+//     else if (cmax === g)
+//       // Green is Max
+//       h = (b - r) / delta + 2;
+//     //Blue is Max
+//     else h = (r - g) / delta + 4;
+//     h = Math.round(h * 60);
 
-    // Make negative hues positive behind 360deg
-    if (h < 0) h += 360;
-    // Calculate lightness
-    l = (cmax + cmin) / 2;
-    // calculate saturation
-    s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+//     // Make negative hues positive behind 360deg
+//     if (h < 0) h += 360;
+//     // Calculate lightness
+//     l = (cmax + cmin) / 2;
+//     // calculate saturation
+//     s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
-    //Multiply l and s by 100
-    s = +(s * 100).toFixed(1);
-    l = +(l * 100).toFixed(1);
-    this.h = h;
-    this.s = s;
-    this.l = l;
-  }
-}
+//     //Multiply l and s by 100
+//     s = +(s * 100).toFixed(1);
+//     l = +(l * 100).toFixed(1);
+//     this.h = h;
+//     this.s = s;
+//     this.l = l;
+//   }
+// }
 
 // const hsl = new Color(100, 50, 50);
 
@@ -3591,14 +3591,17 @@ class Color {
 // document.body.style.backgroundColor = hsl;
 
 //! Class Constructor cannot be involked without 'new'
-const green = new Color(0, 255, 0, "Green");
+// const green = new Color(0, 255, 0, "Green");
+
+// // Test each method from new color "green"
 // console.log(green.calcHSL());
 // console.log(green.hsl());
 // console.log(green.opposite());
-console.log(green.fullSaturation());
+// console.log(green.fullSaturation());
 
+// // Show Color on DOM
 // document.body.style.backgroundColor = green.hsl();
-document.body.style.backgroundColor = green.opposite();
+// document.body.style.backgroundColor = green.opposite();
 
 //! constructor turns into an object when you call it (with new)
 // console.log(c1); //Color {r: 0, g: 255, b: 0, name: "green"}
@@ -3611,10 +3614,59 @@ document.body.style.backgroundColor = green.opposite();
 // Change Background Color with new Constructor
 // document.body.style.backgroundColor = green.rgba(0.5);
 //!===============
-//* A Bit More Practice With Classes
-
-//!===============
 //* Extends, Super, and Subclasses
+
+//* Extends
+//*====================
+//! You Can use Extend just like in SCSS
+//? Here we take the constructors out of Cat and Dog because they are copies.
+//? We then create a new Class called Pet, that we then extend into the coresponding Classes below
+
+//* Super
+//*====================
+//! Super refrences the class its calling from
+//! Super is used when there is already a main class with a constructor, so instead of copying constructors, you run "super" which connects (extends) to the main constructor
+//! This is Mainly used in ReactJS Framework
+// class Pet {
+//   constructor(name, age) {
+//     console.log("in Pet Constructor");
+//     this.name = name;
+//     this.age = age;
+//   }
+//   eat() {
+//     return `${this.name} is eating`;
+//   }
+// }
+// class Cat extends Pet {
+//   constructor(name, age, livesLeft = 9) {
+//     console.log("In Cat Constructor");
+//     super(name, age); // Here, super() is a reference of Pet
+//     this.livesLeft = livesLeft;
+//   }
+//   speak() {
+//     return `${this.name} says, Meow Meow!`;
+//   }
+// }
+
+// class Dog extends Pet {
+//   speak() {
+//     return `${this.name} says, Bark Bark!`;
+//   }
+//   howOld() {
+//     return `${this.name} is ${this.age} years old.`;
+//   }
+//   eat() {
+//     return `${this.name} is Chowing Down!!`;
+//   }
+// }
+
+// const stimpy = new Cat("Stimpy", 13, 9);
+// console.log(stimpy.eat());
+
+// const stanley = new Dog("Stanley", 11);
+// console.log(stanley.howOld());
+// console.log(stanley.eat()); // eat() in Dog class is looked at first, if nothing, it calls from Pet
+
 //!======================================
 //* Closure
 
